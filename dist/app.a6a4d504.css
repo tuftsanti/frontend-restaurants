@@ -1,0 +1,18 @@
+.App {
+  display: flex;
+  background-color: red;
+  height: 100%;
+  width: 100%; }
+  .App__sidebar {
+    background-color: blue;
+    height: 20rem;
+    width: 15%; }
+  .App__mainview {
+    width: 100%; }
+    .App__mainview--grid {
+      display: flex; }
+      .App__mainview--grid__individualRestaurant {
+        width: 30%; }
+
+
+/*# sourceMappingURL=/app.a6a4d504.css.map */
