@@ -29309,7 +29309,11 @@ var App = function App(props) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return fetch('http://localhost:3000/restaurants');
+              return fetch('https://developers.zomato.com/api/v2.1/search?start=50&count=100&lat=42.361145&lon=-71.057083&radius=1000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian', {
+                headers: {
+                  "user-key": "43857380d1047f74d7d7691dea96f3a5"
+                }
+              });
 
             case 2:
               response = _context.sent;
@@ -29319,9 +29323,10 @@ var App = function App(props) {
             case 5:
               result = _context.sent;
               console.log(result);
-              setRestaurant(result);
+              _context.next = 9;
+              return setRestaurant(result);
 
-            case 8:
+            case 9:
             case "end":
               return _context.stop();
           }
@@ -29429,21 +29434,17 @@ var App = function App(props) {
     className: "App__mainview"
   }, /*#__PURE__*/_react.default.createElement("h2", null, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
     className: "App__mainview--grid"
-  }, restaurants ? restaurants.map(function (restaurant) {
+  }, restaurants ? restaurants.restaurants.map(function (restaurant) {
     // restaurant.url = `http://`+restaurant.url
     return /*#__PURE__*/_react.default.createElement("li", {
-      key: restaurant._id,
+      key: restaurant.restaurant.id,
       className: "__individualRestaurant"
     }, /*#__PURE__*/_react.default.createElement("a", {
       href: "",
       className: "--pic"
     }, restaurant.picture), /*#__PURE__*/_react.default.createElement("h3", {
       className: "--name"
-    }, restaurant.name), /*#__PURE__*/_react.default.createElement("button", {
-      onClick: function onClick() {
-        selectRestaurant(restaurant);
-      }
-    }, "Edit this restaurant"));
+    }, restaurant.restaurant.name));
   }) : "Searching Your Restaurants"))));
 };
 
@@ -29478,7 +29479,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38819" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50519" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
