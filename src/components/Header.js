@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 export default (props) => {
     return (
         <>
-            <h1>Restaurants</h1>
+            <h1>Header</h1>
         </>
     );
 };
