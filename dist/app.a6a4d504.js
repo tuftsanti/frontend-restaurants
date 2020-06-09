@@ -29434,7 +29434,9 @@ var App = function App(props) {
     className: "App__mainview"
   }, /*#__PURE__*/_react.default.createElement("h2", null, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
     className: "App__mainview--grid"
-  }, restaurants ? restaurants.restaurants.map(function (restaurant) {
+  }, restaurants ? restaurants.restaurants.filter(function (rest) {
+    return rest.restaurant.thumb;
+  }).map(function (restaurant) {
     // restaurant.url = `http://`+restaurant.url
     return /*#__PURE__*/_react.default.createElement("li", {
       key: restaurant.restaurant.id,
@@ -29442,7 +29444,9 @@ var App = function App(props) {
     }, /*#__PURE__*/_react.default.createElement("a", {
       href: "",
       className: "--pic"
-    }, restaurant.picture), /*#__PURE__*/_react.default.createElement("h3", {
+    }, restaurant.picture), /*#__PURE__*/_react.default.createElement("img", {
+      src: restaurant.restaurant.thumb
+    }), /*#__PURE__*/_react.default.createElement("h3", {
       className: "--name"
     }, restaurant.restaurant.name));
   }) : "Searching Your Restaurants"))));
@@ -29479,7 +29483,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50519" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56807" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -97,11 +97,12 @@ const App = (props) => {
                 <div className="App__mainview">
                     <h2>Local Restaurants</h2>
                     <ul className="App__mainview--grid">
-                        {restaurants ? restaurants.restaurants.map((restaurant) => {
+                        {restaurants ? restaurants.restaurants.filter(rest => rest.restaurant.thumb).map((restaurant) => {
                             // restaurant.url = `http://`+restaurant.url
                             return (
                                 <li key={restaurant.restaurant.id} className="__individualRestaurant">
                                     <a href="" className="--pic">{restaurant.picture}</a>
+                                    <img src={restaurant.restaurant.thumb}></img>
                                     <h3 className="--name">{restaurant.restaurant.name}</h3>
                                     {/* <button onClick={() => {
                                         selectRestaurant(restaurant)
