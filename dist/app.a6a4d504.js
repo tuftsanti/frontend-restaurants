@@ -29273,11 +29273,12 @@ var App = function App(props) {
   var _React$useState = _react.default.useState(null),
       _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
       restaurants = _React$useState2[0],
-      setRestaurant = _React$useState2[1]; // Hook to hold edited restaurant
+      setRestaurant = _React$useState2[1]; // Hook to hold saved restaurant
 
 
   var _React$useState3 = _react.default.useState({
     name: '',
+    thumb: '',
     url: '',
     location: {
       address: '',
@@ -29287,8 +29288,8 @@ var App = function App(props) {
     }
   }),
       _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
-      editThisRestaurant = _React$useState4[0],
-      setEditedRestaurant = _React$useState4[1]; // Store jwt
+      addThisRestaurant = _React$useState4[0],
+      setAddedRestaurant = _React$useState4[1]; // Store jwt
   // const [token, setToken] = React.useState(null)
   // Localize storage for jwt
 
@@ -29352,7 +29353,7 @@ var App = function App(props) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              setEditedRestaurant(restaurant);
+              setAddedRestaurant(restaurant);
 
             case 1:
             case "end":
@@ -29365,10 +29366,10 @@ var App = function App(props) {
     return function selectRestaurant(_x) {
       return _ref2.apply(this, arguments);
     };
-  }(); // Edit a Restaurant
+  }(); // Add a Restaurant
 
 
-  var editRestaurant = /*#__PURE__*/function () {
+  var addRestaurant = /*#__PURE__*/function () {
     var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(data) {
       var response;
       return _regenerator.default.wrap(function _callee3$(_context3) {
@@ -29399,7 +29400,7 @@ var App = function App(props) {
       }, _callee3);
     }));
 
-    return function editRestaurant(_x2) {
+    return function addRestaurant(_x2) {
       return _ref3.apply(this, arguments);
     };
   }(); // Login
@@ -29422,33 +29423,38 @@ var App = function App(props) {
       setBookmark(null)
   } */
   // Display Page
+  // console.log(restaurants.restaurants[1].restaurant.thumb)
 
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Header.default
   /* <button onClick={handleLogout}>Logout</button> */
   , null), /*#__PURE__*/_react.default.createElement("div", {
     className: "App"
-  }, "App", /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "App__sidebar"
   }, /*#__PURE__*/_react.default.createElement("h3", null, "Add Filters Here")), /*#__PURE__*/_react.default.createElement("div", {
     className: "App__mainview"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
+  }, /*#__PURE__*/_react.default.createElement("h2", {
+    className: "resultTitle"
+  }, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
     className: "App__mainview--grid"
   }, restaurants ? restaurants.restaurants.filter(function (rest) {
     return rest.restaurant.thumb;
   }).map(function (restaurant) {
-    // restaurant.url = `http://`+restaurant.url
     return /*#__PURE__*/_react.default.createElement("li", {
       key: restaurant.restaurant.id,
-      className: "__individualRestaurant"
-    }, /*#__PURE__*/_react.default.createElement("a", {
-      href: "",
-      className: "--pic"
-    }, restaurant.picture), /*#__PURE__*/_react.default.createElement("img", {
-      src: restaurant.restaurant.thumb
+      className: "App__mainview--grid__individualRestaurant"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: restaurant.restaurant.thumb,
+      className: "App__mainview--grid__individualRestaurant--pic"
     }), /*#__PURE__*/_react.default.createElement("h3", {
-      className: "--name"
-    }, restaurant.restaurant.name));
+      className: "App__mainview--grid__individualRestaurant--name"
+    }, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("ion-icon", {
+      name: "add-circle-outline",
+      onClick: function onClick() {
+        selectRestaurant(restaurant);
+      }
+    }));
   }) : "Searching Your Restaurants"))));
 };
 
@@ -29483,7 +29489,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56807" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49840" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
