@@ -29152,7 +29152,7 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(props) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Restaurants"));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Header"));
 };
 
 exports.default = _default;
@@ -29489,11 +29489,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60803" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53467" + '/');
->>>>>>> mike
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61410" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
