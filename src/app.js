@@ -7,9 +7,10 @@ import './scss/style.scss';
 const App = (props) => {
     // Hook to hold array of restaurants
     const [restaurants, setRestaurant] = React.useState(null)
-    // Hook to hold edited restaurant
-    const [editThisRestaurant, setEditedRestaurant] = React.useState({
+    // Hook to hold saved restaurant
+    const [addThisRestaurant, setAddedRestaurant] = React.useState({
         name: '',
+        thumb: '',
         url: '',
         location: {
             address: '',
@@ -52,11 +53,11 @@ const App = (props) => {
 
     // Select Restaurant
     const selectRestaurant = async (restaurant) => {
-        setEditedRestaurant(restaurant)
+        setAddedRestaurant(restaurant)
     }
 
-    // Edit a Restaurant
-    const editRestaurant = async (data) => {
+    // Add a Restaurant
+    const addRestaurant = async (data) => {
         const response = await fetch(`http://localhost:3000/restaurants/${data._id}`, {
             method: 'PUT',
             headers: {
@@ -85,30 +86,32 @@ const App = (props) => {
         setBookmark(null)
     } */
 
+
     // Display Page
+    // console.log(restaurants.restaurants[1].restaurant.thumb)
     return (
         <>
             <Header /* <button onClick={handleLogout}>Logout</button> */ />
             <div className="App">
-                App
             <div className="App__sidebar">
                     <h3>Add Filters Here</h3>
                 </div>
                 <div className="App__mainview">
-                    <h2>Local Restaurants</h2>
+                    <h2 className="resultTitle">Local Restaurants</h2>
                     <ul className="App__mainview--grid">
-                        {restaurants ? restaurants.restaurants.map((restaurant) => {
-                            // restaurant.url = `http://`+restaurant.url
+                        { restaurants ? 
+                        restaurants.restaurants.filter(rest => rest.restaurant.thumb).map((restaurant) => {
                             return (
-                                <li key={restaurant.restaurant.id} className="__individualRestaurant">
-                                    <a href="" className="--pic">{restaurant.picture}</a>
-                                    <h3 className="--name">{restaurant.restaurant.name}</h3>
-                                    {/* <button onClick={() => {
+                                <li key={restaurant.restaurant.id} className="App__mainview--grid__individualRestaurant">
+                                    <img src={restaurant.restaurant.thumb} className="App__mainview--grid__individualRestaurant--pic"/>
+                                    <h3 className="App__mainview--grid__individualRestaurant--name">{restaurant.restaurant.name}</h3>
+                                    <ion-icon name="add-circle-outline"onClick={() => {
                                         selectRestaurant(restaurant)
-                                    }}>Edit this restaurant</button> */}
+                                    }}></ion-icon>
                                 </li>
-                            )
-                        }) : `Searching Your Restaurants`
+                            )})
+                         : 
+                        `Searching Your Restaurants`
                         }
                     </ul>
                 </div>
