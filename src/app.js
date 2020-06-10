@@ -8,6 +8,10 @@ import './scss/style.scss';
 const App = (props) => {
     // Hook to hold array of restaurants
     const [restaurants, setRestaurant] = React.useState(null)
+    // Hook to hold array of restaurants
+    const [cuisineChoice, setCuisineChoice] = React.useState({
+        cuisineChoice: ""
+    })
     // Hook to hold saved restaurant
     const [addThisRestaurant, setAddedRestaurant] = React.useState({
         name: '',
@@ -44,15 +48,17 @@ const App = (props) => {
         // console.log(result)
         await setRestaurant(result)
     }
-//Array of Restaurants from API
-const allRestaurants = []
-restaurants ? restaurants.restaurants.filter(rest => rest.restaurant).map((restaurant) => {
-    return (
-        allRestaurants.push(restaurant)
-    )
-})
-: ""
-    
+    //Array of Restaurants from API
+    const allRestaurants = []
+    restaurants ? restaurants.restaurants.filter(rest => rest.restaurant).map((restaurant) => {
+        return (
+            allRestaurants.push(restaurant)
+        )
+    })
+    : ""
+    //Main API filter for restaurants with thumbs
+    // const everyRestaurants = restaurants.restaurants.filter(rest => rest.restaurant.thumb)
+
     //Filter for American restaurants
     const americanRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("American")))
     //Filter for Asian restaurants
@@ -82,6 +88,8 @@ restaurants ? restaurants.restaurants.filter(rest => rest.restaurant).map((resta
     console.log(pizzaRestaurants)
     console.log(seafoodRestaurants)
     console.log(thaiRestaurants)
+    console.log(cuisineChoice)
+
 
     // Hook to GET from API data
     React.useEffect(() => {
@@ -139,7 +147,7 @@ restaurants ? restaurants.restaurants.filter(rest => rest.restaurant).map((resta
                     <h2 className="resultTitle">Local Restaurants</h2>
                     <ul className="App__mainview--grid">
                         { restaurants ? 
-                        restaurants.restaurants.filter(rest => rest.restaurant.thumb).map((restaurant) => {
+                         allRestaurants.filter(rest => rest.restaurant.thumb && rest.restaurant.cuisines.includes("American")).map((restaurant) => {
                             return (
                                 <li key={restaurant.restaurant.id} className="App__mainview--grid__individualRestaurant">
                                     <img src={restaurant.restaurant.thumb} className="App__mainview--grid__individualRestaurant--pic"/>

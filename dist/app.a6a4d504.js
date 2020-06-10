@@ -29183,6 +29183,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
@@ -29190,64 +29192,54 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(props) {
+  var _React$useState = _react.default.useState({
+    cuisineChoice: ""
+  }),
+      _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
+      formData = _React$useState2[0],
+      setFormData = _React$useState2[1];
+
+  var handleChange = function handleChange(event) {
+    // setFormData({...formData, [event.target.name]: event.target.value})
+    setFormData(cuisine.options[cuisine.selectedIndex].value);
+    console.log(cuisine.options[cuisine.selectedIndex].value);
+  };
+
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
     className: "filter-h1"
   }, "What's Your Flavor?"), /*#__PURE__*/_react.default.createElement("form", {
-    className: "filter-form"
-  }, /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "American",
-    name: "American",
+    className: "filter-form",
+    onChange: handleChange
+  }, /*#__PURE__*/_react.default.createElement("label", {
+    for: "cuisine"
+  }, "Cuisine of Choice:"), /*#__PURE__*/_react.default.createElement("select", {
+    id: "cuisine",
+    name: "cuisine"
+  }, /*#__PURE__*/_react.default.createElement("option", {
+    value: ""
+  }, "Any"), /*#__PURE__*/_react.default.createElement("option", {
     value: "American"
-  }), /*#__PURE__*/_react.default.createElement("label", {
-    for: "American"
-  }, "American"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "Asian",
-    name: "Asian",
+  }, "American"), /*#__PURE__*/_react.default.createElement("option", {
     value: "Asian"
-  }), /*#__PURE__*/_react.default.createElement("label", {
-    for: "Asian"
-  }, "Asian"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "Breakfast",
-    name: "Breakfast",
+  }, "Asian"), /*#__PURE__*/_react.default.createElement("option", {
     value: "Breakfast"
-  }), /*#__PURE__*/_react.default.createElement("label", {
-    for: "Breakfast"
-  }, "Breakfast"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "Desserts",
-    name: "Desserts",
+  }, "Breakfast"), /*#__PURE__*/_react.default.createElement("option", {
     value: "Desserts"
-  }), /*#__PURE__*/_react.default.createElement("label", {
-    for: "Desserts"
-  }, "Desserts"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "Italian",
-    name: "Italian",
+  }, "Desserts"), /*#__PURE__*/_react.default.createElement("option", {
     value: "Italian"
-  }), /*#__PURE__*/_react.default.createElement("label", {
-    for: "Italian"
-  }, "Italian"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "Mexican",
-    name: "Mexican",
+  }, "Italian"), /*#__PURE__*/_react.default.createElement("option", {
     value: "Mexican"
-  }), /*#__PURE__*/_react.default.createElement("label", {
-    for: "Mexican"
-  }, "Mexican"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "Seafood",
-    name: "Seafood",
+  }, "Mexican"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Pizza"
+  }, "Pizza"), /*#__PURE__*/_react.default.createElement("option", {
     value: "Seafood"
-  }), /*#__PURE__*/_react.default.createElement("label", {
-    for: "Seafood"
-  }, "Seafood"), /*#__PURE__*/_react.default.createElement("br", null)));
+  }, "Seafood"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Thai"
+  }, "Thai"))));
 };
 
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -29347,10 +29339,18 @@ var App = function App(props) {
   var _React$useState = _react.default.useState(null),
       _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
       restaurants = _React$useState2[0],
-      setRestaurant = _React$useState2[1]; // Hook to hold saved restaurant
+      setRestaurant = _React$useState2[1]; // Hook to hold array of restaurants
 
 
   var _React$useState3 = _react.default.useState({
+    cuisineChoice: ""
+  }),
+      _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
+      cuisineChoice = _React$useState4[0],
+      setCuisineChoice = _React$useState4[1]; // Hook to hold saved restaurant
+
+
+  var _React$useState5 = _react.default.useState({
     name: '',
     thumb: '',
     url: '',
@@ -29361,9 +29361,9 @@ var App = function App(props) {
       zipcode: '00000'
     }
   }),
-      _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
-      addThisRestaurant = _React$useState4[0],
-      setAddedRestaurant = _React$useState4[1]; // Store jwt
+      _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
+      addThisRestaurant = _React$useState6[0],
+      setAddedRestaurant = _React$useState6[1]; // Store jwt
   // const [token, setToken] = React.useState(null)
   // Localize storage for jwt
 
@@ -29419,7 +29419,9 @@ var App = function App(props) {
     return rest.restaurant;
   }).map(function (restaurant) {
     return allRestaurants.push(restaurant);
-  }) : ""; //Filter for American restaurants
+  }) : ""; //Main API filter for restaurants with thumbs
+  // const everyRestaurants = restaurants.restaurants.filter(rest => rest.restaurant.thumb)
+  //Filter for American restaurants
 
   var americanRestaurants = allRestaurants.filter(function (rest) {
     return rest.restaurant.cuisines.includes("American");
@@ -29465,7 +29467,8 @@ var App = function App(props) {
   console.log(mexicanRestaurants);
   console.log(pizzaRestaurants);
   console.log(seafoodRestaurants);
-  console.log(thaiRestaurants); // Hook to GET from API data
+  console.log(thaiRestaurants);
+  console.log(cuisineChoice); // Hook to GET from API data
 
   _react.default.useEffect(function () {
     // if (token) {
@@ -29564,8 +29567,8 @@ var App = function App(props) {
     className: "resultTitle"
   }, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
     className: "App__mainview--grid"
-  }, restaurants ? restaurants.restaurants.filter(function (rest) {
-    return rest.restaurant.thumb;
+  }, restaurants ? allRestaurants.filter(function (rest) {
+    return rest.restaurant.thumb && rest.restaurant.cuisines.includes("American");
   }).map(function (restaurant) {
     return /*#__PURE__*/_react.default.createElement("li", {
       key: restaurant.restaurant.id,
@@ -29615,7 +29618,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59178" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57906" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

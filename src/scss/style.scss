@@ -7,10 +7,6 @@ html, body {
 img {
     border-radius: 14px;
 }
-label {
-    font-family: 'Sorts Mill Goudy', serif;
-    font-size: 1.2rem;
-}
 .App {
     display: flex;
     background-color: lightgrey;
@@ -45,9 +41,6 @@ label {
 .filter-h1 {
     text-shadow: 2px 2px black;
     margin-left: .5rem;
-}
-.filter-form {
-    margin-left: 2rem;
 }
 .resultTitle {
     text-align: center;
