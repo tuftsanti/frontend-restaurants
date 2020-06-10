@@ -21,7 +21,8 @@ export default (props) => {
     return (
         <>
             <h1 className="filter-h1">What's Your Flavor?</h1>
-            {/*<form className="filter-form" onChange={handleChange}>*/}
+            {/*<form className="filter-form" onChange={handleChange}>
+            Andy added props.handleChange to below onChange*/}
             <form className="filter-form" onChange={props.handleChange}>
                 <label for="cuisine">Cuisine of Choice:</label>
                 <select id="cuisine" name="cuisine">

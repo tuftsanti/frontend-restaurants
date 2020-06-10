@@ -29572,14 +29572,17 @@ var App = function App(props) {
   } */
 
 
+  var selection = '';
+  console.log("Initial value of selection: ".concat(selection));
+
   var handleChange = function handleChange(event) {
     // console.log(event.target)
     // setFormData({...formData, [event.target.name]: event.target.value})
     setFormData(cuisine.options[cuisine.selectedIndex].value);
-    var selection = cuisine.options[cuisine.selectedIndex].value; // this.state.cuisineChoice = selection
+    selection = cuisine.options[cuisine.selectedIndex].value; // this.state.cuisineChoice = selection
     // console.log(cuisine.options[cuisine.selectedIndex].value)
 
-    console.log("Selection is  ".concat(selection, " which is a ").concat((0, _typeof2.default)(selection))); // console.log(this.state)
+    console.log("New value of selection: ".concat(selection, " which is a ").concat((0, _typeof2.default)(selection))); // console.log(this.state)
     // console.log(cuisineChoice)
   };
 
@@ -29591,11 +29594,9 @@ var App = function App(props) {
       formData = _React$useState8[0],
       setFormData = _React$useState8[1]; // Display Page
   // console.log(restaurants.restaurants[1].restaurant.thumb)
+  // const temp = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes(props.selection)))
 
 
-  var temp = allRestaurants.filter(function (rest) {
-    return rest.restaurant.cuisines.includes(props.selection);
-  });
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Header.default
   /* <button onClick={handleLogout}>Logout</button> */
   , null), /*#__PURE__*/_react.default.createElement("div", {
@@ -29611,7 +29612,7 @@ var App = function App(props) {
   }, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
     className: "App__mainview--grid"
   }, restaurants ? allRestaurants.filter(function (rest) {
-    return rest.restaurant.thumb && rest.restaurant.cuisines.includes("Pizza");
+    return rest.restaurant.thumb && rest.restaurant.cuisines.includes(selection);
   }).map(function (restaurant) {
     return /*#__PURE__*/_react.default.createElement("li", {
       key: restaurant.restaurant.id,
@@ -29661,7 +29662,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37611" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34885" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
