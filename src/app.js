@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
+import Filter from './components/Filter.js';
 import './scss/style.scss';
 
 const App = (props) => {
@@ -34,7 +35,7 @@ const App = (props) => {
 
     // GET the list of restaurants
     const getRestaurants = async () => {
-        const response = await fetch('https://developers.zomato.com/api/v2.1/search?start=50&count=100&lat=42.361145&lon=-71.057083&radius=1000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian', {
+        const response = await fetch('https://developers.zomato.com/api/v2.1/search?start=20&count=50&lat=42.361145&lon=-71.057083&radius=1000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian', {
         headers: { 
             "user-key" : "43857380d1047f74d7d7691dea96f3a5"
         }
@@ -43,6 +44,34 @@ const App = (props) => {
         console.log(result)
         await setRestaurant(result)
     }
+
+    //Array of Restaurants from API
+    const allRestaurants = []
+    restaurants ? restaurants.restaurants.filter(rest => rest.restaurant).map((restaurant) => {
+    return (
+        allRestaurants.push(restaurant)
+        )
+    }): "";
+    
+    //Filter for American restaurants
+    const americanRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("American")))
+    //Filter for Asian restaurants
+    const asianRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Asian")))
+    //Filter for Breakfast restaurants
+    const breakfastRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Breakfast")))
+    //Filter for Desserts restaurants
+    const dessertRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Desserts")))
+    //Filter for Italian restaurants
+    const italianRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Italian")))
+    //Filter for Mexican restaurants
+    const mexicanRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Mexican")))
+    //Filter for Pizza restaurants
+    const pizzaRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Pizza")))
+    //Filter for Seafood restaurants
+    const seafoodRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Seafood")))
+    //Filter for Thai restaurants
+    const thaiRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Thai")))
+
 
     // Hook to GET from API data
     React.useEffect(() => {
@@ -93,22 +122,30 @@ const App = (props) => {
         <>
             <Header /* <button onClick={handleLogout}>Logout</button> */ />
             <div className="App">
-            <div className="App__sidebar">
-                    <h3>Add Filters Here</h3>
+                <div className="App__header">
+                    {<h2>Here are some of <span id="header-red">Boston's</span> best food spots:</h2>}
+
                 </div>
                 <div className="App__mainview">
-                    <h2 className="resultTitle">Local Restaurants</h2>
+                    <div className="App__mainview--sidebar">
+                        <div className="App__mainview--sidebar__header">
+                            <h3>Choose your flavor:</h3> 
+                        </div>
+                        <div className="App__mainview--sidebar__filters">
+                            <Filter className="filters"></Filter>  
+                        </div>
+                    </div>
                     <ul className="App__mainview--grid">
-
                         { restaurants ? 
-                        restaurants.restaurants.filter(rest => rest.restaurant.thumb).map((restaurant) => {
+                        restaurants.restaurants.filter(rest => rest.restaurant.thumb && rest.restaurant.cuisines.includes("American")).map((restaurant) => {
                             return (
                                 <li key={restaurant.restaurant.id} className="App__mainview--grid__individualRestaurant">
                                     <img src={restaurant.restaurant.thumb} className="App__mainview--grid__individualRestaurant--pic"/>
-                                    <h3 className="App__mainview--grid__individualRestaurant--name">{restaurant.restaurant.name}</h3>
+                                    <h3 className="App__mainview--grid__individualRestaurant--name">{restaurant.restaurant.name}
                                     <ion-icon name="add-circle-outline"onClick={() => {
                                         selectRestaurant(restaurant)
-                                    }}></ion-icon>
+                                    }}></ion-icon></h3>
+                                
                                 </li>
                             )})
                          : 
@@ -116,7 +153,9 @@ const App = (props) => {
                         }
                     </ul>
                 </div>
+                <Footer className="footer" /* <button onClick={handleLogout}>Logout</button> */ />
             </div>
+            
         </>
     )
 
