@@ -46,7 +46,7 @@ const App = (props) => {
     })
         const result = await response.json()
         // console.log(result)
-        
+
         await setRestaurant(result)
     }
     //Array of Restaurants from API
@@ -133,13 +133,13 @@ const App = (props) => {
         setToken(null)
         setBookmark(null)
     } */
-    let selection = ''
-    console.log(`Initial value of selection: ${selection}`)
+    // let selection = selection || ''
+    // console.log(`Initial value of selection: ${selection}`)
     const handleChange = (event) => {
         // console.log(event.target)
         // setFormData({...formData, [event.target.name]: event.target.value})
         setFormData(cuisine.options[cuisine.selectedIndex].value)
-        selection = cuisine.options[cuisine.selectedIndex].value
+        const selection = cuisine.options[cuisine.selectedIndex].value
         // this.state.cuisineChoice = selection
         // console.log(cuisine.options[cuisine.selectedIndex].value)
         console.log(`New value of selection: ${selection} which is a ${typeof selection}`)
@@ -167,7 +167,7 @@ const App = (props) => {
                     <h2 className="resultTitle">Local Restaurants</h2>
                     <ul className="App__mainview--grid">
                         { restaurants ? 
-                         allRestaurants.filter(rest => rest.restaurant.thumb && rest.restaurant.cuisines.includes(selection)).map((restaurant) => {
+                         allRestaurants.filter(rest => rest.restaurant.thumb && rest.restaurant.cuisines.includes(selection === 'undefined' ? '' :selection)).map((restaurant) => {
                             return (
                                 <li key={restaurant.restaurant.id} className="App__mainview--grid__individualRestaurant">
                                     <h1>{restaurant.cuisineChoice}</h1>

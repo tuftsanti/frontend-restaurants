@@ -29570,16 +29570,15 @@ var App = function App(props) {
       setToken(null)
       setBookmark(null)
   } */
+  // let selection = selection || ''
+  // console.log(`Initial value of selection: ${selection}`)
 
-
-  var selection = '';
-  console.log("Initial value of selection: ".concat(selection));
 
   var handleChange = function handleChange(event) {
     // console.log(event.target)
     // setFormData({...formData, [event.target.name]: event.target.value})
     setFormData(cuisine.options[cuisine.selectedIndex].value);
-    selection = cuisine.options[cuisine.selectedIndex].value; // this.state.cuisineChoice = selection
+    var selection = cuisine.options[cuisine.selectedIndex].value; // this.state.cuisineChoice = selection
     // console.log(cuisine.options[cuisine.selectedIndex].value)
 
     console.log("New value of selection: ".concat(selection, " which is a ").concat((0, _typeof2.default)(selection))); // console.log(this.state)
@@ -29612,7 +29611,7 @@ var App = function App(props) {
   }, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
     className: "App__mainview--grid"
   }, restaurants ? allRestaurants.filter(function (rest) {
-    return rest.restaurant.thumb && rest.restaurant.cuisines.includes(selection);
+    return rest.restaurant.thumb && rest.restaurant.cuisines.includes(selection === 'undefined' ? '' : selection);
   }).map(function (restaurant) {
     return /*#__PURE__*/_react.default.createElement("li", {
       key: restaurant.restaurant.id,
@@ -29662,7 +29661,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34885" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37351" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
