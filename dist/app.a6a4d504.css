@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
-  font-family: 'IM Fell DW Pica SC', serif; }
+  font-family: 'Odibee Sans', cursive;
+  letter-spacing: .15rem; }
 
 img {
   border-radius: 14px; }
@@ -11,9 +12,13 @@ img {
   height: 100%;
   width: 100%; }
   .App__sidebar {
-    background-color: blue;
+    background-image: linear-gradient(to right, rgba(164, 159, 242, 0.1), black);
+    color: white;
+    border: 2px solid ghostwhite;
+    padding: .5rem;
     height: 100vh;
-    width: 20%; }
+    width: 20%;
+    text-shadow: 1.3px 1.3px black; }
   .App__mainview {
     width: 100%; }
     .App__mainview--grid {
@@ -23,6 +28,10 @@ img {
       justify-content: space-evenly; }
       .App__mainview--grid__individualRestaurant--name {
         text-align: center; }
+
+.filter-h1 {
+  text-shadow: 2px 2px black;
+  margin-left: .5rem; }
 
 .resultTitle {
   text-align: center; }
