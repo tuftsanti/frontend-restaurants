@@ -29175,6 +29175,78 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Filter.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = function _default(props) {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
+    className: "filter-h1"
+  }, "What's Your Flavor?"), /*#__PURE__*/_react.default.createElement("form", {
+    className: "filter-form"
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    id: "American",
+    name: "American",
+    value: "American"
+  }), /*#__PURE__*/_react.default.createElement("label", {
+    for: "American"
+  }, "American"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    id: "Asian",
+    name: "Asian",
+    value: "Asian"
+  }), /*#__PURE__*/_react.default.createElement("label", {
+    for: "Asian"
+  }, "Asian"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    id: "Breakfast",
+    name: "Breakfast",
+    value: "Breakfast"
+  }), /*#__PURE__*/_react.default.createElement("label", {
+    for: "Breakfast"
+  }, "Breakfast"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    id: "Desserts",
+    name: "Desserts",
+    value: "Desserts"
+  }), /*#__PURE__*/_react.default.createElement("label", {
+    for: "Desserts"
+  }, "Desserts"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    id: "Italian",
+    name: "Italian",
+    value: "Italian"
+  }), /*#__PURE__*/_react.default.createElement("label", {
+    for: "Italian"
+  }, "Italian"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    id: "Mexican",
+    name: "Mexican",
+    value: "Mexican"
+  }), /*#__PURE__*/_react.default.createElement("label", {
+    for: "Mexican"
+  }, "Mexican"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    id: "Seafood",
+    name: "Seafood",
+    value: "Seafood"
+  }), /*#__PURE__*/_react.default.createElement("label", {
+    for: "Seafood"
+  }, "Seafood"), /*#__PURE__*/_react.default.createElement("br", null)));
+};
+
+exports.default = _default;
 },{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
@@ -29264,6 +29336,8 @@ var _Header = _interopRequireDefault(require("./components/Header.js"));
 
 var _Footer = _interopRequireDefault(require("./components/Footer.js"));
 
+var _Filter = _interopRequireDefault(require("./components/Filter.js"));
+
 require("./scss/style.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -29323,11 +29397,10 @@ var App = function App(props) {
 
             case 5:
               result = _context.sent;
-              console.log(result);
-              _context.next = 9;
+              _context.next = 8;
               return setRestaurant(result);
 
-            case 9:
+            case 8:
             case "end":
               return _context.stop();
           }
@@ -29338,8 +29411,61 @@ var App = function App(props) {
     return function getRestaurants() {
       return _ref.apply(this, arguments);
     };
-  }(); // Hook to GET from API data
+  }(); //Array of Restaurants from API
 
+
+  var allRestaurants = [];
+  restaurants ? restaurants.restaurants.filter(function (rest) {
+    return rest.restaurant;
+  }).map(function (restaurant) {
+    return allRestaurants.push(restaurant);
+  }) : ""; //Filter for American restaurants
+
+  var americanRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("American");
+  }); //Filter for Asian restaurants
+
+  var asianRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Asian");
+  }); //Filter for Breakfast restaurants
+
+  var breakfastRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Breakfast");
+  }); //Filter for Desserts restaurants
+
+  var dessertRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Desserts");
+  }); //Filter for Italian restaurants
+
+  var italianRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Italian");
+  }); //Filter for Mexican restaurants
+
+  var mexicanRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Mexican");
+  }); //Filter for Pizza restaurants
+
+  var pizzaRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Pizza");
+  }); //Filter for Seafood restaurants
+
+  var seafoodRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Seafood");
+  }); //Filter for Thai restaurants
+
+  var thaiRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Thai");
+  });
+  console.log(allRestaurants);
+  console.log(americanRestaurants);
+  console.log(asianRestaurants);
+  console.log(breakfastRestaurants);
+  console.log(dessertRestaurants);
+  console.log(italianRestaurants);
+  console.log(mexicanRestaurants);
+  console.log(pizzaRestaurants);
+  console.log(seafoodRestaurants);
+  console.log(thaiRestaurants); // Hook to GET from API data
 
   _react.default.useEffect(function () {
     // if (token) {
@@ -29432,7 +29558,7 @@ var App = function App(props) {
     className: "App"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "App__sidebar"
-  }, /*#__PURE__*/_react.default.createElement("h3", null, "Add Filters Here")), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement(_Filter.default, null)), /*#__PURE__*/_react.default.createElement("div", {
     className: "App__mainview"
   }, /*#__PURE__*/_react.default.createElement("h2", {
     className: "resultTitle"
@@ -29461,7 +29587,7 @@ var App = function App(props) {
 var target = document.getElementById('app');
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), target);
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29489,7 +29615,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61410" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59178" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

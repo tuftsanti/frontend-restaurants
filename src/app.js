@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
+import Filter from './components/Filter.js';
 import './scss/style.scss';
 
 const App = (props) => {
@@ -40,9 +41,47 @@ const App = (props) => {
         }
     })
         const result = await response.json()
-        console.log(result)
+        // console.log(result)
         await setRestaurant(result)
     }
+//Array of Restaurants from API
+const allRestaurants = []
+restaurants ? restaurants.restaurants.filter(rest => rest.restaurant).map((restaurant) => {
+    return (
+        allRestaurants.push(restaurant)
+    )
+})
+: ""
+    
+    //Filter for American restaurants
+    const americanRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("American")))
+    //Filter for Asian restaurants
+    const asianRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Asian")))
+    //Filter for Breakfast restaurants
+    const breakfastRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Breakfast")))
+    //Filter for Desserts restaurants
+    const dessertRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Desserts")))
+    //Filter for Italian restaurants
+    const italianRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Italian")))
+    //Filter for Mexican restaurants
+    const mexicanRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Mexican")))
+    //Filter for Pizza restaurants
+    const pizzaRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Pizza")))
+    //Filter for Seafood restaurants
+    const seafoodRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Seafood")))
+    //Filter for Thai restaurants
+    const thaiRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Thai")))
+    
+    console.log(allRestaurants)
+    console.log(americanRestaurants)
+    console.log(asianRestaurants)
+    console.log(breakfastRestaurants)
+    console.log(dessertRestaurants)
+    console.log(italianRestaurants)
+    console.log(mexicanRestaurants)
+    console.log(pizzaRestaurants)
+    console.log(seafoodRestaurants)
+    console.log(thaiRestaurants)
 
     // Hook to GET from API data
     React.useEffect(() => {
@@ -94,7 +133,7 @@ const App = (props) => {
             <Header /* <button onClick={handleLogout}>Logout</button> */ />
             <div className="App">
             <div className="App__sidebar">
-                    <h3>Add Filters Here</h3>
+                    <Filter/>
                 </div>
                 <div className="App__mainview">
                     <h2 className="resultTitle">Local Restaurants</h2>
@@ -118,8 +157,6 @@ const App = (props) => {
             </div>
         </>
     )
-
-
 }
 const target = document.getElementById('app');
 ReactDOM.render(<App />, target);
