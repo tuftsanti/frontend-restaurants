@@ -2,20 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export default (props) => {
-    const [formData, setFormData] = React.useState({
-        cuisineChoice: ""
-    })
+    // const [formData, setFormData] = React.useState({
+    //     cuisineChoice: props.selection //|| ''
+    // })
 
-    const handleChange = (event) => {
-        // setFormData({...formData, [event.target.name]: event.target.value})
-        setFormData(cuisine.options[cuisine.selectedIndex].value)
-        console.log(cuisine.options[cuisine.selectedIndex].value)
-    }
+    // const handleChange = (event) => {
+    //     // console.log(event.target)
+    //     // setFormData({...formData, [event.target.name]: event.target.value})
+    //     setFormData(cuisine.options[cuisine.selectedIndex].value)
+    //     const selection = cuisine.options[cuisine.selectedIndex].value
+    //     // this.state.cuisineChoice = selection
+    //     // console.log(cuisine.options[cuisine.selectedIndex].value)
+    //     console.log(selection)
+    //     console.log(this.state)
+    //     // console.log(cuisineChoice)
+    // }
 
     return (
         <>
             <h1 className="filter-h1">What's Your Flavor?</h1>
-            <form className="filter-form" onChange={handleChange}>
+            {/*<form className="filter-form" onChange={handleChange}>*/}
+            <form className="filter-form" onChange={props.handleChange}>
                 <label for="cuisine">Cuisine of Choice:</label>
                 <select id="cuisine" name="cuisine">
                     <option value="">Any</option>

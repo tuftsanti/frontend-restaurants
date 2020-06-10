@@ -117,7 +117,25 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
+})({"node_modules/@babel/runtime/helpers/typeof.js":[function(require,module,exports) {
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    module.exports = _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    module.exports = _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+module.exports = _typeof;
+},{}],"node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -29183,8 +29201,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
-
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
@@ -29192,24 +29208,25 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(props) {
-  var _React$useState = _react.default.useState({
-    cuisineChoice: ""
-  }),
-      _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
-      formData = _React$useState2[0],
-      setFormData = _React$useState2[1];
-
-  var handleChange = function handleChange(event) {
-    // setFormData({...formData, [event.target.name]: event.target.value})
-    setFormData(cuisine.options[cuisine.selectedIndex].value);
-    console.log(cuisine.options[cuisine.selectedIndex].value);
-  };
-
+  // const [formData, setFormData] = React.useState({
+  //     cuisineChoice: props.selection //|| ''
+  // })
+  // const handleChange = (event) => {
+  //     // console.log(event.target)
+  //     // setFormData({...formData, [event.target.name]: event.target.value})
+  //     setFormData(cuisine.options[cuisine.selectedIndex].value)
+  //     const selection = cuisine.options[cuisine.selectedIndex].value
+  //     // this.state.cuisineChoice = selection
+  //     // console.log(cuisine.options[cuisine.selectedIndex].value)
+  //     console.log(selection)
+  //     console.log(this.state)
+  //     // console.log(cuisineChoice)
+  // }
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
     className: "filter-h1"
   }, "What's Your Flavor?"), /*#__PURE__*/_react.default.createElement("form", {
     className: "filter-form",
-    onChange: handleChange
+    onChange: props.handleChange
   }, /*#__PURE__*/_react.default.createElement("label", {
     for: "cuisine"
   }, "Cuisine of Choice:"), /*#__PURE__*/_react.default.createElement("select", {
@@ -29239,7 +29256,7 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -29313,6 +29330,8 @@ module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 },{"_css_loader":"node_modules/parcel/src/builtins/css-loader.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
+
+var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -29457,18 +29476,18 @@ var App = function App(props) {
 
   var thaiRestaurants = allRestaurants.filter(function (rest) {
     return rest.restaurant.cuisines.includes("Thai");
-  });
-  console.log(allRestaurants);
-  console.log(americanRestaurants);
-  console.log(asianRestaurants);
-  console.log(breakfastRestaurants);
-  console.log(dessertRestaurants);
-  console.log(italianRestaurants);
-  console.log(mexicanRestaurants);
-  console.log(pizzaRestaurants);
-  console.log(seafoodRestaurants);
-  console.log(thaiRestaurants);
-  console.log(cuisineChoice); // Hook to GET from API data
+  }); // console.log(allRestaurants)
+  // console.log(americanRestaurants)
+  // console.log(asianRestaurants)
+  // console.log(breakfastRestaurants)
+  // console.log(dessertRestaurants)
+  // console.log(italianRestaurants)
+  // console.log(mexicanRestaurants)
+  // console.log(pizzaRestaurants)
+  // console.log(seafoodRestaurants)
+  // console.log(thaiRestaurants)
+  // console.log(cuisineChoice)
+  // Hook to GET from API data
 
   _react.default.useEffect(function () {
     // if (token) {
@@ -29551,29 +29570,53 @@ var App = function App(props) {
       setToken(null)
       setBookmark(null)
   } */
-  // Display Page
+
+
+  var handleChange = function handleChange(event) {
+    // console.log(event.target)
+    // setFormData({...formData, [event.target.name]: event.target.value})
+    setFormData(cuisine.options[cuisine.selectedIndex].value);
+    var selection = cuisine.options[cuisine.selectedIndex].value; // this.state.cuisineChoice = selection
+    // console.log(cuisine.options[cuisine.selectedIndex].value)
+
+    console.log("Selection is  ".concat(selection, " which is a ").concat((0, _typeof2.default)(selection))); // console.log(this.state)
+    // console.log(cuisineChoice)
+  };
+
+  var _React$useState7 = _react.default.useState({
+    cuisineChoice: props.selection //|| ''
+
+  }),
+      _React$useState8 = (0, _slicedToArray2.default)(_React$useState7, 2),
+      formData = _React$useState8[0],
+      setFormData = _React$useState8[1]; // Display Page
   // console.log(restaurants.restaurants[1].restaurant.thumb)
 
 
+  var temp = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes(props.selection);
+  });
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Header.default
   /* <button onClick={handleLogout}>Logout</button> */
   , null), /*#__PURE__*/_react.default.createElement("div", {
     className: "App"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "App__sidebar"
-  }, /*#__PURE__*/_react.default.createElement(_Filter.default, null)), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement(_Filter.default, {
+    handleChange: handleChange
+  })), /*#__PURE__*/_react.default.createElement("div", {
     className: "App__mainview"
   }, /*#__PURE__*/_react.default.createElement("h2", {
     className: "resultTitle"
   }, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
     className: "App__mainview--grid"
   }, restaurants ? allRestaurants.filter(function (rest) {
-    return rest.restaurant.thumb && rest.restaurant.cuisines.includes("American");
+    return rest.restaurant.thumb && rest.restaurant.cuisines.includes("Pizza");
   }).map(function (restaurant) {
     return /*#__PURE__*/_react.default.createElement("li", {
       key: restaurant.restaurant.id,
       className: "App__mainview--grid__individualRestaurant"
-    }, /*#__PURE__*/_react.default.createElement("img", {
+    }, /*#__PURE__*/_react.default.createElement("h1", null, restaurant.cuisineChoice), /*#__PURE__*/_react.default.createElement("img", {
       src: restaurant.restaurant.thumb,
       className: "App__mainview--grid__individualRestaurant--pic"
     }), /*#__PURE__*/_react.default.createElement("h3", {
@@ -29590,7 +29633,7 @@ var App = function App(props) {
 var target = document.getElementById('app');
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), target);
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/typeof":"node_modules/@babel/runtime/helpers/typeof.js","@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29618,15 +29661,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39661" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60803" + '/');
->>>>>>> 40c7e65d68f8bdf3914320b207839f189de2182a
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57906" + '/');
->>>>>>> b46228d53ffeaae5d24fd4be680c0c8b73d7c240
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37611" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

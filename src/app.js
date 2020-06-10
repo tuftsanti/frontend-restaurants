@@ -77,18 +77,18 @@ const App = (props) => {
     const seafoodRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Seafood")))
     //Filter for Thai restaurants
     const thaiRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Thai")))
-    
-    console.log(allRestaurants)
-    console.log(americanRestaurants)
-    console.log(asianRestaurants)
-    console.log(breakfastRestaurants)
-    console.log(dessertRestaurants)
-    console.log(italianRestaurants)
-    console.log(mexicanRestaurants)
-    console.log(pizzaRestaurants)
-    console.log(seafoodRestaurants)
-    console.log(thaiRestaurants)
-    console.log(cuisineChoice)
+
+    // console.log(allRestaurants)
+    // console.log(americanRestaurants)
+    // console.log(asianRestaurants)
+    // console.log(breakfastRestaurants)
+    // console.log(dessertRestaurants)
+    // console.log(italianRestaurants)
+    // console.log(mexicanRestaurants)
+    // console.log(pizzaRestaurants)
+    // console.log(seafoodRestaurants)
+    // console.log(thaiRestaurants)
+    // console.log(cuisineChoice)
 
 
     // Hook to GET from API data
@@ -132,24 +132,42 @@ const App = (props) => {
         setToken(null)
         setBookmark(null)
     } */
-
-
+    const handleChange = (event) => {
+        // console.log(event.target)
+        // setFormData({...formData, [event.target.name]: event.target.value})
+        setFormData(cuisine.options[cuisine.selectedIndex].value)
+        const selection = cuisine.options[cuisine.selectedIndex].value
+        // this.state.cuisineChoice = selection
+        // console.log(cuisine.options[cuisine.selectedIndex].value)
+        console.log(`Selection is  ${selection} which is a ${typeof selection}`)
+        // console.log(this.state)
+        // console.log(cuisineChoice)
+    }
+    const [formData, setFormData] = React.useState({
+        cuisineChoice: props.selection //|| ''
+        
+    })
+    
     // Display Page
     // console.log(restaurants.restaurants[1].restaurant.thumb)
+
+    const temp = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes(props.selection)))
+    
     return (
         <>
             <Header /* <button onClick={handleLogout}>Logout</button> */ />
             <div className="App">
             <div className="App__sidebar">
-                    <Filter/>
+                    <Filter handleChange={handleChange}/>
                 </div>
                 <div className="App__mainview">
                     <h2 className="resultTitle">Local Restaurants</h2>
                     <ul className="App__mainview--grid">
                         { restaurants ? 
-                         allRestaurants.filter(rest => rest.restaurant.thumb && rest.restaurant.cuisines.includes("American")).map((restaurant) => {
+                         allRestaurants.filter(rest => rest.restaurant.thumb && rest.restaurant.cuisines.includes("Pizza")).map((restaurant) => {
                             return (
                                 <li key={restaurant.restaurant.id} className="App__mainview--grid__individualRestaurant">
+                                    <h1>{restaurant.cuisineChoice}</h1>
                                     <img src={restaurant.restaurant.thumb} className="App__mainview--grid__individualRestaurant--pic"/>
                                     <h3 className="App__mainview--grid__individualRestaurant--name">{restaurant.restaurant.name}</h3>
                                     <ion-icon name="add-circle-outline"onClick={() => {
