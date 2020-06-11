@@ -29152,11 +29152,83 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(props) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Restaurants"));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Header"));
 };
 
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Footer.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/@babel/runtime/helpers/defineProperty.js":[function(require,module,exports) {
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
+},{}],"src/components/Login.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+var _default = function _default(props) {
+  var _React$useState = _react.default.useState({
+    username: '',
+    password: ''
+  }),
+      _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
+      formData = _React$useState2[0],
+      setFormData = _React$useState2[1];
+
+  var handleChange = function handleChange(event) {
+    setFormData(_objectSpread(_objectSpread({}, formData), {}, (0, _defineProperty2.default)({}, event.target.name, event.target.value)));
+  };
+
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "login-div"
+  }, "Username: ", /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    name: "username",
+    value: formData.username,
+    onChange: handleChange
+  }), /*#__PURE__*/_react.default.createElement("br", null), "Password: ", /*#__PURE__*/_react.default.createElement("input", {
+    type: "password",
+    name: "password",
+    value: formData.password,
+    onChange: handleChange
+  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: function onClick() {
+      props.handleSubmit(formData);
+    }
+  }, "Login"));
+};
+
+exports.default = _default;
+},{"@babel/runtime/helpers/defineProperty":"node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Footer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29175,7 +29247,70 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Filter.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = function _default(props) {
+  var _React$useState = _react.default.useState(""),
+      _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
+      cuisineChoice = _React$useState2[0],
+      setCuisineChoice = _React$useState2[1];
+
+  var handleChange = function handleChange(event) {
+    // setFormData({...formData, [event.target.name]: event.target.value})
+    setCuisineChoice(cuisine.options[cuisine.selectedIndex].value);
+    console.log(cuisine.options[cuisine.selectedIndex].value);
+    console.log(cuisineChoice);
+  };
+
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
+    className: "filter-h1"
+  }, "What's Your Flavor?"), /*#__PURE__*/_react.default.createElement("form", {
+    className: "filter-form",
+    onChange: handleChange
+  }, /*#__PURE__*/_react.default.createElement("label", {
+    for: "cuisine"
+  }, "Cuisine of Choice:"), /*#__PURE__*/_react.default.createElement("select", {
+    id: "cuisine",
+    name: "cuisine"
+  }, /*#__PURE__*/_react.default.createElement("option", {
+    value: ""
+  }, "Any"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "American"
+  }, "American"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Asian"
+  }, "Asian"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Breakfast"
+  }, "Breakfast"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Desserts"
+  }, "Desserts"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Italian"
+  }, "Italian"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Mexican"
+  }, "Mexican"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Pizza"
+  }, "Pizza"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Seafood"
+  }, "Seafood"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Thai"
+  }, "Thai"))));
+};
+
+exports.default = _default;
+},{"@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -29262,7 +29397,11 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _Header = _interopRequireDefault(require("./components/Header.js"));
 
+var _Login = _interopRequireDefault(require("./components/Login.js"));
+
 var _Footer = _interopRequireDefault(require("./components/Footer.js"));
+
+var _Filter = _interopRequireDefault(require("./components/Filter.js"));
 
 require("./scss/style.scss");
 
@@ -29273,32 +29412,45 @@ var App = function App(props) {
   var _React$useState = _react.default.useState(null),
       _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
       restaurants = _React$useState2[0],
-      setRestaurant = _React$useState2[1]; // Hook to hold edited restaurant
+      setRestaurant = _React$useState2[1]; // Hook to hold array of restaurants
 
 
-  var _React$useState3 = _react.default.useState({
-    name: '',
-    url: '',
-    location: {
-      address: '',
-      locality: '',
-      city: '',
-      zipcode: '00000'
-    }
-  }),
+  var _React$useState3 = _react.default.useState(_Filter.default.cuisineChoice || ''),
       _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
-      editThisRestaurant = _React$useState4[0],
-      setEditedRestaurant = _React$useState4[1]; // Store jwt
-  // const [token, setToken] = React.useState(null)
-  // Localize storage for jwt
+      cuisineChoice = _React$useState4[0],
+      setCuisineChoice = _React$useState4[1]; // Hook to hold saved restaurant
 
-  /* React.useEffect(() => {
-      const checkToken = JSON.parse(window.localStorage.getItem('token'))
-      if (checkToken) {
-          setToken(checkToken)
-      }
-  }, [])*/
-  // GET the list of restaurants
+
+  var _React$useState5 = _react.default.useState({//     restaurant: {
+    //     name: '',
+    //     thumb: '',
+    //     url: '',
+    //     location: {
+    //         address: '',
+    //         locality: '',
+    //         city: '',
+    //         zipcode: '00000'
+    //     }
+    // }
+  }),
+      _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
+      favRestaurant = _React$useState6[0],
+      setFavRestaurant = _React$useState6[1]; // Store jwt
+
+
+  var _React$useState7 = _react.default.useState(null),
+      _React$useState8 = (0, _slicedToArray2.default)(_React$useState7, 2),
+      token = _React$useState8[0],
+      setToken = _React$useState8[1]; // // Localize storage for jwt
+
+
+  _react.default.useEffect(function () {
+    var checkToken = JSON.parse(window.localStorage.getItem('token'));
+
+    if (checkToken) {
+      setToken(checkToken);
+    }
+  }, []); // GET the list of restaurants
 
 
   var getRestaurants = /*#__PURE__*/function () {
@@ -29309,7 +29461,11 @@ var App = function App(props) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return fetch('http://localhost:3000/restaurants');
+              return fetch('https://developers.zomato.com/api/v2.1/search?start=50&count=100&lat=42.361145&lon=-71.057083&radius=1000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian', {
+                headers: {
+                  "user-key": "43857380d1047f74d7d7691dea96f3a5"
+                }
+              });
 
             case 2:
               response = _context.sent;
@@ -29318,8 +29474,8 @@ var App = function App(props) {
 
             case 5:
               result = _context.sent;
-              console.log(result);
-              setRestaurant(result);
+              _context.next = 8;
+              return setRestaurant(result);
 
             case 8:
             case "end":
@@ -29332,8 +29488,15 @@ var App = function App(props) {
     return function getRestaurants() {
       return _ref.apply(this, arguments);
     };
-  }(); // Hook to GET from API data
+  }(); //Array of Restaurants from API
 
+
+  var allRestaurants = [];
+  restaurants ? restaurants.restaurants.filter(function (rest) {
+    return rest.restaurant;
+  }).map(function (restaurant) {
+    return allRestaurants.push(restaurant);
+  }) : ""; // Hook to GET from API data
 
   _react.default.useEffect(function () {
     // if (token) {
@@ -29347,9 +29510,11 @@ var App = function App(props) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              setEditedRestaurant(restaurant);
+              setFavRestaurant(restaurant);
+              console.log(favRestaurant);
+              pickRestaurant(favRestaurant);
 
-            case 1:
+            case 3:
             case "end":
               return _context2.stop();
           }
@@ -29360,33 +29525,34 @@ var App = function App(props) {
     return function selectRestaurant(_x) {
       return _ref2.apply(this, arguments);
     };
-  }(); // Edit a Restaurant
+  }(); // Add a Restaurant
 
 
-  var editRestaurant = /*#__PURE__*/function () {
-    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(data) {
+  var pickRestaurant = /*#__PURE__*/function () {
+    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(favRestaurant) {
       var response;
       return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               _context3.next = 2;
-              return fetch("http://localhost:3000/restaurants/".concat(data._id), {
-                method: 'PUT',
+              return fetch("http://localhost:3000/restaurants", {
+                method: 'POST',
                 headers: {
                   'Content-Type': "application/json"
                   /*,
                   Authorization: `bearer ${token}` */
 
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(favRestaurant)
               });
 
             case 2:
               response = _context3.sent;
+              console.log(response);
               getRestaurants();
 
-            case 4:
+            case 5:
             case "end":
               return _context3.stop();
           }
@@ -29394,63 +29560,98 @@ var App = function App(props) {
       }, _callee3);
     }));
 
-    return function editRestaurant(_x2) {
+    return function pickRestaurant(_x2) {
       return _ref3.apply(this, arguments);
     };
   }(); // Login
 
-  /* const handleLogin = async (data) => {
-      const response = await fetch(`http://localhost:3000/login`, {
-          method: 'POST',
-          headers: {'Content-type': 'application/json'},
-          body: JSON.stringify(data)
-      })
-      const result = await response.json()
-      setToken(result)
-      window.localStorage.setItem('token', JSON.stringify(result))
-  }*/
-  // Logout
 
-  /* const handleLogout = () => {
-      window.localStorage.removeItem('token')
-      setToken(null)
-      setBookmark(null)
-  } */
-  // Display Page
+  var handleLogin = /*#__PURE__*/function () {
+    var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(data) {
+      var response, result;
+      return _regenerator.default.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.next = 2;
+              return fetch("http://localhost:3000/login", {
+                method: 'POST',
+                headers: {
+                  'Content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+              });
+
+            case 2:
+              response = _context4.sent;
+              _context4.next = 5;
+              return response.json();
+
+            case 5:
+              result = _context4.sent;
+              setToken(result);
+              window.localStorage.setItem('token', JSON.stringify(result));
+
+            case 8:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }));
+
+    return function handleLogin(_x3) {
+      return _ref4.apply(this, arguments);
+    };
+  }(); // Logout
+
+
+  var handleLogout = function handleLogout() {
+    window.localStorage.removeItem('token');
+    setToken(null);
+    setBookmark(null);
+  }; // Display Page
+  // console.log(restaurants.restaurants[1].restaurant.thumb)
 
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Header.default
   /* <button onClick={handleLogout}>Logout</button> */
   , null), /*#__PURE__*/_react.default.createElement("div", {
     className: "App"
-  }, "App", /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "App__sidebar"
-  }, /*#__PURE__*/_react.default.createElement("h3", null, "Add Filters Here")), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement(_Filter.default, null)), /*#__PURE__*/_react.default.createElement("div", {
     className: "App__mainview"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
+  }, /*#__PURE__*/_react.default.createElement("h2", {
+    className: "resultTitle"
+  }, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
     className: "App__mainview--grid"
-  }, restaurants ? restaurants.map(function (restaurant) {
-    // restaurant.url = `http://`+restaurant.url
+  }, restaurants ? allRestaurants.filter(function (rest) {
+    return rest.restaurant.thumb && rest.restaurant.cuisines.includes(cuisineChoice);
+  }).map(function (restaurant) {
     return /*#__PURE__*/_react.default.createElement("li", {
-      key: restaurant._id,
-      className: "__individualRestaurant"
-    }, /*#__PURE__*/_react.default.createElement("a", {
-      href: "",
-      className: "--pic"
-    }, restaurant.picture), /*#__PURE__*/_react.default.createElement("h3", {
-      className: "--name"
-    }, restaurant.name), /*#__PURE__*/_react.default.createElement("button", {
+      key: restaurant.restaurant.id,
+      className: "App__mainview--grid__individualRestaurant"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: restaurant.restaurant.thumb,
+      className: "App__mainview--grid__individualRestaurant--pic"
+    }), /*#__PURE__*/_react.default.createElement("h3", {
+      className: "App__mainview--grid__individualRestaurant--name"
+    }, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("ion-icon", {
+      name: "add-circle-outline",
       onClick: function onClick() {
-        selectRestaurant(restaurant);
+        return selectRestaurant(restaurant);
       }
-    }, "Edit this restaurant"));
-  }) : "Searching Your Restaurants"))));
+    }));
+  }) : "Searching Your Restaurants"))), /*#__PURE__*/_react.default.createElement(_Login.default, {
+    onSubmit: handleLogin
+  }));
 };
 
 var target = document.getElementById('app');
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), target);
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header.js":"src/components/Header.js","./components/Login.js":"src/components/Login.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29478,7 +29679,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38819" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56289" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
