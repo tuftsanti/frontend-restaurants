@@ -114,12 +114,13 @@ html, body {
             margin-top: 2%;
             margin-left: 5%;
             background-color: white;
-            height: 60%;
+            height: 80vh;
             width: 20%;
             border-radius: 5px;
             -moz-box-shadow: 0 0 6px grey;
             -webkit-box-shadow: 0 0 6px grey;
             box-shadow: 0 0 6px grey;
+            overflow: auto;
             &__header {
                 background-color: $main-color;
                 text-align: center;
@@ -131,15 +132,14 @@ html, body {
         }
         &--grid {
             width: 70%;
-            height: 150vh;
             display: flex;
             flex-wrap: wrap;
             list-style-type: none;
             justify-content: flex-start;
             align-items: flex-start;
                 &__individualRestaurant {
-                    width: 25%;
-                    height: 22%;
+                    width: 240px;
+                    height: 250px;
                     -moz-box-shadow: 0 0 6px grey;
                     -webkit-box-shadow: 0 0 6px grey;
                     box-shadow: 0 0 6px grey;
@@ -147,8 +147,7 @@ html, body {
                     flex-direction: column ;
                     background-color: $secondary-color;
                     border-radius: 3px;
-                    margin: 2% 7% 2% 0;
-                    // padding: 1%;
+                    margin: 20px 7% 20px 0;
                     &--name {
                         text-align: left;
                         font-size: .8em;

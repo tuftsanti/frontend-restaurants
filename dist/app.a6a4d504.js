@@ -32928,13 +32928,15 @@ var _default = function _default(props) {
     getFavs();
   }, []);
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "My Favorites"), /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "App"
   }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "App__header"
+  }, /*#__PURE__*/_react.default.createElement("h2", null, "Your ", /*#__PURE__*/_react.default.createElement("span", {
+    id: "header-red"
+  }, "Favorites"), ":")), /*#__PURE__*/_react.default.createElement("div", {
     className: "App__mainview"
-  }, /*#__PURE__*/_react.default.createElement("h2", {
-    className: "resultTitle"
-  }, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
+  }, /*#__PURE__*/_react.default.createElement("ul", {
     className: "App__mainview--grid"
   }, favorites ? favorites.map(function (favorite, index) {
     return /*#__PURE__*/_react.default.createElement("li", {
@@ -45085,7 +45087,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61910" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61018" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
