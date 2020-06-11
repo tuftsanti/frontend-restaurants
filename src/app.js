@@ -4,13 +4,12 @@ import { Router, Route, Switch } from 'react-router';
 import { createBrowserHistory } from 'history';
 import Login from './components/Login.js';
 import Favorites from './components/Favorites.js';
-import Home from './components/Home.js'
+import Home from './components/Home.js';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import Filter from './components/Filter.js';
-
-
-
+import './scss/style.scss';
+    
 const App = (props) => {
     
     let hist = createBrowserHistory()

@@ -9,18 +9,7 @@ import $ from 'jquery'
 export default (props) => {
     const [restaurants, setRestaurant] = React.useState(null);
     const [cuisineType, setCuisineType] = React.useState('');
-    const [addThisRestaurant, setAddedRestaurant] = React.useState({
-        name: '',
-        thumb: '',
-        url: '',
-        location: {
-            address: '',
-            locality: '',
-            city: '',
-            zipcode: '00000'
-        }
-    }
-    );
+    const [favRestaurant, setFavRestaurant] = React.useState(null);
 
     let allRestaurants = [];
     const getRestaurants = async () => {
@@ -34,6 +23,35 @@ export default (props) => {
         allRestaurants = result;
         await setRestaurant(result)
     };
+
+    // Store jwt
+    const [token, setToken] = React.useState(null)
+
+    // // Localize storage for jwt
+    React.useEffect(() => {
+        const checkToken = JSON.parse(window.localStorage.getItem('token'))
+        if (checkToken) {
+            setToken(checkToken)
+        }
+    }, [])
+  
+    // Login
+    const handleLogin = async (data) => {
+        const response = await fetch(`http://localhost:3000/login`, {
+            method: 'POST',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify(data)
+        })
+        const result = await response.json()
+        setToken(result)
+        window.localStorage.setItem('token', JSON.stringify(result))
+    }
+    // Logout
+    const handleLogout = () => {
+        window.localStorage.removeItem('token')
+        setToken(null)
+        setBookmark(null)
+    }
 
     const changeCuisine = async (event) => {
         event.preventDefault();
@@ -72,21 +90,25 @@ export default (props) => {
         getRestaurants()
     }, []);
 
+    // Select Restaurant
     const selectRestaurant = async (restaurant) => {
-        setAddedRestaurant(restaurant)
-    };
+        await setFavRestaurant(restaurant)
+        pickRestaurant(favRestaurant)
+    }
 
-    const addRestaurant = async (data) => {
-        const response = await fetch(`http://localhost:3000/restaurants/${data._id}`, {
-            method: 'PUT',
+    // Add a Restaurant
+    const pickRestaurant = async (favRestaurant) => {
+        const response = await fetch(`http://localhost:3000/restaurants`, {
+            method: 'POST',
             headers: {
                 'Content-Type': "application/json" /*,
             Authorization: `bearer ${token}` */
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(favRestaurant)
         })
-        getRestaurants()
-    };
+        // console.log(response)
+        // getRestaurants()
+    }
 
     $('.checkybox').on('change', function() {
         $('.checkybox').not(this).prop('checked', false);  
