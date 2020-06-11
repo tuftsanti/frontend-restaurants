@@ -29156,7 +29156,79 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Footer.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/@babel/runtime/helpers/defineProperty.js":[function(require,module,exports) {
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
+},{}],"src/components/Login.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+var _default = function _default(props) {
+  var _React$useState = _react.default.useState({
+    username: '',
+    password: ''
+  }),
+      _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
+      formData = _React$useState2[0],
+      setFormData = _React$useState2[1];
+
+  var handleChange = function handleChange(event) {
+    setFormData(_objectSpread(_objectSpread({}, formData), {}, (0, _defineProperty2.default)({}, event.target.name, event.target.value)));
+  };
+
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "login-div"
+  }, "Username: ", /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    name: "username",
+    value: formData.username,
+    onChange: handleChange
+  }), /*#__PURE__*/_react.default.createElement("br", null), "Password: ", /*#__PURE__*/_react.default.createElement("input", {
+    type: "password",
+    name: "password",
+    value: formData.password,
+    onChange: handleChange
+  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: function onClick() {
+      props.handleSubmit(formData);
+    }
+  }, "Login"));
+};
+
+exports.default = _default;
+},{"@babel/runtime/helpers/defineProperty":"node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Footer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29192,17 +29264,16 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(props) {
-  var _React$useState = _react.default.useState({
-    cuisineChoice: ""
-  }),
+  var _React$useState = _react.default.useState(""),
       _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
-      formData = _React$useState2[0],
-      setFormData = _React$useState2[1];
+      cuisineChoice = _React$useState2[0],
+      setCuisineChoice = _React$useState2[1];
 
   var handleChange = function handleChange(event) {
     // setFormData({...formData, [event.target.name]: event.target.value})
-    setFormData(cuisine.options[cuisine.selectedIndex].value);
+    setCuisineChoice(cuisine.options[cuisine.selectedIndex].value);
     console.log(cuisine.options[cuisine.selectedIndex].value);
+    console.log(cuisineChoice);
   };
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
@@ -29326,6 +29397,8 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _Header = _interopRequireDefault(require("./components/Header.js"));
 
+var _Login = _interopRequireDefault(require("./components/Login.js"));
+
 var _Footer = _interopRequireDefault(require("./components/Footer.js"));
 
 var _Filter = _interopRequireDefault(require("./components/Filter.js"));
@@ -29342,38 +29415,42 @@ var App = function App(props) {
       setRestaurant = _React$useState2[1]; // Hook to hold array of restaurants
 
 
-  var _React$useState3 = _react.default.useState({
-    cuisineChoice: ""
-  }),
+  var _React$useState3 = _react.default.useState(_Filter.default.cuisineChoice || ''),
       _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
       cuisineChoice = _React$useState4[0],
       setCuisineChoice = _React$useState4[1]; // Hook to hold saved restaurant
 
 
-  var _React$useState5 = _react.default.useState({
-    name: '',
-    thumb: '',
-    url: '',
-    location: {
-      address: '',
-      locality: '',
-      city: '',
-      zipcode: '00000'
-    }
+  var _React$useState5 = _react.default.useState({//     restaurant: {
+    //     name: '',
+    //     thumb: '',
+    //     url: '',
+    //     location: {
+    //         address: '',
+    //         locality: '',
+    //         city: '',
+    //         zipcode: '00000'
+    //     }
+    // }
   }),
       _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
-      addThisRestaurant = _React$useState6[0],
-      setAddedRestaurant = _React$useState6[1]; // Store jwt
-  // const [token, setToken] = React.useState(null)
-  // Localize storage for jwt
+      favRestaurant = _React$useState6[0],
+      setFavRestaurant = _React$useState6[1]; // Store jwt
 
-  /* React.useEffect(() => {
-      const checkToken = JSON.parse(window.localStorage.getItem('token'))
-      if (checkToken) {
-          setToken(checkToken)
-      }
-  }, [])*/
-  // GET the list of restaurants
+
+  var _React$useState7 = _react.default.useState(null),
+      _React$useState8 = (0, _slicedToArray2.default)(_React$useState7, 2),
+      token = _React$useState8[0],
+      setToken = _React$useState8[1]; // // Localize storage for jwt
+
+
+  _react.default.useEffect(function () {
+    var checkToken = JSON.parse(window.localStorage.getItem('token'));
+
+    if (checkToken) {
+      setToken(checkToken);
+    }
+  }, []); // GET the list of restaurants
 
 
   var getRestaurants = /*#__PURE__*/function () {
@@ -29419,56 +29496,7 @@ var App = function App(props) {
     return rest.restaurant;
   }).map(function (restaurant) {
     return allRestaurants.push(restaurant);
-  }) : ""; //Main API filter for restaurants with thumbs
-  // const everyRestaurants = restaurants.restaurants.filter(rest => rest.restaurant.thumb)
-  //Filter for American restaurants
-
-  var americanRestaurants = allRestaurants.filter(function (rest) {
-    return rest.restaurant.cuisines.includes("American");
-  }); //Filter for Asian restaurants
-
-  var asianRestaurants = allRestaurants.filter(function (rest) {
-    return rest.restaurant.cuisines.includes("Asian");
-  }); //Filter for Breakfast restaurants
-
-  var breakfastRestaurants = allRestaurants.filter(function (rest) {
-    return rest.restaurant.cuisines.includes("Breakfast");
-  }); //Filter for Desserts restaurants
-
-  var dessertRestaurants = allRestaurants.filter(function (rest) {
-    return rest.restaurant.cuisines.includes("Desserts");
-  }); //Filter for Italian restaurants
-
-  var italianRestaurants = allRestaurants.filter(function (rest) {
-    return rest.restaurant.cuisines.includes("Italian");
-  }); //Filter for Mexican restaurants
-
-  var mexicanRestaurants = allRestaurants.filter(function (rest) {
-    return rest.restaurant.cuisines.includes("Mexican");
-  }); //Filter for Pizza restaurants
-
-  var pizzaRestaurants = allRestaurants.filter(function (rest) {
-    return rest.restaurant.cuisines.includes("Pizza");
-  }); //Filter for Seafood restaurants
-
-  var seafoodRestaurants = allRestaurants.filter(function (rest) {
-    return rest.restaurant.cuisines.includes("Seafood");
-  }); //Filter for Thai restaurants
-
-  var thaiRestaurants = allRestaurants.filter(function (rest) {
-    return rest.restaurant.cuisines.includes("Thai");
-  });
-  console.log(allRestaurants);
-  console.log(americanRestaurants);
-  console.log(asianRestaurants);
-  console.log(breakfastRestaurants);
-  console.log(dessertRestaurants);
-  console.log(italianRestaurants);
-  console.log(mexicanRestaurants);
-  console.log(pizzaRestaurants);
-  console.log(seafoodRestaurants);
-  console.log(thaiRestaurants);
-  console.log(cuisineChoice); // Hook to GET from API data
+  }) : ""; // Hook to GET from API data
 
   _react.default.useEffect(function () {
     // if (token) {
@@ -29482,9 +29510,11 @@ var App = function App(props) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              setAddedRestaurant(restaurant);
+              setFavRestaurant(restaurant);
+              console.log(favRestaurant);
+              pickRestaurant(favRestaurant);
 
-            case 1:
+            case 3:
             case "end":
               return _context2.stop();
           }
@@ -29498,30 +29528,31 @@ var App = function App(props) {
   }(); // Add a Restaurant
 
 
-  var addRestaurant = /*#__PURE__*/function () {
-    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(data) {
+  var pickRestaurant = /*#__PURE__*/function () {
+    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(favRestaurant) {
       var response;
       return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               _context3.next = 2;
-              return fetch("http://localhost:3000/restaurants/".concat(data._id), {
-                method: 'PUT',
+              return fetch("http://localhost:3000/restaurants", {
+                method: 'POST',
                 headers: {
                   'Content-Type': "application/json"
                   /*,
                   Authorization: `bearer ${token}` */
 
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(favRestaurant)
               });
 
             case 2:
               response = _context3.sent;
+              console.log(response);
               getRestaurants();
 
-            case 4:
+            case 5:
             case "end":
               return _context3.stop();
           }
@@ -29529,29 +29560,57 @@ var App = function App(props) {
       }, _callee3);
     }));
 
-    return function addRestaurant(_x2) {
+    return function pickRestaurant(_x2) {
       return _ref3.apply(this, arguments);
     };
   }(); // Login
 
-  /* const handleLogin = async (data) => {
-      const response = await fetch(`http://localhost:3000/login`, {
-          method: 'POST',
-          headers: {'Content-type': 'application/json'},
-          body: JSON.stringify(data)
-      })
-      const result = await response.json()
-      setToken(result)
-      window.localStorage.setItem('token', JSON.stringify(result))
-  }*/
-  // Logout
 
-  /* const handleLogout = () => {
-      window.localStorage.removeItem('token')
-      setToken(null)
-      setBookmark(null)
-  } */
-  // Display Page
+  var handleLogin = /*#__PURE__*/function () {
+    var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(data) {
+      var response, result;
+      return _regenerator.default.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.next = 2;
+              return fetch("http://localhost:3000/login", {
+                method: 'POST',
+                headers: {
+                  'Content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+              });
+
+            case 2:
+              response = _context4.sent;
+              _context4.next = 5;
+              return response.json();
+
+            case 5:
+              result = _context4.sent;
+              setToken(result);
+              window.localStorage.setItem('token', JSON.stringify(result));
+
+            case 8:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }));
+
+    return function handleLogin(_x3) {
+      return _ref4.apply(this, arguments);
+    };
+  }(); // Logout
+
+
+  var handleLogout = function handleLogout() {
+    window.localStorage.removeItem('token');
+    setToken(null);
+    setBookmark(null);
+  }; // Display Page
   // console.log(restaurants.restaurants[1].restaurant.thumb)
 
 
@@ -29568,7 +29627,7 @@ var App = function App(props) {
   }, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
     className: "App__mainview--grid"
   }, restaurants ? allRestaurants.filter(function (rest) {
-    return rest.restaurant.thumb && rest.restaurant.cuisines.includes("American");
+    return rest.restaurant.thumb && rest.restaurant.cuisines.includes(cuisineChoice);
   }).map(function (restaurant) {
     return /*#__PURE__*/_react.default.createElement("li", {
       key: restaurant.restaurant.id,
@@ -29581,16 +29640,18 @@ var App = function App(props) {
     }, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("ion-icon", {
       name: "add-circle-outline",
       onClick: function onClick() {
-        selectRestaurant(restaurant);
+        return selectRestaurant(restaurant);
       }
     }));
-  }) : "Searching Your Restaurants"))));
+  }) : "Searching Your Restaurants"))), /*#__PURE__*/_react.default.createElement(_Login.default, {
+    onSubmit: handleLogin
+  }));
 };
 
 var target = document.getElementById('app');
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), target);
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header.js":"src/components/Header.js","./components/Login.js":"src/components/Login.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29618,7 +29679,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57906" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56289" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

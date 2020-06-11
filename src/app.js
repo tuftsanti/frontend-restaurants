@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/Header.js';
+import Login from './components/Login.js';
 import Footer from './components/Footer.js';
 import Filter from './components/Filter.js';
 import './scss/style.scss';
@@ -9,33 +10,34 @@ const App = (props) => {
     // Hook to hold array of restaurants
     const [restaurants, setRestaurant] = React.useState(null)
     // Hook to hold array of restaurants
-    const [cuisineChoice, setCuisineChoice] = React.useState({
-        cuisineChoice: ""
-    })
-    // Hook to hold saved restaurant
-    const [addThisRestaurant, setAddedRestaurant] = React.useState({
-        name: '',
-        thumb: '',
-        url: '',
-        location: {
-            address: '',
-            locality: '',
-            city: '',
-            zipcode: '00000'
-        }
-    }
+    const [cuisineChoice, setCuisineChoice] = React.useState(
+        Filter.cuisineChoice || ''
     )
+    // Hook to hold saved restaurant
+    const [favRestaurant, setFavRestaurant] = React.useState({
+    //     restaurant: {
+    //     name: '',
+    //     thumb: '',
+    //     url: '',
+    //     location: {
+    //         address: '',
+    //         locality: '',
+    //         city: '',
+    //         zipcode: '00000'
+    //     }
+    // }
+    })
 
     // Store jwt
-    // const [token, setToken] = React.useState(null)
+    const [token, setToken] = React.useState(null)
 
-    // Localize storage for jwt
-    /* React.useEffect(() => {
+    // // Localize storage for jwt
+    React.useEffect(() => {
         const checkToken = JSON.parse(window.localStorage.getItem('token'))
         if (checkToken) {
             setToken(checkToken)
         }
-    }, [])*/
+    }, [])
 
     // GET the list of restaurants
     const getRestaurants = async () => {
@@ -56,40 +58,6 @@ const App = (props) => {
         )
     })
     : ""
-    //Main API filter for restaurants with thumbs
-    // const everyRestaurants = restaurants.restaurants.filter(rest => rest.restaurant.thumb)
-
-    //Filter for American restaurants
-    const americanRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("American")))
-    //Filter for Asian restaurants
-    const asianRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Asian")))
-    //Filter for Breakfast restaurants
-    const breakfastRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Breakfast")))
-    //Filter for Desserts restaurants
-    const dessertRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Desserts")))
-    //Filter for Italian restaurants
-    const italianRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Italian")))
-    //Filter for Mexican restaurants
-    const mexicanRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Mexican")))
-    //Filter for Pizza restaurants
-    const pizzaRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Pizza")))
-    //Filter for Seafood restaurants
-    const seafoodRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Seafood")))
-    //Filter for Thai restaurants
-    const thaiRestaurants = (allRestaurants.filter(rest => rest.restaurant.cuisines.includes("Thai")))
-    
-    console.log(allRestaurants)
-    console.log(americanRestaurants)
-    console.log(asianRestaurants)
-    console.log(breakfastRestaurants)
-    console.log(dessertRestaurants)
-    console.log(italianRestaurants)
-    console.log(mexicanRestaurants)
-    console.log(pizzaRestaurants)
-    console.log(seafoodRestaurants)
-    console.log(thaiRestaurants)
-    console.log(cuisineChoice)
-
 
     // Hook to GET from API data
     React.useEffect(() => {
@@ -100,23 +68,26 @@ const App = (props) => {
 
     // Select Restaurant
     const selectRestaurant = async (restaurant) => {
-        setAddedRestaurant(restaurant)
+        setFavRestaurant(restaurant)
+        console.log(favRestaurant)
+        pickRestaurant(favRestaurant)
     }
 
     // Add a Restaurant
-    const addRestaurant = async (data) => {
-        const response = await fetch(`http://localhost:3000/restaurants/${data._id}`, {
-            method: 'PUT',
+    const pickRestaurant = async (favRestaurant) => {
+        const response = await fetch(`http://localhost:3000/restaurants`, {
+            method: 'POST',
             headers: {
                 'Content-Type': "application/json" /*,
             Authorization: `bearer ${token}` */
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(favRestaurant)
         })
+        console.log(response)
         getRestaurants()
     }
     // Login
-    /* const handleLogin = async (data) => {
+    const handleLogin = async (data) => {
         const response = await fetch(`http://localhost:3000/login`, {
             method: 'POST',
             headers: {'Content-type': 'application/json'},
@@ -125,13 +96,13 @@ const App = (props) => {
         const result = await response.json()
         setToken(result)
         window.localStorage.setItem('token', JSON.stringify(result))
-    }*/
+    }
     // Logout
-    /* const handleLogout = () => {
+    const handleLogout = () => {
         window.localStorage.removeItem('token')
         setToken(null)
         setBookmark(null)
-    } */
+    }
 
 
     // Display Page
@@ -147,14 +118,13 @@ const App = (props) => {
                     <h2 className="resultTitle">Local Restaurants</h2>
                     <ul className="App__mainview--grid">
                         { restaurants ? 
-                         allRestaurants.filter(rest => rest.restaurant.thumb && rest.restaurant.cuisines.includes("American")).map((restaurant) => {
+                         allRestaurants.filter(rest => rest.restaurant.thumb && rest.restaurant.cuisines.includes(cuisineChoice)).map((restaurant) => {
                             return (
                                 <li key={restaurant.restaurant.id} className="App__mainview--grid__individualRestaurant">
                                     <img src={restaurant.restaurant.thumb} className="App__mainview--grid__individualRestaurant--pic"/>
                                     <h3 className="App__mainview--grid__individualRestaurant--name">{restaurant.restaurant.name}</h3>
-                                    <ion-icon name="add-circle-outline"onClick={() => {
-                                        selectRestaurant(restaurant)
-                                    }}></ion-icon>
+                                    <ion-icon name="add-circle-outline" onClick={()=>
+                                        selectRestaurant(restaurant)}></ion-icon>
                                 </li>
                             )})
                          : 
@@ -163,6 +133,7 @@ const App = (props) => {
                     </ul>
                 </div>
             </div>
+            <Login onSubmit={handleLogin}/>
         </>
     )
 }

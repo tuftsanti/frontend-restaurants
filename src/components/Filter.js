@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export default (props) => {
-    const [formData, setFormData] = React.useState({
-        cuisineChoice: ""
-    })
+    const [cuisineChoice, setCuisineChoice] = React.useState(
+        ""
+    )
 
     const handleChange = (event) => {
         // setFormData({...formData, [event.target.name]: event.target.value})
-        setFormData(cuisine.options[cuisine.selectedIndex].value)
+        setCuisineChoice(cuisine.options[cuisine.selectedIndex].value)
         console.log(cuisine.options[cuisine.selectedIndex].value)
+        console.log(cuisineChoice)
     }
 
     return (
