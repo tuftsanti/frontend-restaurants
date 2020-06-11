@@ -9,23 +9,6 @@ import $ from 'jquery'
 export default (props) => {
     const [restaurants, setRestaurant] = React.useState(null);
     const [cuisineType, setCuisineType] = React.useState('');
-<<<<<<< HEAD
-    
-    const [addThisRestaurant, setAddedRestaurant] = React.useState({
-        name: '',
-        thumb: '',
-        url: '',
-        location: {
-            address: '',
-            locality: '',
-            city: '',
-            zipcode: '00000'
-        }
-    }
-    );
-=======
-    const [favRestaurant, setFavRestaurant] = React.useState(null);
->>>>>>> adb670c879912b14c0a091c102f02fab61cd8fb3
 
     let allRestaurants = [];
     const getRestaurants = async () => {
@@ -106,11 +89,6 @@ export default (props) => {
         getRestaurants()
     }, []);
 
-    // Select Restaurant
-    const selectRestaurant = async (restaurant) => {
-        await setFavRestaurant(restaurant)
-        pickRestaurant(favRestaurant)
-    }
 
     // Add a Restaurant
     const pickRestaurant = async (favRestaurant) => {
@@ -123,7 +101,7 @@ export default (props) => {
             body: JSON.stringify(favRestaurant)
         })
         // console.log(response)
-        // getRestaurants()
+        getRestaurants()
     }
 
     $('.checkybox').on('change', function() {
@@ -177,9 +155,9 @@ export default (props) => {
                                 <li key={restaurant.restaurant.id} className="App__mainview--grid__individualRestaurant">
                                     <img src={restaurant.restaurant.thumb} className="App__mainview--grid__individualRestaurant--pic"/>
                                     <h3 className="App__mainview--grid__individualRestaurant--name">{restaurant.restaurant.name}
-                                    <ion-icon name="add-circle-outline"onClick={() => {
-                                        selectRestaurant(restaurant)
-                                    }}></ion-icon></h3>
+                                    <button onClick={() => {
+                                        pickRestaurant(restaurant)
+                                    }}></button></h3>
                                 
                                 </li>
                             )})

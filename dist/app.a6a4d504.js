@@ -44678,11 +44678,6 @@ var _default = function _default(props) {
       cuisineType = _React$useState4[0],
       setCuisineType = _React$useState4[1];
 
-  var _React$useState5 = _react.default.useState(null),
-      _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
-      favRestaurant = _React$useState6[0],
-      setFavRestaurant = _React$useState6[1];
-
   var allRestaurants = [];
 
   var getRestaurants = /*#__PURE__*/function () {
@@ -44725,10 +44720,10 @@ var _default = function _default(props) {
   }(); // Store jwt
 
 
-  var _React$useState7 = _react.default.useState(null),
-      _React$useState8 = (0, _slicedToArray2.default)(_React$useState7, 2),
-      token = _React$useState8[0],
-      setToken = _React$useState8[1]; // // Localize storage for jwt
+  var _React$useState5 = _react.default.useState(null),
+      _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
+      token = _React$useState6[0],
+      setToken = _React$useState6[1]; // // Localize storage for jwt
 
 
   _react.default.useEffect(function () {
@@ -44830,43 +44825,17 @@ var _default = function _default(props) {
 
   _react.default.useEffect(function () {
     getRestaurants();
-  }, []); // Select Restaurant
+  }, []); // Add a Restaurant
 
 
-  var selectRestaurant = /*#__PURE__*/function () {
-    var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(restaurant) {
+  var pickRestaurant = /*#__PURE__*/function () {
+    var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(favRestaurant) {
+      var response;
       return _regenerator.default.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
               _context4.next = 2;
-              return setFavRestaurant(restaurant);
-
-            case 2:
-              pickRestaurant(favRestaurant);
-
-            case 3:
-            case "end":
-              return _context4.stop();
-          }
-        }
-      }, _callee4);
-    }));
-
-    return function selectRestaurant(_x3) {
-      return _ref4.apply(this, arguments);
-    };
-  }(); // Add a Restaurant
-
-
-  var pickRestaurant = /*#__PURE__*/function () {
-    var _ref5 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(favRestaurant) {
-      var response;
-      return _regenerator.default.wrap(function _callee5$(_context5) {
-        while (1) {
-          switch (_context5.prev = _context5.next) {
-            case 0:
-              _context5.next = 2;
               return fetch("http://localhost:3000/restaurants", {
                 method: 'POST',
                 headers: {
@@ -44879,18 +44848,20 @@ var _default = function _default(props) {
               });
 
             case 2:
-              response = _context5.sent;
+              response = _context4.sent;
+              // console.log(response)
+              getRestaurants();
 
-            case 3:
+            case 4:
             case "end":
-              return _context5.stop();
+              return _context4.stop();
           }
         }
-      }, _callee5);
+      }, _callee4);
     }));
 
-    return function pickRestaurant(_x4) {
-      return _ref5.apply(this, arguments);
+    return function pickRestaurant(_x3) {
+      return _ref4.apply(this, arguments);
     };
   }();
 
@@ -44989,10 +44960,9 @@ var _default = function _default(props) {
       className: "App__mainview--grid__individualRestaurant--pic"
     }), /*#__PURE__*/_react.default.createElement("h3", {
       className: "App__mainview--grid__individualRestaurant--name"
-    }, restaurant.restaurant.name, /*#__PURE__*/_react.default.createElement("ion-icon", {
-      name: "add-circle-outline",
+    }, restaurant.restaurant.name, /*#__PURE__*/_react.default.createElement("button", {
       onClick: function onClick() {
-        selectRestaurant(restaurant);
+        pickRestaurant(restaurant);
       }
     })));
   }) : "Searching Your Restaurants")), /*#__PURE__*/_react.default.createElement(_Footer.default, {
@@ -45079,11 +45049,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51521" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65352" + '/');
->>>>>>> adb670c879912b14c0a091c102f02fab61cd8fb3
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52017" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
