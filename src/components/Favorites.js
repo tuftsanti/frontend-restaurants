@@ -5,6 +5,7 @@ export default (props) => {
     return (
         <>
             <h1>My Favorites</h1>
+            
         </>
     );
 };
