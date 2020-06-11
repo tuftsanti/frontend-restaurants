@@ -27,7 +27,7 @@ export default (props) => {
                     <label htmlFor="Seafood">Seafood</label>
                     <input type="checkbox" id="Seafood" name="Seafood" value="Seafood"/>
                     <br/>
-                    <input type="submit" id="Submit" name="Submit" value="Submit"/>
+                    <input type="submit" id="Submit" name="Submit" value="Submit"></input>
                     <br/>
             </form>
         </>

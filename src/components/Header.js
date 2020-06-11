@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from "jquery"
+import { Link } from 'react-router-dom';
 
 export default (props) => {
     $(window).scroll(function(){
@@ -12,8 +13,13 @@ export default (props) => {
     });
     return (
         <div className= "header">
-            <div>
+            <div className="header__img">
                 <img src="https://i.imgur.com/pnd4BXy.png"></img>
+            </div>
+            <div className="header__nav">
+                <Link to="/" style={{ textDecoration: 'none' }}><span>Home</span></Link>
+                <Link to="/favorites" style={{ textDecoration: 'none' }}><span>Favorites</span></Link>
+                <Link to="/login" style={{ textDecoration: 'none' }}><span>Log In</span></Link>
             </div>
         </div>
     );
