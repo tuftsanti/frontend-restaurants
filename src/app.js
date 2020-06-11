@@ -15,21 +15,41 @@ const App = (props) => {
     
     let hist = createBrowserHistory()
 
+    //STATE FOR STORING OUR JWT
+    const [token, setToken] = React.useState(null);
+
+    const handleLogin = async (data) => {
+        const response = await fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+        const result = await response.json();
+        console.log(result);
+        setToken(result);
+        window.localStorage.setItem('token', JSON.stringify(result));
+    };
+
+    const handleLogout = () => {
+        //REMOVE TOKEN FROM LOCAL STORAGE
+        window.localStorage.removeItem('token');
+        //REMOVE TOKEN FROM STATE
+        setToken(null);
+        //SET HOLIDAYS TO NULL
+        setHolidays(null);
+    };
+
     return (
         <>
             <Router history={hist}>
                 <div>
                 <Header /* <button onClick={handleLogout}>Logout</button> */ />
                 <Switch>
-                    <Route path="/login" component={Login}>
-                        
-                    </Route>
-                    <Route path="/favorites" component={Favorites}>
-                     
-                    </Route>
-                    <Route path="/" component={Home}>
-                        
-                    </Route>
+                    <Route path="/login" component={Login} handleSubmit={handleLogin}/>
+                    <Route path="/favorites" component={Favorites}/>
+                    <Route path="/" component={Home}/>
                 </Switch>
                 </div>
             </Router>
