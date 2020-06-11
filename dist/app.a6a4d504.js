@@ -29152,7 +29152,7 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(props) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Restaurants"));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Header"));
 };
 
 exports.default = _default;
@@ -29175,7 +29175,71 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Filter.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = function _default(props) {
+  var _React$useState = _react.default.useState({
+    cuisineChoice: ""
+  }),
+      _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
+      formData = _React$useState2[0],
+      setFormData = _React$useState2[1];
+
+  var handleChange = function handleChange(event) {
+    // setFormData({...formData, [event.target.name]: event.target.value})
+    setFormData(cuisine.options[cuisine.selectedIndex].value);
+    console.log(cuisine.options[cuisine.selectedIndex].value);
+  };
+
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
+    className: "filter-h1"
+  }, "What's Your Flavor?"), /*#__PURE__*/_react.default.createElement("form", {
+    className: "filter-form",
+    onChange: handleChange
+  }, /*#__PURE__*/_react.default.createElement("label", {
+    for: "cuisine"
+  }, "Cuisine of Choice:"), /*#__PURE__*/_react.default.createElement("select", {
+    id: "cuisine",
+    name: "cuisine"
+  }, /*#__PURE__*/_react.default.createElement("option", {
+    value: ""
+  }, "Any"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "American"
+  }, "American"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Asian"
+  }, "Asian"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Breakfast"
+  }, "Breakfast"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Desserts"
+  }, "Desserts"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Italian"
+  }, "Italian"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Mexican"
+  }, "Mexican"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Pizza"
+  }, "Pizza"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Seafood"
+  }, "Seafood"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Thai"
+  }, "Thai"))));
+};
+
+exports.default = _default;
+},{"@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -29264,6 +29328,8 @@ var _Header = _interopRequireDefault(require("./components/Header.js"));
 
 var _Footer = _interopRequireDefault(require("./components/Footer.js"));
 
+var _Filter = _interopRequireDefault(require("./components/Filter.js"));
+
 require("./scss/style.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -29273,11 +29339,20 @@ var App = function App(props) {
   var _React$useState = _react.default.useState(null),
       _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
       restaurants = _React$useState2[0],
-      setRestaurant = _React$useState2[1]; // Hook to hold edited restaurant
+      setRestaurant = _React$useState2[1]; // Hook to hold array of restaurants
 
 
   var _React$useState3 = _react.default.useState({
+    cuisineChoice: ""
+  }),
+      _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
+      cuisineChoice = _React$useState4[0],
+      setCuisineChoice = _React$useState4[1]; // Hook to hold saved restaurant
+
+
+  var _React$useState5 = _react.default.useState({
     name: '',
+    thumb: '',
     url: '',
     location: {
       address: '',
@@ -29286,9 +29361,9 @@ var App = function App(props) {
       zipcode: '00000'
     }
   }),
-      _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
-      editThisRestaurant = _React$useState4[0],
-      setEditedRestaurant = _React$useState4[1]; // Store jwt
+      _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
+      addThisRestaurant = _React$useState6[0],
+      setAddedRestaurant = _React$useState6[1]; // Store jwt
   // const [token, setToken] = React.useState(null)
   // Localize storage for jwt
 
@@ -29309,7 +29384,11 @@ var App = function App(props) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return fetch('http://localhost:3000/restaurants');
+              return fetch('https://developers.zomato.com/api/v2.1/search?start=50&count=100&lat=42.361145&lon=-71.057083&radius=1000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian', {
+                headers: {
+                  "user-key": "43857380d1047f74d7d7691dea96f3a5"
+                }
+              });
 
             case 2:
               response = _context.sent;
@@ -29318,8 +29397,8 @@ var App = function App(props) {
 
             case 5:
               result = _context.sent;
-              console.log(result);
-              setRestaurant(result);
+              _context.next = 8;
+              return setRestaurant(result);
 
             case 8:
             case "end":
@@ -29332,8 +29411,64 @@ var App = function App(props) {
     return function getRestaurants() {
       return _ref.apply(this, arguments);
     };
-  }(); // Hook to GET from API data
+  }(); //Array of Restaurants from API
 
+
+  var allRestaurants = [];
+  restaurants ? restaurants.restaurants.filter(function (rest) {
+    return rest.restaurant;
+  }).map(function (restaurant) {
+    return allRestaurants.push(restaurant);
+  }) : ""; //Main API filter for restaurants with thumbs
+  // const everyRestaurants = restaurants.restaurants.filter(rest => rest.restaurant.thumb)
+  //Filter for American restaurants
+
+  var americanRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("American");
+  }); //Filter for Asian restaurants
+
+  var asianRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Asian");
+  }); //Filter for Breakfast restaurants
+
+  var breakfastRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Breakfast");
+  }); //Filter for Desserts restaurants
+
+  var dessertRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Desserts");
+  }); //Filter for Italian restaurants
+
+  var italianRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Italian");
+  }); //Filter for Mexican restaurants
+
+  var mexicanRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Mexican");
+  }); //Filter for Pizza restaurants
+
+  var pizzaRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Pizza");
+  }); //Filter for Seafood restaurants
+
+  var seafoodRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Seafood");
+  }); //Filter for Thai restaurants
+
+  var thaiRestaurants = allRestaurants.filter(function (rest) {
+    return rest.restaurant.cuisines.includes("Thai");
+  });
+  console.log(allRestaurants);
+  console.log(americanRestaurants);
+  console.log(asianRestaurants);
+  console.log(breakfastRestaurants);
+  console.log(dessertRestaurants);
+  console.log(italianRestaurants);
+  console.log(mexicanRestaurants);
+  console.log(pizzaRestaurants);
+  console.log(seafoodRestaurants);
+  console.log(thaiRestaurants);
+  console.log(cuisineChoice); // Hook to GET from API data
 
   _react.default.useEffect(function () {
     // if (token) {
@@ -29347,7 +29482,7 @@ var App = function App(props) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              setEditedRestaurant(restaurant);
+              setAddedRestaurant(restaurant);
 
             case 1:
             case "end":
@@ -29360,10 +29495,10 @@ var App = function App(props) {
     return function selectRestaurant(_x) {
       return _ref2.apply(this, arguments);
     };
-  }(); // Edit a Restaurant
+  }(); // Add a Restaurant
 
 
-  var editRestaurant = /*#__PURE__*/function () {
+  var addRestaurant = /*#__PURE__*/function () {
     var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(data) {
       var response;
       return _regenerator.default.wrap(function _callee3$(_context3) {
@@ -29394,7 +29529,7 @@ var App = function App(props) {
       }, _callee3);
     }));
 
-    return function editRestaurant(_x2) {
+    return function addRestaurant(_x2) {
       return _ref3.apply(this, arguments);
     };
   }(); // Login
@@ -29417,40 +29552,45 @@ var App = function App(props) {
       setBookmark(null)
   } */
   // Display Page
+  // console.log(restaurants.restaurants[1].restaurant.thumb)
 
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Header.default
   /* <button onClick={handleLogout}>Logout</button> */
   , null), /*#__PURE__*/_react.default.createElement("div", {
     className: "App"
-  }, "App", /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "App__sidebar"
-  }, /*#__PURE__*/_react.default.createElement("h3", null, "Add Filters Here")), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement(_Filter.default, null)), /*#__PURE__*/_react.default.createElement("div", {
     className: "App__mainview"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
+  }, /*#__PURE__*/_react.default.createElement("h2", {
+    className: "resultTitle"
+  }, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
     className: "App__mainview--grid"
-  }, restaurants ? restaurants.map(function (restaurant) {
-    // restaurant.url = `http://`+restaurant.url
+  }, restaurants ? allRestaurants.filter(function (rest) {
+    return rest.restaurant.thumb && rest.restaurant.cuisines.includes("American");
+  }).map(function (restaurant) {
     return /*#__PURE__*/_react.default.createElement("li", {
-      key: restaurant._id,
-      className: "__individualRestaurant"
-    }, /*#__PURE__*/_react.default.createElement("a", {
-      href: "",
-      className: "--pic"
-    }, restaurant.picture), /*#__PURE__*/_react.default.createElement("h3", {
-      className: "--name"
-    }, restaurant.name), /*#__PURE__*/_react.default.createElement("button", {
+      key: restaurant.restaurant.id,
+      className: "App__mainview--grid__individualRestaurant"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: restaurant.restaurant.thumb,
+      className: "App__mainview--grid__individualRestaurant--pic"
+    }), /*#__PURE__*/_react.default.createElement("h3", {
+      className: "App__mainview--grid__individualRestaurant--name"
+    }, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("ion-icon", {
+      name: "add-circle-outline",
       onClick: function onClick() {
         selectRestaurant(restaurant);
       }
-    }, "Edit this restaurant"));
+    }));
   }) : "Searching Your Restaurants"))));
 };
 
 var target = document.getElementById('app');
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), target);
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29478,7 +29618,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53467" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57906" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
