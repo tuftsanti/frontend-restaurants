@@ -4,6 +4,7 @@ import Header from './components/Header.js';
 import Login from './components/Login.js';
 import Footer from './components/Footer.js';
 import Filter from './components/Filter.js';
+import Favorites from './components/Favorites.js';
 import './scss/style.scss';
 
 const App = (props) => {
@@ -61,9 +62,7 @@ const App = (props) => {
 
     // Hook to GET from API data
     React.useEffect(() => {
-        // if (token) {
-        getRestaurants()
-        // }
+            getRestaurants()
     }, [])
 
     // Select Restaurant
@@ -83,7 +82,7 @@ const App = (props) => {
             },
             body: JSON.stringify(favRestaurant)
         })
-        console.log(response)
+        // console.log(response)
         getRestaurants()
     }
     // Login
@@ -133,7 +132,8 @@ const App = (props) => {
                     </ul>
                 </div>
             </div>
-            <Login onSubmit={handleLogin}/>
+            {/* <Login onSubmit={handleLogin}/> */}
+            <Favorites></Favorites>
         </>
     )
 }

@@ -29310,7 +29310,95 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Favorites.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = function _default(props) {
+  var _React$useState = _react.default.useState(null),
+      _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
+      favorites = _React$useState2[0],
+      setFavorites = _React$useState2[1];
+
+  var getFavs = /*#__PURE__*/function () {
+    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+      var response, result;
+      return _regenerator.default.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return fetch('http://localhost:3000/restaurants', {// headers: {
+                //     Authorization: `bearer $[token}`,
+                // }
+              });
+
+            case 2:
+              response = _context.sent;
+              _context.next = 5;
+              return response.json();
+
+            case 5:
+              result = _context.sent;
+              console.log(result);
+              setFavorites(result);
+
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function getFavs() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  _react.default.useEffect(function () {
+    getFavs();
+  }, []);
+
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "My Favorites"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "App"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "App__mainview"
+  }, /*#__PURE__*/_react.default.createElement("h2", {
+    className: "resultTitle"
+  }, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
+    className: "App__mainview--grid"
+  }, favorites ? favorites.map(function (favorite, index) {
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: index,
+      className: "App__mainview--grid__individualRestaurant"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: favorite.restaurant.thumb,
+      className: "App__mainview--grid__individualRestaurant--pic"
+    }), /*#__PURE__*/_react.default.createElement("h3", {
+      className: "App__mainview--grid__individualRestaurant--name"
+    }, favorite.restaurant.name));
+  }) : "Loading Your Favorites"))));
+};
+
+exports.default = _default;
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -29402,6 +29490,8 @@ var _Login = _interopRequireDefault(require("./components/Login.js"));
 var _Footer = _interopRequireDefault(require("./components/Footer.js"));
 
 var _Filter = _interopRequireDefault(require("./components/Filter.js"));
+
+var _Favorites = _interopRequireDefault(require("./components/Favorites.js"));
 
 require("./scss/style.scss");
 
@@ -29499,8 +29589,7 @@ var App = function App(props) {
   }) : ""; // Hook to GET from API data
 
   _react.default.useEffect(function () {
-    // if (token) {
-    getRestaurants(); // }
+    getRestaurants();
   }, []); // Select Restaurant
 
 
@@ -29549,10 +29638,10 @@ var App = function App(props) {
 
             case 2:
               response = _context3.sent;
-              console.log(response);
+              // console.log(response)
               getRestaurants();
 
-            case 5:
+            case 4:
             case "end":
               return _context3.stop();
           }
@@ -29643,15 +29732,13 @@ var App = function App(props) {
         return selectRestaurant(restaurant);
       }
     }));
-  }) : "Searching Your Restaurants"))), /*#__PURE__*/_react.default.createElement(_Login.default, {
-    onSubmit: handleLogin
-  }));
+  }) : "Searching Your Restaurants"))), /*#__PURE__*/_react.default.createElement(_Favorites.default, null));
 };
 
 var target = document.getElementById('app');
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), target);
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header.js":"src/components/Header.js","./components/Login.js":"src/components/Login.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header.js":"src/components/Header.js","./components/Login.js":"src/components/Login.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js","./components/Favorites.js":"src/components/Favorites.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29679,7 +29766,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56289" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56674" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
