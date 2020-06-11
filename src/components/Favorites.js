@@ -45,6 +45,14 @@ export default (props) => {
         setFavorites(result)
     }
 
+    //Delete Favorite//
+    const handleDelete = async (id) => {
+        const response = await fetch(`http://localhost:3000/restaurants/${id}`, {
+            method: 'DELETE'
+        })
+        getFavs();
+    }
+
     React.useEffect(()=> {
             getFavs()
     }, [])
@@ -62,6 +70,9 @@ export default (props) => {
                                     <li key={index} className="App__mainview--grid__individualRestaurant">
                                         <img src={favorite.restaurant.thumb} className="App__mainview--grid__individualRestaurant--pic"/>
                                         <h3 className="App__mainview--grid__individualRestaurant--name">{favorite.restaurant.name}</h3>
+                                        <ion-icon name="trash-outline" onClick={()=> {
+                                            handleDelete(favorite._id)
+                                        }}></ion-icon>
                                     </li>
                                 )
                             })
