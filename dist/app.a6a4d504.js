@@ -32931,10 +32931,12 @@ var _default = function _default(props) {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "App"
   }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "App__header"
+  }, /*#__PURE__*/_react.default.createElement("h2", null, "Your ", /*#__PURE__*/_react.default.createElement("span", {
+    id: "header-red"
+  }, "Favorites"), ":")), /*#__PURE__*/_react.default.createElement("div", {
     className: "App__mainview"
-  }, /*#__PURE__*/_react.default.createElement("h2", {
-    className: "resultTitle"
-  }, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
+  }, /*#__PURE__*/_react.default.createElement("ul", {
     className: "App__mainview--grid"
   }, favorites ? favorites.map(function (favorite, index) {
     return /*#__PURE__*/_react.default.createElement("li", {
@@ -44884,6 +44886,8 @@ var _default = function _default(props) {
 
             case 2:
               response = _context4.sent;
+              // console.log(response)
+              getRestaurants();
 
             case 4:
             case "end":
@@ -44993,7 +44997,8 @@ var _default = function _default(props) {
       className: "App__mainview--grid__individualRestaurant--pic"
     }), /*#__PURE__*/_react.default.createElement("h3", {
       className: "App__mainview--grid__individualRestaurant--name"
-    }, restaurant.restaurant.name, /*#__PURE__*/_react.default.createElement("button", {
+    }, restaurant.restaurant.name, /*#__PURE__*/_react.default.createElement("ion-icon", {
+      name: "add-circle-outline",
       onClick: function onClick() {
         pickRestaurant(restaurant);
       }
@@ -45082,11 +45087,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55679" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61442" + '/');
->>>>>>> 61019231bdc2ca0acb2a1ce4be44e689025eb522
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61018" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

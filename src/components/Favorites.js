@@ -60,8 +60,11 @@ export default (props) => {
     return (
         <>
             <div className="App">
+                <div className="App__header">
+                    {<h2>Your <span id="header-red">Favorites</span>:</h2>}
+
+                </div>
                 <div className="App__mainview">
-                    <h2 className="resultTitle">Local Restaurants</h2>
                     <ul className="App__mainview--grid">
                         { favorites ? 
                             favorites.map((favorite, index) => {
