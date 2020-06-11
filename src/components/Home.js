@@ -9,6 +9,7 @@ import $ from 'jquery'
 export default (props) => {
     const [restaurants, setRestaurant] = React.useState(null);
     const [cuisineType, setCuisineType] = React.useState('');
+    
     const [addThisRestaurant, setAddedRestaurant] = React.useState({
         name: '',
         thumb: '',
