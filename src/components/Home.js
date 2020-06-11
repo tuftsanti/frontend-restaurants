@@ -89,7 +89,6 @@ export default (props) => {
         getRestaurants()
     }, []);
 
-
     // Add a Restaurant
     const pickRestaurant = async (favRestaurant) => {
         const response = await fetch(`http://localhost:3000/restaurants`, {
@@ -155,9 +154,9 @@ export default (props) => {
                                 <li key={restaurant.restaurant.id} className="App__mainview--grid__individualRestaurant">
                                     <img src={restaurant.restaurant.thumb} className="App__mainview--grid__individualRestaurant--pic"/>
                                     <h3 className="App__mainview--grid__individualRestaurant--name">{restaurant.restaurant.name}
-                                    <button onClick={() => {
+                                    <ion-icon name="add-circle-outline"onClick={() => {
                                         pickRestaurant(restaurant)
-                                    }}></button></h3>
+                                    }}></ion-icon></h3>
                                 
                                 </li>
                             )})
