@@ -37,7 +37,7 @@ const App = (props) => {
         </>
     )
 
-
 }
+
 const target = document.getElementById('app');
 ReactDOM.render(<App />, target);
