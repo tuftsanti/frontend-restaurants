@@ -44884,6 +44884,8 @@ var _default = function _default(props) {
 
             case 2:
               response = _context4.sent;
+              // console.log(response)
+              getRestaurants();
 
             case 4:
             case "end":
@@ -44993,7 +44995,8 @@ var _default = function _default(props) {
       className: "App__mainview--grid__individualRestaurant--pic"
     }), /*#__PURE__*/_react.default.createElement("h3", {
       className: "App__mainview--grid__individualRestaurant--name"
-    }, restaurant.restaurant.name, /*#__PURE__*/_react.default.createElement("button", {
+    }, restaurant.restaurant.name, /*#__PURE__*/_react.default.createElement("ion-icon", {
+      name: "add-circle-outline",
       onClick: function onClick() {
         pickRestaurant(restaurant);
       }
@@ -45082,7 +45085,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61442" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61910" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
