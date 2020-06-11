@@ -32892,6 +32892,36 @@ var _default = function _default(props) {
     return function getFavs() {
       return _ref2.apply(this, arguments);
     };
+  }(); //Delete Favorite//
+
+
+  var handleDelete = /*#__PURE__*/function () {
+    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {
+      var response;
+      return _regenerator.default.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return fetch("http://localhost:3000/restaurants/".concat(id), {
+                method: 'DELETE'
+              });
+
+            case 2:
+              response = _context3.sent;
+              getFavs();
+
+            case 4:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function handleDelete(_x2) {
+      return _ref3.apply(this, arguments);
+    };
   }();
 
   _react.default.useEffect(function () {
@@ -32915,7 +32945,12 @@ var _default = function _default(props) {
       className: "App__mainview--grid__individualRestaurant--pic"
     }), /*#__PURE__*/_react.default.createElement("h3", {
       className: "App__mainview--grid__individualRestaurant--name"
-    }, favorite.restaurant.name));
+    }, favorite.restaurant.name), /*#__PURE__*/_react.default.createElement("ion-icon", {
+      name: "trash-outline",
+      onClick: function onClick() {
+        handleDelete(favorite._id);
+      }
+    }));
   }) : "Loading Your Favorites"))));
 };
 
@@ -44849,8 +44884,6 @@ var _default = function _default(props) {
 
             case 2:
               response = _context4.sent;
-              // console.log(response)
-              getRestaurants();
 
             case 4:
             case "end":
@@ -45049,7 +45082,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52017" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61442" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
