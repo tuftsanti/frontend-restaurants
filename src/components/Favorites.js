@@ -51,7 +51,6 @@ export default (props) => {
 
     return (
         <>
-            <h1>My Favorites</h1>
             <div className="App">
                 <div className="App__mainview">
                     <h2 className="resultTitle">Local Restaurants</h2>

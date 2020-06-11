@@ -32898,7 +32898,7 @@ var _default = function _default(props) {
     getFavs();
   }, []);
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "My Favorites"), /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "App"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "App__mainview"
@@ -45049,7 +45049,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52017" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55679" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
