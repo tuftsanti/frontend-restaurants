@@ -31998,28 +31998,7 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"@babel/runtime/helpers/defineProperty":"node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Favorites.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = function _default(props) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
-    className: "App"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "Hello World")));
-};
-
-exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/defineProperty":"node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -32791,7 +32770,157 @@ function _asyncToGenerator(fn) {
 }
 
 module.exports = _asyncToGenerator;
-},{}],"node_modules/process/browser.js":[function(require,module,exports) {
+},{}],"src/components/Favorites.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = function _default(props) {
+  var _React$useState = _react.default.useState(null),
+      _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
+      favorites = _React$useState2[0],
+      setFavorites = _React$useState2[1]; // Store jwt
+
+
+  var _React$useState3 = _react.default.useState(null),
+      _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
+      token = _React$useState4[0],
+      setToken = _React$useState4[1]; // // Localize storage for jwt
+
+
+  _react.default.useEffect(function () {
+    var checkToken = JSON.parse(window.localStorage.getItem('token'));
+
+    if (checkToken) {
+      setToken(checkToken);
+    }
+  }, []); // Login
+
+
+  var handleLogin = /*#__PURE__*/function () {
+    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(data) {
+      var response, result;
+      return _regenerator.default.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return fetch("http://localhost:3000/login", {
+                method: 'POST',
+                headers: {
+                  'Content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+              });
+
+            case 2:
+              response = _context.sent;
+              _context.next = 5;
+              return response.json();
+
+            case 5:
+              result = _context.sent;
+              setToken(result);
+              window.localStorage.setItem('token', JSON.stringify(result));
+
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function handleLogin(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }(); // Logout
+
+
+  var handleLogout = function handleLogout() {
+    window.localStorage.removeItem('token');
+    setToken(null);
+    setBookmark(null);
+  };
+
+  var getFavs = /*#__PURE__*/function () {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+      var response, result;
+      return _regenerator.default.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return fetch('http://localhost:3000/restaurants', {// headers: {
+                //     Authorization: `bearer $[token}`,
+                // }
+              });
+
+            case 2:
+              response = _context2.sent;
+              _context2.next = 5;
+              return response.json();
+
+            case 5:
+              result = _context2.sent;
+              console.log(result);
+              setFavorites(result);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function getFavs() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  _react.default.useEffect(function () {
+    getFavs();
+  }, []);
+
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "My Favorites"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "App"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "App__mainview"
+  }, /*#__PURE__*/_react.default.createElement("h2", {
+    className: "resultTitle"
+  }, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
+    className: "App__mainview--grid"
+  }, favorites ? favorites.map(function (favorite, index) {
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: index,
+      className: "App__mainview--grid__individualRestaurant"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: favorite.restaurant.thumb,
+      className: "App__mainview--grid__individualRestaurant--pic"
+    }), /*#__PURE__*/_react.default.createElement("h3", {
+      className: "App__mainview--grid__individualRestaurant--name"
+    }, favorite.restaurant.name));
+  }) : "Loading Your Favorites"))));
+};
+
+exports.default = _default;
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -44436,95 +44565,7 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Favorites.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
-
-var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-
-var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = function _default(props) {
-  var _React$useState = _react.default.useState(null),
-      _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
-      favorites = _React$useState2[0],
-      setFavorites = _React$useState2[1];
-
-  var getFavs = /*#__PURE__*/function () {
-    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-      var response, result;
-      return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return fetch('http://localhost:3000/restaurants', {// headers: {
-                //     Authorization: `bearer $[token}`,
-                // }
-              });
-
-            case 2:
-              response = _context.sent;
-              _context.next = 5;
-              return response.json();
-
-            case 5:
-              result = _context.sent;
-              console.log(result);
-              setFavorites(result);
-
-            case 8:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function getFavs() {
-      return _ref.apply(this, arguments);
-    };
-  }();
-
-  _react.default.useEffect(function () {
-    getFavs();
-  }, []);
-
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "My Favorites"), /*#__PURE__*/_react.default.createElement("div", {
-    className: "App"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "App__mainview"
-  }, /*#__PURE__*/_react.default.createElement("h2", {
-    className: "resultTitle"
-  }, "Local Restaurants"), /*#__PURE__*/_react.default.createElement("ul", {
-    className: "App__mainview--grid"
-  }, favorites ? favorites.map(function (favorite, index) {
-    return /*#__PURE__*/_react.default.createElement("li", {
-      key: index,
-      className: "App__mainview--grid__individualRestaurant"
-    }, /*#__PURE__*/_react.default.createElement("img", {
-      src: favorite.restaurant.thumb,
-      className: "App__mainview--grid__individualRestaurant--pic"
-    }), /*#__PURE__*/_react.default.createElement("h3", {
-      className: "App__mainview--grid__individualRestaurant--name"
-    }, favorite.restaurant.name));
-  }) : "Loading Your Favorites"))));
-};
-
-exports.default = _default;
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -44637,20 +44678,10 @@ var _default = function _default(props) {
       cuisineType = _React$useState4[0],
       setCuisineType = _React$useState4[1];
 
-  var _React$useState5 = _react.default.useState({
-    name: '',
-    thumb: '',
-    url: '',
-    location: {
-      address: '',
-      locality: '',
-      city: '',
-      zipcode: '00000'
-    }
-  }),
+  var _React$useState5 = _react.default.useState(null),
       _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
-      addThisRestaurant = _React$useState6[0],
-      setAddedRestaurant = _React$useState6[1];
+      favRestaurant = _React$useState6[0],
+      setFavRestaurant = _React$useState6[1];
 
   var allRestaurants = [];
 
@@ -44691,13 +44722,75 @@ var _default = function _default(props) {
     return function getRestaurants() {
       return _ref.apply(this, arguments);
     };
-  }();
+  }(); // Store jwt
 
-  var changeCuisine = /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(event) {
+
+  var _React$useState7 = _react.default.useState(null),
+      _React$useState8 = (0, _slicedToArray2.default)(_React$useState7, 2),
+      token = _React$useState8[0],
+      setToken = _React$useState8[1]; // // Localize storage for jwt
+
+
+  _react.default.useEffect(function () {
+    var checkToken = JSON.parse(window.localStorage.getItem('token'));
+
+    if (checkToken) {
+      setToken(checkToken);
+    }
+  }, []); // Login
+
+
+  var handleLogin = /*#__PURE__*/function () {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(data) {
+      var response, result;
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return fetch("http://localhost:3000/login", {
+                method: 'POST',
+                headers: {
+                  'Content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+              });
+
+            case 2:
+              response = _context2.sent;
+              _context2.next = 5;
+              return response.json();
+
+            case 5:
+              result = _context2.sent;
+              setToken(result);
+              window.localStorage.setItem('token', JSON.stringify(result));
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function handleLogin(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }(); // Logout
+
+
+  var handleLogout = function handleLogout() {
+    window.localStorage.removeItem('token');
+    setToken(null);
+    setBookmark(null);
+  };
+
+  var changeCuisine = /*#__PURE__*/function () {
+    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(event) {
+      return _regenerator.default.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
             case 0:
               event.preventDefault();
 
@@ -44724,66 +44817,35 @@ var _default = function _default(props) {
 
             case 2:
             case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function changeCuisine(_x) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-
-  _react.default.useEffect(function () {
-    getRestaurants();
-  }, []);
-
-  var selectRestaurant = /*#__PURE__*/function () {
-    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(restaurant) {
-      return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              setAddedRestaurant(restaurant);
-
-            case 1:
-            case "end":
               return _context3.stop();
           }
         }
       }, _callee3);
     }));
 
-    return function selectRestaurant(_x2) {
+    return function changeCuisine(_x2) {
       return _ref3.apply(this, arguments);
     };
   }();
 
-  var addRestaurant = /*#__PURE__*/function () {
-    var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(data) {
-      var response;
+  _react.default.useEffect(function () {
+    getRestaurants();
+  }, []); // Select Restaurant
+
+
+  var selectRestaurant = /*#__PURE__*/function () {
+    var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(restaurant) {
       return _regenerator.default.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
               _context4.next = 2;
-              return fetch("http://localhost:3000/restaurants/".concat(data._id), {
-                method: 'PUT',
-                headers: {
-                  'Content-Type': "application/json"
-                  /*,
-                  Authorization: `bearer ${token}` */
-
-                },
-                body: JSON.stringify(data)
-              });
+              return setFavRestaurant(restaurant);
 
             case 2:
-              response = _context4.sent;
-              getRestaurants();
+              pickRestaurant(favRestaurant);
 
-            case 4:
+            case 3:
             case "end":
               return _context4.stop();
           }
@@ -44791,8 +44853,44 @@ var _default = function _default(props) {
       }, _callee4);
     }));
 
-    return function addRestaurant(_x3) {
+    return function selectRestaurant(_x3) {
       return _ref4.apply(this, arguments);
+    };
+  }(); // Add a Restaurant
+
+
+  var pickRestaurant = /*#__PURE__*/function () {
+    var _ref5 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(favRestaurant) {
+      var response;
+      return _regenerator.default.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.next = 2;
+              return fetch("http://localhost:3000/restaurants", {
+                method: 'POST',
+                headers: {
+                  'Content-Type': "application/json"
+                  /*,
+                  Authorization: `bearer ${token}` */
+
+                },
+                body: JSON.stringify(favRestaurant)
+              });
+
+            case 2:
+              response = _context5.sent;
+
+            case 3:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5);
+    }));
+
+    return function pickRestaurant(_x4) {
+      return _ref5.apply(this, arguments);
     };
   }();
 
@@ -44928,6 +45026,8 @@ var _Footer = _interopRequireDefault(require("./components/Footer.js"));
 
 var _Filter = _interopRequireDefault(require("./components/Filter.js"));
 
+require("./scss/style.scss");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App(props) {
@@ -44951,7 +45051,7 @@ var App = function App(props) {
 var target = document.getElementById('app');
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), target);
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router":"node_modules/react-router/esm/react-router.js","history":"node_modules/history/esm/history.js","./components/Login.js":"src/components/Login.js","./components/Favorites.js":"src/components/Favorites.js","./components/Home.js":"src/components/Home.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router":"node_modules/react-router/esm/react-router.js","history":"node_modules/history/esm/history.js","./components/Login.js":"src/components/Login.js","./components/Favorites.js":"src/components/Favorites.js","./components/Home.js":"src/components/Home.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -44979,7 +45079,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50577" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65352" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
