@@ -9,7 +9,6 @@ import $ from 'jquery'
 export default (props) => {
     const [restaurants, setRestaurant] = React.useState(null);
     const [cuisineType, setCuisineType] = React.useState('');
-    const [favRestaurant, setFavRestaurant] = React.useState(null);
 
     let allRestaurants = [];
     const getRestaurants = async () => {
@@ -90,12 +89,6 @@ export default (props) => {
         getRestaurants()
     }, []);
 
-    // Select Restaurant
-    const selectRestaurant = async (restaurant) => {
-        await setFavRestaurant(restaurant)
-        pickRestaurant(favRestaurant)
-    }
-
     // Add a Restaurant
     const pickRestaurant = async (favRestaurant) => {
         const response = await fetch(`http://localhost:3000/restaurants`, {
@@ -162,7 +155,7 @@ export default (props) => {
                                     <img src={restaurant.restaurant.thumb} className="App__mainview--grid__individualRestaurant--pic"/>
                                     <h3 className="App__mainview--grid__individualRestaurant--name">{restaurant.restaurant.name}
                                     <ion-icon name="add-circle-outline"onClick={() => {
-                                        selectRestaurant(restaurant)
+                                        pickRestaurant(restaurant)
                                     }}></ion-icon></h3>
                                 
                                 </li>
