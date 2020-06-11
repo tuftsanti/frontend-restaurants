@@ -8,20 +8,10 @@ $accent-color: #ecf5fd;
 }
 
 html, body {
-<<<<<<< HEAD
-    // background-color: orange;
-    height: 100%;
-    font-family: 'Odibee Sans', cursive;
-    letter-spacing: .15rem;
-}
-img {
-    border-radius: 14px;
-=======
     margin: 0;
     padding: 0;
     height: 100%;
     background-color: $secondary-color;
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
 }
 
 //CSS for the header (nav bar)
@@ -34,16 +24,6 @@ img {
     z-index: 1;
     position: fixed;
     width: 100%;
-<<<<<<< HEAD
-    &__sidebar {
-        background-image: linear-gradient(to right,rgba(164, 159, 242, .1), rgb(0, 0, 0));
-        color: white;
-        border: 2px solid ghostwhite;
-        padding: .5rem;
-        height: 100vh;
-        width: 20%;
-        text-shadow: 1.3px 1.3px black;
-=======
     img {
         height: 7vh;
         margin-left: 2%;
@@ -121,7 +101,6 @@ img {
         font-family: Lato;
         font-weight: 500;
         width: 60%;
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
     }
     &__mainview {
         // display: flex;
@@ -201,3 +180,7 @@ img {
     text-align: center;
 }
 
+.login-div {
+    margin-top:20%
+    
+}

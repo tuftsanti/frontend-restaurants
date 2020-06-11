@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export default (props) => {
-<<<<<<< HEAD
     const [formData, setFormData] = React.useState({
         username: '',
         password: ''
@@ -13,7 +12,8 @@ export default (props) => {
     }
 
     return (
-        <div className="login-div">
+        <div className="App">
+            <div className="login-div">
             Username: <input 
                 type="text" 
                 name="username"
@@ -28,16 +28,7 @@ export default (props) => {
                 props.handleSubmit(formData)
             }}
             >Login</button>
+            </div>
         </div>
     );
 };
-=======
-    return (
-        <>
-            <div className="App">
-                <h1>Hello World</h1>
-            </div>
-        </>
-    );
-};
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1

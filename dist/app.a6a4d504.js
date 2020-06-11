@@ -31844,7 +31844,104 @@ if ("development" !== "production") {
     global[key] = "esm";
   }
 }
-},{"@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","prop-types":"node_modules/prop-types/index.js","history":"node_modules/history/esm/history.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","mini-create-react-context":"node_modules/mini-create-react-context/dist/esm/index.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","path-to-regexp":"node_modules/path-to-regexp/index.js","react-is":"node_modules/react-is/index.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","hoist-non-react-statics":"node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js"}],"src/components/Login.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","prop-types":"node_modules/prop-types/index.js","history":"node_modules/history/esm/history.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","mini-create-react-context":"node_modules/mini-create-react-context/dist/esm/index.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","path-to-regexp":"node_modules/path-to-regexp/index.js","react-is":"node_modules/react-is/index.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","hoist-non-react-statics":"node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js"}],"node_modules/@babel/runtime/helpers/defineProperty.js":[function(require,module,exports) {
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
+},{}],"node_modules/@babel/runtime/helpers/arrayWithHoles.js":[function(require,module,exports) {
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+module.exports = _arrayWithHoles;
+},{}],"node_modules/@babel/runtime/helpers/iterableToArrayLimit.js":[function(require,module,exports) {
+function _iterableToArrayLimit(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+module.exports = _iterableToArrayLimit;
+},{}],"node_modules/@babel/runtime/helpers/arrayLikeToArray.js":[function(require,module,exports) {
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+module.exports = _arrayLikeToArray;
+},{}],"node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js":[function(require,module,exports) {
+var arrayLikeToArray = require("./arrayLikeToArray");
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
+}
+
+module.exports = _unsupportedIterableToArray;
+},{"./arrayLikeToArray":"node_modules/@babel/runtime/helpers/arrayLikeToArray.js"}],"node_modules/@babel/runtime/helpers/nonIterableRest.js":[function(require,module,exports) {
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+module.exports = _nonIterableRest;
+},{}],"node_modules/@babel/runtime/helpers/slicedToArray.js":[function(require,module,exports) {
+var arrayWithHoles = require("./arrayWithHoles");
+
+var iterableToArrayLimit = require("./iterableToArrayLimit");
+
+var unsupportedIterableToArray = require("./unsupportedIterableToArray");
+
+var nonIterableRest = require("./nonIterableRest");
+
+function _slicedToArray(arr, i) {
+  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
+}
+
+module.exports = _slicedToArray;
+},{"./arrayWithHoles":"node_modules/@babel/runtime/helpers/arrayWithHoles.js","./iterableToArrayLimit":"node_modules/@babel/runtime/helpers/iterableToArrayLimit.js","./unsupportedIterableToArray":"node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js","./nonIterableRest":"node_modules/@babel/runtime/helpers/nonIterableRest.js"}],"src/components/Login.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31852,20 +31949,56 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 var _default = function _default(props) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+  var _React$useState = _react.default.useState({
+    username: '',
+    password: ''
+  }),
+      _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
+      formData = _React$useState2[0],
+      setFormData = _React$useState2[1];
+
+  var handleChange = function handleChange(event) {
+    setFormData(_objectSpread(_objectSpread({}, formData), {}, (0, _defineProperty2.default)({}, event.target.name, event.target.value)));
+  };
+
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: "App"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "Hello World")));
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "login-div"
+  }, "Username: ", /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    name: "username",
+    value: formData.username,
+    onChange: handleChange
+  }), /*#__PURE__*/_react.default.createElement("br", null), "Password: ", /*#__PURE__*/_react.default.createElement("input", {
+    type: "password",
+    name: "password",
+    value: formData.password,
+    onChange: handleChange
+  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: function onClick() {
+      props.handleSubmit(formData);
+    }
+  }, "Login")));
 };
 
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Favorites.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/defineProperty":"node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Favorites.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32658,87 +32791,7 @@ function _asyncToGenerator(fn) {
 }
 
 module.exports = _asyncToGenerator;
-},{}],"node_modules/@babel/runtime/helpers/arrayWithHoles.js":[function(require,module,exports) {
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-module.exports = _arrayWithHoles;
-},{}],"node_modules/@babel/runtime/helpers/iterableToArrayLimit.js":[function(require,module,exports) {
-function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-module.exports = _iterableToArrayLimit;
-},{}],"node_modules/@babel/runtime/helpers/arrayLikeToArray.js":[function(require,module,exports) {
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-module.exports = _arrayLikeToArray;
-},{}],"node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js":[function(require,module,exports) {
-var arrayLikeToArray = require("./arrayLikeToArray");
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
-}
-
-module.exports = _unsupportedIterableToArray;
-},{"./arrayLikeToArray":"node_modules/@babel/runtime/helpers/arrayLikeToArray.js"}],"node_modules/@babel/runtime/helpers/nonIterableRest.js":[function(require,module,exports) {
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-module.exports = _nonIterableRest;
-},{}],"node_modules/@babel/runtime/helpers/slicedToArray.js":[function(require,module,exports) {
-var arrayWithHoles = require("./arrayWithHoles");
-
-var iterableToArrayLimit = require("./iterableToArrayLimit");
-
-var unsupportedIterableToArray = require("./unsupportedIterableToArray");
-
-var nonIterableRest = require("./nonIterableRest");
-
-function _slicedToArray(arr, i) {
-  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
-}
-
-module.exports = _slicedToArray;
-},{"./arrayWithHoles":"node_modules/@babel/runtime/helpers/arrayWithHoles.js","./iterableToArrayLimit":"node_modules/@babel/runtime/helpers/iterableToArrayLimit.js","./unsupportedIterableToArray":"node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js","./nonIterableRest":"node_modules/@babel/runtime/helpers/nonIterableRest.js"}],"node_modules/process/browser.js":[function(require,module,exports) {
+},{}],"node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -44255,85 +44308,6 @@ var _reactRouterDom = require("react-router-dom");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(props) {
-<<<<<<< HEAD
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Header"));
-};
-
-exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/@babel/runtime/helpers/defineProperty.js":[function(require,module,exports) {
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-module.exports = _defineProperty;
-},{}],"src/components/Login.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
-var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-var _default = function _default(props) {
-  var _React$useState = _react.default.useState({
-    username: '',
-    password: ''
-  }),
-      _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
-      formData = _React$useState2[0],
-      setFormData = _React$useState2[1];
-
-  var handleChange = function handleChange(event) {
-    setFormData(_objectSpread(_objectSpread({}, formData), {}, (0, _defineProperty2.default)({}, event.target.name, event.target.value)));
-  };
-
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "login-div"
-  }, "Username: ", /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
-    name: "username",
-    value: formData.username,
-    onChange: handleChange
-  }), /*#__PURE__*/_react.default.createElement("br", null), "Password: ", /*#__PURE__*/_react.default.createElement("input", {
-    type: "password",
-    name: "password",
-    value: formData.password,
-    onChange: handleChange
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: function onClick() {
-      props.handleSubmit(formData);
-    }
-  }, "Login"));
-};
-
-exports.default = _default;
-},{"@babel/runtime/helpers/defineProperty":"node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Footer.js":[function(require,module,exports) {
-=======
   (0, _jquery.default)(window).scroll(function () {
     if ((0, _jquery.default)(this).scrollTop() > 0) {
       (0, _jquery.default)('.header').addClass('shadow');
@@ -44369,7 +44343,6 @@ exports.default = _default;
 
 exports.default = _default;
 },{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","jquery":"node_modules/jquery/dist/jquery.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/Footer.js":[function(require,module,exports) {
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -44396,11 +44369,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-<<<<<<< HEAD
-var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
-
-=======
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
@@ -44408,55 +44376,6 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(props) {
-<<<<<<< HEAD
-  var _React$useState = _react.default.useState(""),
-      _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
-      cuisineChoice = _React$useState2[0],
-      setCuisineChoice = _React$useState2[1];
-
-  var handleChange = function handleChange(event) {
-    // setFormData({...formData, [event.target.name]: event.target.value})
-    setCuisineChoice(cuisine.options[cuisine.selectedIndex].value);
-    console.log(cuisine.options[cuisine.selectedIndex].value);
-    console.log(cuisineChoice);
-  };
-
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
-    className: "filter-h1"
-  }, "What's Your Flavor?"), /*#__PURE__*/_react.default.createElement("form", {
-    className: "filter-form",
-    onChange: handleChange
-  }, /*#__PURE__*/_react.default.createElement("label", {
-    for: "cuisine"
-  }, "Cuisine of Choice:"), /*#__PURE__*/_react.default.createElement("select", {
-    id: "cuisine",
-    name: "cuisine"
-  }, /*#__PURE__*/_react.default.createElement("option", {
-    value: ""
-  }, "Any"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "American"
-  }, "American"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Asian"
-  }, "Asian"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Breakfast"
-  }, "Breakfast"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Desserts"
-  }, "Desserts"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Italian"
-  }, "Italian"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Mexican"
-  }, "Mexican"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Pizza"
-  }, "Pizza"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Seafood"
-  }, "Seafood"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Thai"
-  }, "Thai"))));
-};
-
-exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
-=======
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("form", {
     className: "filter-form"
   }, /*#__PURE__*/_react.default.createElement("label", {
@@ -44518,7 +44437,6 @@ exports.default = _default;
 
 exports.default = _default;
 },{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -44610,15 +44528,6 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _Header = _interopRequireDefault(require("./Header"));
 
-<<<<<<< HEAD
-var _Login = _interopRequireDefault(require("./components/Login.js"));
-
-var _Footer = _interopRequireDefault(require("./components/Footer.js"));
-
-var _Filter = _interopRequireDefault(require("./components/Filter.js"));
-
-require("./scss/style.scss");
-=======
 var _Footer = _interopRequireDefault(require("./Footer.js"));
 
 var _Filter = _interopRequireDefault(require("./Filter.js"));
@@ -44626,7 +44535,6 @@ var _Filter = _interopRequireDefault(require("./Filter.js"));
 require("../scss/style.scss");
 
 var _jquery = _interopRequireDefault(require("jquery"));
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -44634,55 +44542,13 @@ var _default = function _default(props) {
   var _React$useState = _react.default.useState(null),
       _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
       restaurants = _React$useState2[0],
-<<<<<<< HEAD
-      setRestaurant = _React$useState2[1]; // Hook to hold array of restaurants
-=======
       setRestaurant = _React$useState2[1];
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
 
   var _React$useState3 = _react.default.useState(''),
       _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
       cuisineType = _React$useState4[0],
       setCuisineType = _React$useState4[1];
 
-<<<<<<< HEAD
-  var _React$useState3 = _react.default.useState(_Filter.default.cuisineChoice || ''),
-      _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
-      cuisineChoice = _React$useState4[0],
-      setCuisineChoice = _React$useState4[1]; // Hook to hold saved restaurant
-
-
-  var _React$useState5 = _react.default.useState({//     restaurant: {
-    //     name: '',
-    //     thumb: '',
-    //     url: '',
-    //     location: {
-    //         address: '',
-    //         locality: '',
-    //         city: '',
-    //         zipcode: '00000'
-    //     }
-    // }
-  }),
-      _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
-      favRestaurant = _React$useState6[0],
-      setFavRestaurant = _React$useState6[1]; // Store jwt
-
-
-  var _React$useState7 = _react.default.useState(null),
-      _React$useState8 = (0, _slicedToArray2.default)(_React$useState7, 2),
-      token = _React$useState8[0],
-      setToken = _React$useState8[1]; // // Localize storage for jwt
-
-
-  _react.default.useEffect(function () {
-    var checkToken = JSON.parse(window.localStorage.getItem('token'));
-
-    if (checkToken) {
-      setToken(checkToken);
-    }
-  }, []); // GET the list of restaurants
-=======
   var _React$useState5 = _react.default.useState({
     name: '',
     thumb: '',
@@ -44697,7 +44563,6 @@ var _default = function _default(props) {
       _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
       addThisRestaurant = _React$useState6[0],
       setAddedRestaurant = _React$useState6[1];
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
 
   var allRestaurants = [];
 
@@ -44722,19 +44587,12 @@ var _default = function _default(props) {
 
             case 5:
               result = _context.sent;
-<<<<<<< HEAD
-              _context.next = 8;
-              return setRestaurant(result);
-
-            case 8:
-=======
               console.log(result);
               allRestaurants = result;
               _context.next = 10;
               return setRestaurant(result);
 
             case 10:
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
             case "end":
               return _context.stop();
           }
@@ -44745,42 +44603,14 @@ var _default = function _default(props) {
     return function getRestaurants() {
       return _ref.apply(this, arguments);
     };
-<<<<<<< HEAD
-  }(); //Array of Restaurants from API
-
-
-  var allRestaurants = [];
-  restaurants ? restaurants.restaurants.filter(function (rest) {
-    return rest.restaurant;
-  }).map(function (restaurant) {
-    return allRestaurants.push(restaurant);
-  }) : ""; // Hook to GET from API data
-
-  _react.default.useEffect(function () {
-    // if (token) {
-    getRestaurants(); // }
-  }, []); // Select Restaurant
-
-
-  var selectRestaurant = /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(restaurant) {
-=======
   }();
 
   var changeCuisine = /*#__PURE__*/function () {
     var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(event) {
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-<<<<<<< HEAD
-              setFavRestaurant(restaurant);
-              console.log(favRestaurant);
-              pickRestaurant(favRestaurant);
-
-            case 3:
-=======
               event.preventDefault();
 
               if ((0, _jquery.default)("#Breakfast").is(":checked")) {
@@ -44805,7 +44635,6 @@ var _default = function _default(props) {
               }
 
             case 2:
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
             case "end":
               return _context2.stop();
           }
@@ -44822,23 +44651,12 @@ var _default = function _default(props) {
     getRestaurants();
   }, []);
 
-<<<<<<< HEAD
-  var pickRestaurant = /*#__PURE__*/function () {
-    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(favRestaurant) {
-      var response;
-=======
   var selectRestaurant = /*#__PURE__*/function () {
     var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(restaurant) {
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
       return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-<<<<<<< HEAD
-              _context3.next = 2;
-              return fetch("http://localhost:3000/restaurants", {
-                method: 'POST',
-=======
               setAddedRestaurant(restaurant);
 
             case 1:
@@ -44864,72 +44682,20 @@ var _default = function _default(props) {
               _context4.next = 2;
               return fetch("http://localhost:3000/restaurants/".concat(data._id), {
                 method: 'PUT',
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
                 headers: {
                   'Content-Type': "application/json"
                   /*,
                   Authorization: `bearer ${token}` */
 
                 },
-                body: JSON.stringify(favRestaurant)
-              });
-
-            case 2:
-<<<<<<< HEAD
-              response = _context3.sent;
-              console.log(response);
-=======
-              response = _context4.sent;
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
-              getRestaurants();
-
-            case 5:
-            case "end":
-              return _context4.stop();
-          }
-        }
-      }, _callee4);
-    }));
-
-<<<<<<< HEAD
-    return function pickRestaurant(_x2) {
-      return _ref3.apply(this, arguments);
-=======
-    return function addRestaurant(_x3) {
-      return _ref4.apply(this, arguments);
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
-    };
-  }();
-
-<<<<<<< HEAD
-
-  var handleLogin = /*#__PURE__*/function () {
-    var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(data) {
-      var response, result;
-      return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _context4.next = 2;
-              return fetch("http://localhost:3000/login", {
-                method: 'POST',
-                headers: {
-                  'Content-type': 'application/json'
-                },
                 body: JSON.stringify(data)
               });
 
             case 2:
               response = _context4.sent;
-              _context4.next = 5;
-              return response.json();
+              getRestaurants();
 
-            case 5:
-              result = _context4.sent;
-              setToken(result);
-              window.localStorage.setItem('token', JSON.stringify(result));
-
-            case 8:
+            case 4:
             case "end":
               return _context4.stop();
           }
@@ -44937,28 +44703,11 @@ var _default = function _default(props) {
       }, _callee4);
     }));
 
-    return function handleLogin(_x3) {
+    return function addRestaurant(_x3) {
       return _ref4.apply(this, arguments);
     };
-  }(); // Logout
+  }();
 
-
-  var handleLogout = function handleLogout() {
-    window.localStorage.removeItem('token');
-    setToken(null);
-    setBookmark(null);
-  }; // Display Page
-  // console.log(restaurants.restaurants[1].restaurant.thumb)
-
-
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Header.default
-  /* <button onClick={handleLogout}>Logout</button> */
-  , null), /*#__PURE__*/_react.default.createElement("div", {
-    className: "App"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "App__sidebar"
-  }, /*#__PURE__*/_react.default.createElement(_Filter.default, null)), /*#__PURE__*/_react.default.createElement("div", {
-=======
   (0, _jquery.default)('.checkybox').on('change', function () {
     (0, _jquery.default)('.checkybox').not(this).prop('checked', false);
   });
@@ -44969,7 +44718,6 @@ var _default = function _default(props) {
   }, /*#__PURE__*/_react.default.createElement("h2", null, "Here are some of ", /*#__PURE__*/_react.default.createElement("span", {
     id: "header-red"
   }, "Boston's"), " best food spots:")), /*#__PURE__*/_react.default.createElement("div", {
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
     className: "App__mainview"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "App__mainview--sidebar"
@@ -45044,13 +44792,8 @@ var _default = function _default(props) {
     value: "Submit"
   }), /*#__PURE__*/_react.default.createElement("br", null)))), /*#__PURE__*/_react.default.createElement("ul", {
     className: "App__mainview--grid"
-<<<<<<< HEAD
-  }, restaurants ? allRestaurants.filter(function (rest) {
-    return rest.restaurant.thumb && rest.restaurant.cuisines.includes(cuisineChoice);
-=======
   }, restaurants ? restaurants.restaurants.filter(function (rest) {
     return rest.restaurant.thumb && rest.restaurant.cuisines.includes(cuisineType);
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
   }).map(function (restaurant) {
     return /*#__PURE__*/_react.default.createElement("li", {
       key: restaurant.restaurant.id,
@@ -45063,14 +44806,8 @@ var _default = function _default(props) {
     }, restaurant.restaurant.name, /*#__PURE__*/_react.default.createElement("ion-icon", {
       name: "add-circle-outline",
       onClick: function onClick() {
-        return selectRestaurant(restaurant);
+        selectRestaurant(restaurant);
       }
-<<<<<<< HEAD
-    }));
-  }) : "Searching Your Restaurants"))), /*#__PURE__*/_react.default.createElement(_Login.default, {
-    onSubmit: handleLogin
-  }));
-=======
     })));
   }) : "Searching Your Restaurants")), /*#__PURE__*/_react.default.createElement(_Footer.default, {
     className: "footer"
@@ -45121,17 +44858,12 @@ var App = function App(props) {
     path: "/",
     component: _Home.default
   })))));
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
 };
 
 var target = document.getElementById('app');
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), target);
-<<<<<<< HEAD
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header.js":"src/components/Header.js","./components/Login.js":"src/components/Login.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
-=======
 },{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router":"node_modules/react-router/esm/react-router.js","history":"node_modules/history/esm/history.js","./components/Login.js":"src/components/Login.js","./components/Favorites.js":"src/components/Favorites.js","./components/Home.js":"src/components/Home.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -45159,11 +44891,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56289" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50085" + '/');
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50577" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

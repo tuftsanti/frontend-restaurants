@@ -12,11 +12,6 @@ export default (props) => {
         }
     });
     return (
-<<<<<<< HEAD
-        <>
-            <h1>Header</h1>
-        </>
-=======
         <div className= "header">
             <div className="header__img">
                 <img src="https://i.imgur.com/pnd4BXy.png"></img>
@@ -27,6 +22,5 @@ export default (props) => {
                 <Link to="/login" style={{ textDecoration: 'none' }}><span>Log In</span></Link>
             </div>
         </div>
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
     );
 };

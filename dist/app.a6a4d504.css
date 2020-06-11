@@ -2,19 +2,10 @@
   box-sizing: border-box; }
 
 html, body {
-<<<<<<< HEAD
-  height: 100%;
-  font-family: 'Odibee Sans', cursive;
-  letter-spacing: .15rem; }
-
-img {
-  border-radius: 14px; }
-=======
   margin: 0;
   padding: 0;
   height: 100%;
   background-color: white; }
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
 
 .header {
   display: flex;
@@ -25,16 +16,6 @@ img {
   z-index: 1;
   position: fixed;
   width: 100%; }
-<<<<<<< HEAD
-  .App__sidebar {
-    background-image: linear-gradient(to right, rgba(164, 159, 242, 0.1), black);
-    color: white;
-    border: 2px solid ghostwhite;
-    padding: .5rem;
-    height: 100vh;
-    width: 20%;
-    text-shadow: 1.3px 1.3px black; }
-=======
   .header img {
     height: 7vh;
     margin-left: 2%;
@@ -94,7 +75,6 @@ img {
     font-family: Lato;
     font-weight: 500;
     width: 60%; }
->>>>>>> 51d574f7b0ac02385c5c158cfb7b7bbb255533a1
   .App__mainview {
     width: 100%;
     display: flex;
@@ -153,6 +133,9 @@ img {
 
 .resultTitle {
   text-align: center; }
+
+.login-div {
+  margin-top: 20%; }
 
 
 /*# sourceMappingURL=/app.a6a4d504.css.map */
