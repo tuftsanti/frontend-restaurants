@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/Header.js';
+import { Router, Route, Switch } from 'react-router';
+import { createBrowserHistory } from 'history';
 import Login from './components/Login.js';
+import Favorites from './components/Favorites.js';
+import Home from './components/Home.js'
+import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import Filter from './components/Filter.js';
 import Favorites from './components/Favorites.js';
@@ -40,25 +44,6 @@ const App = (props) => {
         }
     }, [])
 
-    // GET the list of restaurants
-    const getRestaurants = async () => {
-        const response = await fetch('https://developers.zomato.com/api/v2.1/search?start=50&count=100&lat=42.361145&lon=-71.057083&radius=1000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian', {
-        headers: { 
-            "user-key" : "43857380d1047f74d7d7691dea96f3a5"
-        }
-    })
-        const result = await response.json()
-        // console.log(result)
-        await setRestaurant(result)
-    }
-    //Array of Restaurants from API
-    const allRestaurants = []
-    restaurants ? restaurants.restaurants.filter(rest => rest.restaurant).map((restaurant) => {
-        return (
-            allRestaurants.push(restaurant)
-        )
-    })
-    : ""
 
     // Hook to GET from API data
     React.useEffect(() => {
@@ -103,39 +88,33 @@ const App = (props) => {
         setBookmark(null)
     }
 
+const App = (props) => {
+    
+    let hist = createBrowserHistory()
 
-    // Display Page
-    // console.log(restaurants.restaurants[1].restaurant.thumb)
     return (
         <>
-            <Header /* <button onClick={handleLogout}>Logout</button> */ />
-            <div className="App">
-            <div className="App__sidebar">
-                    <Filter/>
+            <Router history={hist}>
+                <div>
+                <Header /* <button onClick={handleLogout}>Logout</button> */ />
+                <Switch>
+                    <Route path="/login" component={Login}>
+                        
+                    </Route>
+                    <Route path="/favorites" component={Favorites}>
+                     
+                    </Route>
+                    <Route path="/" component={Home}>
+                        
+                    </Route>
+                </Switch>
                 </div>
-                <div className="App__mainview">
-                    <h2 className="resultTitle">Local Restaurants</h2>
-                    <ul className="App__mainview--grid">
-                        { restaurants ? 
-                         allRestaurants.filter(rest => rest.restaurant.thumb && rest.restaurant.cuisines.includes(cuisineChoice)).map((restaurant) => {
-                            return (
-                                <li key={restaurant.restaurant.id} className="App__mainview--grid__individualRestaurant">
-                                    <img src={restaurant.restaurant.thumb} className="App__mainview--grid__individualRestaurant--pic"/>
-                                    <h3 className="App__mainview--grid__individualRestaurant--name">{restaurant.restaurant.name}</h3>
-                                    <ion-icon name="add-circle-outline" onClick={()=>
-                                        selectRestaurant(restaurant)}></ion-icon>
-                                </li>
-                            )})
-                         : 
-                        `Searching Your Restaurants`
-                        }
-                    </ul>
-                </div>
-            </div>
-            {/* <Login onSubmit={handleLogin}/> */}
-            <Favorites></Favorites>
+            </Router>
+            
         </>
     )
+
 }
+
 const target = document.getElementById('app');
 ReactDOM.render(<App />, target);

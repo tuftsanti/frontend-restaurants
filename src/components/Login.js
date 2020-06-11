@@ -12,7 +12,8 @@ export default (props) => {
     }
 
     return (
-        <div className="login-div">
+        <div className="App">
+            <div className="login-div">
             Username: <input 
                 type="text" 
                 name="username"
@@ -27,6 +28,7 @@ export default (props) => {
                 props.handleSubmit(formData)
             }}
             >Login</button>
+            </div>
         </div>
     );
 };
