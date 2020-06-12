@@ -32929,31 +32929,31 @@ var _default = function _default(props) {
   }, []);
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
-    className: "App"
+    className: "Favorites"
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "App__header"
+    className: "Favorites__header"
   }, /*#__PURE__*/_react.default.createElement("h2", null, "Your ", /*#__PURE__*/_react.default.createElement("span", {
     id: "header-red"
   }, "Favorites"), ":")), /*#__PURE__*/_react.default.createElement("div", {
-    className: "App__mainview"
+    className: "Favorites__mainview"
   }, /*#__PURE__*/_react.default.createElement("ul", {
-    className: "App__mainview--grid"
+    className: "Favorites__mainview--grid"
   }, favorites ? favorites.map(function (favorite, index) {
     return /*#__PURE__*/_react.default.createElement("li", {
       key: index,
-      className: "App__mainview--grid__individualRestaurant"
+      className: "Favorites__mainview--grid__individualRestaurant"
     }, /*#__PURE__*/_react.default.createElement("img", {
       src: favorite.restaurant.thumb,
-      className: "App__mainview--grid__individualRestaurant--pic"
+      className: "Favorites__mainview--grid__individualRestaurant--pic"
     }), /*#__PURE__*/_react.default.createElement("h3", {
-      className: "App__mainview--grid__individualRestaurant--name"
+      className: "Favorites__mainview--grid__individualRestaurant--name"
     }, favorite.restaurant.name), /*#__PURE__*/_react.default.createElement("ion-icon", {
       name: "trash-outline",
       onClick: function onClick() {
         handleDelete(favorite._id);
       }
     }));
-  }) : "Loading Your Favorites"))));
+  }) : "Loading Your Restaurants"))));
 };
 
 exports.default = _default;
@@ -44486,7 +44486,7 @@ var _default = function _default(props) {
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "header__img"
   }, /*#__PURE__*/_react.default.createElement("img", {
-    src: "https://i.imgur.com/pnd4BXy.png"
+    src: "https://i.imgur.com/8Zn8m8R.png"
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "header__nav"
   }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
@@ -44669,7 +44669,7 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel/src/builtins/bundle-url.js"}],"src/scss/style.scss":[function(require,module,exports) {
+},{"./bundle-url":"node_modules/parcel/src/builtins/bundle-url.js"}],"src/scss/style2.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -44698,7 +44698,7 @@ var _Footer = _interopRequireDefault(require("./Footer.js"));
 
 var _Filter = _interopRequireDefault(require("./Filter.js"));
 
-require("../scss/style.scss");
+require("../scss/style2.scss");
 
 var _jquery = _interopRequireDefault(require("jquery"));
 
@@ -44715,7 +44715,10 @@ var _default = function _default(props) {
       cuisineType = _React$useState4[0],
       setCuisineType = _React$useState4[1];
 
-  var allRestaurants = [];
+  var _React$useState5 = _react.default.useState(true),
+      _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
+      showButton = _React$useState6[0],
+      setButtonType = _React$useState6[1];
 
   var getRestaurants = /*#__PURE__*/function () {
     var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
@@ -44725,7 +44728,7 @@ var _default = function _default(props) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return fetch('https://developers.zomato.com/api/v2.1/search?start=50&count=100&lat=42.361145&lon=-71.057083&radius=1000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian', {
+              return fetch('https://developers.zomato.com/api/v2.1/search?start50&count=100&lat=42.361145&lon=-71.057083&radius=1000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian', {
                 headers: {
                   "user-key": "43857380d1047f74d7d7691dea96f3a5"
                 }
@@ -44739,11 +44742,10 @@ var _default = function _default(props) {
             case 5:
               result = _context.sent;
               console.log(result);
-              allRestaurants = result;
-              _context.next = 10;
+              _context.next = 9;
               return setRestaurant(result);
 
-            case 10:
+            case 9:
             case "end":
               return _context.stop();
           }
@@ -44757,10 +44759,10 @@ var _default = function _default(props) {
   }(); // Store jwt
 
 
-  var _React$useState5 = _react.default.useState(null),
-      _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
-      token = _React$useState6[0],
-      setToken = _React$useState6[1]; // // Localize storage for jwt
+  var _React$useState7 = _react.default.useState(null),
+      _React$useState8 = (0, _slicedToArray2.default)(_React$useState7, 2),
+      token = _React$useState8[0],
+      setToken = _React$useState8[1]; // // Localize storage for jwt
 
 
   _react.default.useEffect(function () {
@@ -44866,7 +44868,7 @@ var _default = function _default(props) {
 
 
   var pickRestaurant = /*#__PURE__*/function () {
-    var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(favRestaurant) {
+    var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(favRestaurant, event) {
       var response;
       return _regenerator.default.wrap(function _callee4$(_context4) {
         while (1) {
@@ -44897,7 +44899,7 @@ var _default = function _default(props) {
       }, _callee4);
     }));
 
-    return function pickRestaurant(_x3) {
+    return function pickRestaurant(_x3, _x4) {
       return _ref4.apply(this, arguments);
     };
   }();
@@ -44909,9 +44911,11 @@ var _default = function _default(props) {
     className: "App"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "App__header"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, "Here are some of ", /*#__PURE__*/_react.default.createElement("span", {
-    id: "header-red"
-  }, "Boston's"), " best food spots:")), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: "https://i.imgur.com/3aYrSfT.jpg"
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "App__header2"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Local Favorites:")), /*#__PURE__*/_react.default.createElement("div", {
     className: "App__mainview"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "App__mainview--sidebar"
@@ -44995,15 +44999,20 @@ var _default = function _default(props) {
     }, /*#__PURE__*/_react.default.createElement("img", {
       src: restaurant.restaurant.thumb,
       className: "App__mainview--grid__individualRestaurant--pic"
-    }), /*#__PURE__*/_react.default.createElement("h3", {
+    }), /*#__PURE__*/_react.default.createElement("div", {
       className: "App__mainview--grid__individualRestaurant--name"
-    }, restaurant.restaurant.name, /*#__PURE__*/_react.default.createElement("ion-icon", {
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "names"
+    }, /*#__PURE__*/_react.default.createElement("h3", null, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("h6", null, restaurant.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
+      className: "icon"
+    }, showButton ? /*#__PURE__*/_react.default.createElement("ion-icon", {
+      className: "plus-icon",
       name: "add-circle-outline",
       onClick: function onClick() {
-        pickRestaurant(restaurant);
+        pickRestaurant(restaurant, event);
       }
-    })));
-  }) : "Searching Your Restaurants")), /*#__PURE__*/_react.default.createElement(_Footer.default, {
+    }) : /*#__PURE__*/_react.default.createElement("p", null, "hi"))));
+  }) : /*#__PURE__*/_react.default.createElement("h1", null, "Searching Local Restaurants..."))), /*#__PURE__*/_react.default.createElement(_Footer.default, {
     className: "footer"
     /* <button onClick={handleLogout}>Logout</button> */
 
@@ -45011,7 +45020,7 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./Header":"src/components/Header.js","./Footer.js":"src/components/Footer.js","./Filter.js":"src/components/Filter.js","../scss/style.scss":"src/scss/style.scss","jquery":"node_modules/jquery/dist/jquery.js"}],"src/app.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./Header":"src/components/Header.js","./Footer.js":"src/components/Footer.js","./Filter.js":"src/components/Filter.js","../scss/style2.scss":"src/scss/style2.scss","jquery":"node_modules/jquery/dist/jquery.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -45033,8 +45042,6 @@ var _Header = _interopRequireDefault(require("./components/Header.js"));
 var _Footer = _interopRequireDefault(require("./components/Footer.js"));
 
 var _Filter = _interopRequireDefault(require("./components/Filter.js"));
-
-require("./scss/style.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45059,7 +45066,7 @@ var App = function App(props) {
 var target = document.getElementById('app');
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), target);
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router":"node_modules/react-router/esm/react-router.js","history":"node_modules/history/esm/history.js","./components/Login.js":"src/components/Login.js","./components/Favorites.js":"src/components/Favorites.js","./components/Home.js":"src/components/Home.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js","./scss/style.scss":"src/scss/style.scss"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router":"node_modules/react-router/esm/react-router.js","history":"node_modules/history/esm/history.js","./components/Login.js":"src/components/Login.js","./components/Favorites.js":"src/components/Favorites.js","./components/Home.js":"src/components/Home.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -45087,7 +45094,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41105" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60915" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
