@@ -97,7 +97,7 @@ html, body {
         border-top-right-radius: 5px;
         color: white; }
     .App__mainview--grid {
-      width: 80%;
+      width: 75%;
       display: flex;
       flex-wrap: wrap;
       list-style-type: none;
