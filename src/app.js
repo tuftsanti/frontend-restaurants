@@ -8,7 +8,7 @@ import Home from './components/Home.js';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import Filter from './components/Filter.js';
-import './scss/style.scss';
+
     
 const App = (props) => {
     

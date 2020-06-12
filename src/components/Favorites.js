@@ -59,19 +59,19 @@ export default (props) => {
 
     return (
         <>
-            <div className="App">
-                <div className="App__header">
+            <div className="Favorites">
+                <div className="Favorites__header">
                     {<h2>Your <span id="header-red">Favorites</span>:</h2>}
 
                 </div>
-                <div className="App__mainview">
-                    <ul className="App__mainview--grid">
+                <div className="Favorites__mainview">
+                    <ul className="Favorites__mainview--grid">
                         { favorites ? 
                             favorites.map((favorite, index) => {
                                 return (
-                                    <li key={index} className="App__mainview--grid__individualRestaurant">
-                                        <img src={favorite.restaurant.thumb} className="App__mainview--grid__individualRestaurant--pic"/>
-                                        <h3 className="App__mainview--grid__individualRestaurant--name">{favorite.restaurant.name}</h3>
+                                    <li key={index} className="Favorites__mainview--grid__individualRestaurant">
+                                        <img src={favorite.restaurant.thumb} className="Favorites__mainview--grid__individualRestaurant--pic"/>
+                                        <h3 className="Favorites__mainview--grid__individualRestaurant--name">{favorite.restaurant.name}</h3>
                                         <ion-icon name="trash-outline" onClick={()=> {
                                             handleDelete(favorite._id)
                                         }}></ion-icon>
@@ -79,7 +79,7 @@ export default (props) => {
                                 )
                             })
                          : 
-                        `Loading Your Favorites`
+                        `Loading Your Restaurants`
                         }
                     </ul>
                 </div>
