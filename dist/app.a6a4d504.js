@@ -46335,60 +46335,13 @@ var _default = function _default(props) {
     if (checkToken) {
       setToken(checkToken);
     }
-  }, []); // Login
+  }, []);
 
-
-  var handleLogin = /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(data) {
-      var response, result;
+  var changeCuisine = /*#__PURE__*/function () {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(event) {
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
-            case 0:
-              _context2.next = 2;
-              return fetch("http://localhost:3000/login", {
-                method: 'POST',
-                headers: {
-                  'Content-type': 'application/json'
-                },
-                body: JSON.stringify(data)
-              });
-
-            case 2:
-              response = _context2.sent;
-              _context2.next = 5;
-              return response.json();
-
-            case 5:
-              result = _context2.sent;
-              setToken(result);
-              window.localStorage.setItem('token', JSON.stringify(result));
-
-            case 8:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function handleLogin(_x) {
-      return _ref2.apply(this, arguments);
-    };
-  }(); // Logout
-
-
-  var handleLogout = function handleLogout() {
-    window.localStorage.removeItem('token');
-    setToken(null);
-    setBookmark(null);
-  };
-
-  var changeCuisine = /*#__PURE__*/function () {
-    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(event) {
-      return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
             case 0:
               event.preventDefault();
 
@@ -46415,14 +46368,14 @@ var _default = function _default(props) {
 
             case 2:
             case "end":
-              return _context3.stop();
+              return _context2.stop();
           }
         }
-      }, _callee3);
+      }, _callee2);
     }));
 
-    return function changeCuisine(_x2) {
-      return _ref3.apply(this, arguments);
+    return function changeCuisine(_x) {
+      return _ref2.apply(this, arguments);
     };
   }();
 
@@ -46432,13 +46385,13 @@ var _default = function _default(props) {
 
 
   var pickRestaurant = /*#__PURE__*/function () {
-    var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(favRestaurant, event) {
+    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(favRestaurant, event) {
       var response;
-      return _regenerator.default.wrap(function _callee4$(_context4) {
+      return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
-          switch (_context4.prev = _context4.next) {
+          switch (_context3.prev = _context3.next) {
             case 0:
-              _context4.next = 2;
+              _context3.next = 2;
               return fetch("http://localhost:3000/restaurants", {
                 method: 'POST',
                 headers: {
@@ -46451,20 +46404,20 @@ var _default = function _default(props) {
               });
 
             case 2:
-              response = _context4.sent;
+              response = _context3.sent;
               // console.log(response)
               getRestaurants();
 
             case 4:
             case "end":
-              return _context4.stop();
+              return _context3.stop();
           }
         }
-      }, _callee4);
+      }, _callee3);
     }));
 
-    return function pickRestaurant(_x3, _x4) {
-      return _ref4.apply(this, arguments);
+    return function pickRestaurant(_x2, _x3) {
+      return _ref3.apply(this, arguments);
     };
   }();
 
@@ -46646,9 +46599,13 @@ var _default = function _default(props) {
     style: {
       textDecoration: 'none'
     }
-  }, /*#__PURE__*/_react.default.createElement("span", null, "Favorites")), /*#__PURE__*/_react.default.createElement("span", {
+  }, /*#__PURE__*/_react.default.createElement("span", null, "Favorites")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    style: {
+      textDecoration: 'none'
+    }
+  }, /*#__PURE__*/_react.default.createElement("span", {
     onClick: logout
-  }, "Logout")) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, "Logout"))) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/register",
     style: {
       textDecoration: 'none'
@@ -46832,11 +46789,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59483" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55522" + '/');
->>>>>>> 3178ba1ee2d931dbb6e01918fd64162879b42c6e
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59528" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
