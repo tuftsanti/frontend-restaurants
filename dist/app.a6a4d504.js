@@ -34900,8 +34900,6 @@ var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/sli
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
 var _axios = _interopRequireDefault(require("axios"));
 
 var _UserContext = _interopRequireDefault(require("../context/UserContext"));
@@ -34911,10 +34909,6 @@ var _reactRouterDom = require("react-router-dom");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(props) {
-  // const [formData, setFormData] = React.useState({
-  //     username: '',
-  //     password: ''
-  // })
   var _React$useState = _react.default.useState(),
       _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
       username = _React$useState2[0],
@@ -34923,15 +34917,12 @@ var _default = function _default(props) {
   var _React$useState3 = _react.default.useState(),
       _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
       password = _React$useState4[0],
-      setPassword = _React$useState4[1]; // const handleChange = (event) => {
-  //     setFormData({...formData, [event.target.name]: event.target.value})
-  // }
-
+      setPassword = _React$useState4[1];
 
   var _React$useContext = _react.default.useContext(_UserContext.default),
       setUserData = _React$useContext.setUserData;
 
-  var history = _reactRouterDom.useHistory;
+  var history = (0, _reactRouterDom.useHistory)();
 
   var submit = /*#__PURE__*/function () {
     var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(event) {
@@ -34992,7 +34983,7 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","axios":"node_modules/axios/index.js","../context/UserContext":"src/context/UserContext.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/Register.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","axios":"node_modules/axios/index.js","../context/UserContext":"src/context/UserContext.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/Register.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35007,8 +34998,6 @@ var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
 var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -35027,15 +35016,12 @@ var _default = function _default(props) {
   var _React$useState3 = _react.default.useState(),
       _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
       password = _React$useState4[0],
-      setPassword = _React$useState4[1]; // const handleChange = (event) => {
-  //     setUsername({...formData, [event.target.name]: event.target.value})
-  // }
-
+      setPassword = _React$useState4[1];
 
   var _React$useContext = _react.default.useContext(_UserContext.default),
       setUserData = _React$useContext.setUserData;
 
-  var history = _reactRouterDom.useHistory;
+  var history = (0, _reactRouterDom.useHistory)();
 
   var submit = /*#__PURE__*/function () {
     var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(event) {
@@ -35103,7 +35089,7 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","axios":"node_modules/axios/index.js","../context/UserContext":"src/context/UserContext.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/Favorites.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","axios":"node_modules/axios/index.js","../context/UserContext":"src/context/UserContext.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/Favorites.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35124,7 +35110,98 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/jquery/dist/jquery.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Footer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = function _default(props) {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Footer"));
+};
+
+exports.default = _default;
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel/src/builtins/bundle-url.js"}],"src/scss/style.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"node_modules/parcel/src/builtins/css-loader.js"}],"node_modules/jquery/dist/jquery.js":[function(require,module,exports) {
 var global = arguments[3];
 var process = require("process");
 var define;
@@ -46001,260 +46078,7 @@ if ( typeof noGlobal === "undefined" ) {
 return jQuery;
 } );
 
-},{"process":"node_modules/process/browser.js"}],"src/components/Header.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-var _jquery = _interopRequireDefault(require("jquery"));
-
-var _reactRouterDom = require("react-router-dom");
-
-var _UserContext = _interopRequireDefault(require("../context/UserContext"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-// import {useHistory} from 'react-router-dom';
-var _default = function _default(props) {
-  (0, _jquery.default)(window).scroll(function () {
-    if ((0, _jquery.default)(this).scrollTop() > 0) {
-      (0, _jquery.default)('.header').addClass('shadow');
-    } else {
-      (0, _jquery.default)('.header').removeClass('shadow');
-    }
-  });
-
-  var _useContext = (0, _react.useContext)(_UserContext.default),
-      userData = _useContext.userData,
-      setUserData = _useContext.setUserData; // const history = useHistory()
-  // const register = () => {
-  //     history.push("/register")
-  // }
-  // const login = () => {
-  //     history.push("/login")
-  // }
-
-
-  var logout = function logout() {
-    setUserData({
-      token: undefined,
-      user: undefined
-    });
-    localStorage.setItem("auth-token", '');
-  };
-
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "header"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "header__img"
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    src: "https://i.imgur.com/pnd4BXy.png"
-  })), /*#__PURE__*/_react.default.createElement("div", {
-    className: "header__nav"
-  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/",
-    style: {
-      textDecoration: 'none'
-    }
-  }, /*#__PURE__*/_react.default.createElement("span", null, "Home")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/favorites",
-    style: {
-      textDecoration: 'none'
-    }
-  }, /*#__PURE__*/_react.default.createElement("span", null, "Favorites")), userData.user ? /*#__PURE__*/_react.default.createElement("span", {
-    onClick: logout
-  }, "Logout") : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/register",
-    style: {
-      textDecoration: 'none'
-    }
-  }, /*#__PURE__*/_react.default.createElement("span", null, "Register")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/login",
-    style: {
-      textDecoration: 'none'
-    }
-  }, /*#__PURE__*/_react.default.createElement("span", null, "Log In")))));
-};
-
-exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","jquery":"node_modules/jquery/dist/jquery.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../context/UserContext":"src/context/UserContext.js"}],"src/components/Footer.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = function _default(props) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Footer"));
-};
-
-exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Filter.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = function _default(props) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("form", {
-    className: "filter-form"
-  }, /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "American"
-  }, "American"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "American",
-    name: "American",
-    value: "American"
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "Asian"
-  }, "Asian"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "Asian",
-    name: "Asian",
-    value: "Asian"
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "Breakfast"
-  }, "Breakfast"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "Breakfast",
-    name: "Breakfast",
-    value: "Breakfast"
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "Desserts"
-  }, "Desserts"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "Desserts",
-    name: "Desserts",
-    value: "Desserts"
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "Italian"
-  }, "Italian"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "Italian",
-    name: "Italian",
-    value: "Italian"
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "Mexican"
-  }, "Mexican"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "Mexican",
-    name: "Mexican",
-    value: "Mexican"
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "Seafood"
-  }, "Seafood"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    id: "Seafood",
-    name: "Seafood",
-    value: "Seafood"
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
-    type: "submit",
-    id: "Submit",
-    name: "Submit",
-    value: "Submit"
-  }), /*#__PURE__*/_react.default.createElement("br", null)));
-};
-
-exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel/src/builtins/bundle-url.js"}],"src/scss/style.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel/src/builtins/css-loader.js"}],"src/components/Home.js":[function(require,module,exports) {
+},{"process":"node_modules/process/browser.js"}],"src/components/Home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46270,13 +46094,7 @@ var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/sli
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-var _Header = _interopRequireDefault(require("./Header"));
-
 var _Footer = _interopRequireDefault(require("./Footer.js"));
-
-var _Filter = _interopRequireDefault(require("./Filter.js"));
 
 require("../scss/style.scss");
 
@@ -46557,13 +46375,91 @@ var _default = function _default(props) {
     })));
   }) : "Searching Your Restaurants")), /*#__PURE__*/_react.default.createElement(_Footer.default, {
     className: "footer"
-    /* <button onClick={handleLogout}>Logout</button> */
-
   })));
 };
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./Header":"src/components/Header.js","./Footer.js":"src/components/Footer.js","./Filter.js":"src/components/Filter.js","../scss/style.scss":"src/scss/style.scss","jquery":"node_modules/jquery/dist/jquery.js"}],"src/app.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","./Footer.js":"src/components/Footer.js","../scss/style.scss":"src/scss/style.scss","jquery":"node_modules/jquery/dist/jquery.js"}],"src/components/Header.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _jquery = _interopRequireDefault(require("jquery"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _UserContext = _interopRequireDefault(require("../context/UserContext"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var _default = function _default(props) {
+  (0, _jquery.default)(window).scroll(function () {
+    if ((0, _jquery.default)(this).scrollTop() > 0) {
+      (0, _jquery.default)('.header').addClass('shadow');
+    } else {
+      (0, _jquery.default)('.header').removeClass('shadow');
+    }
+  });
+
+  var _useContext = (0, _react.useContext)(_UserContext.default),
+      userData = _useContext.userData,
+      setUserData = _useContext.setUserData;
+
+  var history = (0, _reactRouterDom.useHistory)();
+
+  var logout = function logout() {
+    setUserData({
+      token: undefined,
+      user: undefined
+    });
+    localStorage.setItem("auth-token", '');
+    history.push('/');
+  };
+
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "header"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "header__img"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: "https://i.imgur.com/pnd4BXy.png"
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "header__nav"
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/",
+    style: {
+      textDecoration: 'none'
+    }
+  }, /*#__PURE__*/_react.default.createElement("span", null, "Home")), userData.user ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/favorites",
+    style: {
+      textDecoration: 'none'
+    }
+  }, /*#__PURE__*/_react.default.createElement("span", null, "Favorites")), /*#__PURE__*/_react.default.createElement("span", {
+    onClick: logout
+  }, "Logout")) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/register",
+    style: {
+      textDecoration: 'none'
+    }
+  }, /*#__PURE__*/_react.default.createElement("span", null, "Register")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/login",
+    style: {
+      textDecoration: 'none'
+    }
+  }, /*#__PURE__*/_react.default.createElement("span", null, "Log In")))));
+};
+
+exports.default = _default;
+},{"react":"node_modules/react/index.js","jquery":"node_modules/jquery/dist/jquery.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../context/UserContext":"src/context/UserContext.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
@@ -46592,11 +46488,11 @@ var _Header = _interopRequireDefault(require("./components/Header.js"));
 
 var _Footer = _interopRequireDefault(require("./components/Footer.js"));
 
-var _Filter = _interopRequireDefault(require("./components/Filter.js"));
-
 var _UserContext = _interopRequireDefault(require("./context/UserContext"));
 
 var _axios = _interopRequireDefault(require("axios"));
+
+var _reactRouterDom = require("react-router-dom");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -46612,55 +46508,6 @@ var App = function App(props) {
       token = _React$useState2[0],
       setToken = _React$useState2[1];
 
-  var handleLogin = /*#__PURE__*/function () {
-    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(data) {
-      var response, result;
-      return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return fetch('http://localhost:3000/login', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-              });
-
-            case 2:
-              response = _context.sent;
-              _context.next = 5;
-              return response.json();
-
-            case 5:
-              result = _context.sent;
-              console.log(result);
-              setToken(result);
-              window.localStorage.setItem('token', JSON.stringify(result));
-
-            case 9:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function handleLogin(_x) {
-      return _ref.apply(this, arguments);
-    };
-  }();
-
-  var handleLogout = function handleLogout() {
-    //REMOVE TOKEN FROM LOCAL STORAGE
-    window.localStorage.removeItem('token'); //REMOVE TOKEN FROM STATE
-
-    setToken(null); //SET HOLIDAYS TO NULL
-
-    setHolidays(null);
-  };
-
   var _useState = (0, _react.useState)({
     token: undefined,
     user: undefined
@@ -46671,11 +46518,11 @@ var App = function App(props) {
 
   (0, _react.useEffect)(function () {
     var isLoggedIn = /*#__PURE__*/function () {
-      var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+      var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
         var token, tokenResponse, userResponse;
-        return _regenerator.default.wrap(function _callee2$(_context2) {
+        return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context.prev = _context.next) {
               case 0:
                 token = localStorage.getItem('auth-token');
 
@@ -46684,7 +46531,7 @@ var App = function App(props) {
                   token = '';
                 }
 
-                _context2.next = 4;
+                _context.next = 4;
                 return _axios.default.post("http://localhost:3000/users/validToken", null, {
                   headers: {
                     "x-auth-token": token
@@ -46692,14 +46539,14 @@ var App = function App(props) {
                 });
 
               case 4:
-                tokenResponse = _context2.sent;
+                tokenResponse = _context.sent;
 
                 if (!tokenResponse.data) {
-                  _context2.next = 10;
+                  _context.next = 10;
                   break;
                 }
 
-                _context2.next = 8;
+                _context.next = 8;
                 return _axios.default.get('http://localhost:3000/users/', {
                   headers: {
                     'x-auth-token': token
@@ -46707,7 +46554,7 @@ var App = function App(props) {
                 });
 
               case 8:
-                userResponse = _context2.sent;
+                userResponse = _context.sent;
                 setUserData({
                   token: token,
                   user: userResponse.data
@@ -46715,20 +46562,20 @@ var App = function App(props) {
 
               case 10:
               case "end":
-                return _context2.stop();
+                return _context.stop();
             }
           }
-        }, _callee2);
+        }, _callee);
       }));
 
       return function isLoggedIn() {
-        return _ref2.apply(this, arguments);
+        return _ref.apply(this, arguments);
       };
     }();
 
     isLoggedIn();
   }, []);
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_reactRouter.Router, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, {
     history: hist
   }, /*#__PURE__*/_react.default.createElement(_UserContext.default.Provider, {
     value: {
@@ -46754,7 +46601,7 @@ var App = function App(props) {
 var target = document.getElementById('app');
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), target);
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router":"node_modules/react-router/esm/react-router.js","history":"node_modules/history/esm/history.js","./components/Login.js":"src/components/Login.js","./components/Register.js":"src/components/Register.js","./components/Favorites.js":"src/components/Favorites.js","./components/Home.js":"src/components/Home.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./components/Filter.js":"src/components/Filter.js","./context/UserContext":"src/context/UserContext.js","axios":"node_modules/axios/index.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router":"node_modules/react-router/esm/react-router.js","history":"node_modules/history/esm/history.js","./components/Login.js":"src/components/Login.js","./components/Register.js":"src/components/Register.js","./components/Favorites.js":"src/components/Favorites.js","./components/Home.js":"src/components/Home.js","./components/Header.js":"src/components/Header.js","./components/Footer.js":"src/components/Footer.js","./context/UserContext":"src/context/UserContext.js","axios":"node_modules/axios/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -46782,7 +46629,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45623" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34777" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,9 +1,8 @@
-import React, {useContext} from 'react'
-import ReactDOM from 'react-dom';
-import $ from "jquery"
+import React, {useContext} from 'react';
+import $ from "jquery";
 import { Link } from 'react-router-dom';
-// import {useHistory} from 'react-router-dom';
-import UserContext from '../context/UserContext'
+import {useHistory} from 'react-router-dom';
+import UserContext from '../context/UserContext';
 
 export default (props) => {
     $(window).scroll(function(){
@@ -15,19 +14,16 @@ export default (props) => {
     });
 
     const {userData, setUserData} = useContext(UserContext)
-    // const history = useHistory()
-    // const register = () => {
-    //     history.push("/register")
-    // }
-    // const login = () => {
-    //     history.push("/login")
-    // }
+
+    const history = useHistory();
+
     const logout = () => {
         setUserData ({
             token: undefined,
             user: undefined
         })
         localStorage.setItem("auth-token", '')
+        history.push('/')
     }
 
 
@@ -38,9 +34,9 @@ export default (props) => {
             </div>
             <div className="header__nav">
                 <Link to="/" style={{ textDecoration: 'none' }}><span>Home</span></Link>
-                <Link to="/favorites" style={{ textDecoration: 'none' }}><span>Favorites</span></Link>
                 {userData.user ? 
-                (<span onClick={logout}>Logout</span>) : 
+                (<><Link to="/favorites" style={{ textDecoration: 'none' }}><span>Favorites</span></Link>
+                <span onClick={logout}>Logout</span></>) : 
                 (<>
                 <Link to="/register" style={{ textDecoration: 'none' }}><span>Register</span></Link>
                 <Link to="/login" style={{ textDecoration: 'none' }}><span>Log In</span></Link></>)}

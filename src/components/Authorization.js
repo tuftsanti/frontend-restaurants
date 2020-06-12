@@ -4,7 +4,6 @@ import UserContext from '../context/UserContext'
 
 export default function Authorization() {
     const {userData, setUserData} = useContext(UserContext)
-
     const history = useHistory()
 
     const register = () => {

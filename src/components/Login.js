@@ -1,23 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Axios from 'axios'
 import UserContext from '../context/UserContext'
 import {useHistory} from 'react-router-dom';
 
 
 export default (props) => {
-    // const [formData, setFormData] = React.useState({
-    //     username: '',
-    //     password: ''
-    // })
     const [username, setUsername] = React.useState()
     const [password, setPassword] = React.useState()
 
-    // const handleChange = (event) => {
-    //     setFormData({...formData, [event.target.name]: event.target.value})
-    // }
     const {setUserData} = React.useContext(UserContext)
-    const history = useHistory;
+    const history = useHistory();
 
     const submit = async (event) => {
         event.preventDefault()

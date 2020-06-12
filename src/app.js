@@ -8,9 +8,9 @@ import Favorites from './components/Favorites.js';
 import Home from './components/Home.js'
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
-import Filter from './components/Filter.js';
 import UserContext from './context/UserContext';
 import Axios from 'axios';
+import {BrowserRouter} from 'react-router-dom';
 
 
 
@@ -20,29 +20,6 @@ const App = (props) => {
 
     //STATE FOR STORING OUR JWT
     const [token, setToken] = React.useState(null);
-
-    const handleLogin = async (data) => {
-        const response = await fetch('http://localhost:3000/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
-        const result = await response.json();
-        console.log(result);
-        setToken(result);
-        window.localStorage.setItem('token', JSON.stringify(result));
-    };
-
-    const handleLogout = () => {
-        //REMOVE TOKEN FROM LOCAL STORAGE
-        window.localStorage.removeItem('token');
-        //REMOVE TOKEN FROM STATE
-        setToken(null);
-        //SET HOLIDAYS TO NULL
-        setHolidays(null);
-    };
 
     const [userData, setUserData] = useState({
         token: undefined,
@@ -57,7 +34,6 @@ const App = (props) => {
                 token = '';
             }
             const tokenResponse = await Axios.post("http://localhost:3000/users/validToken", null, {headers: {"x-auth-token": token}})
-            // console.log(tokenResponse.data)
             if (tokenResponse.data) {
                 const userResponse = await Axios.get('http://localhost:3000/users/', {headers: {'x-auth-token': token}})
                 setUserData({
@@ -71,7 +47,7 @@ const App = (props) => {
 
     return (
         <>
-            <Router history={hist}>
+            <BrowserRouter history={hist}>
                 <UserContext.Provider value={{userData, setUserData}}>
                     <Header />
                     <Switch>
@@ -81,7 +57,7 @@ const App = (props) => {
                         <Route path="/favorites" component={Favorites}/>
                     </Switch>
                 </UserContext.Provider>
-            </Router>
+            </BrowserRouter>
             
         </>
     )
