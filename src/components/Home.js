@@ -1,8 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Header from './Header';
-import Footer from './Footer.js';
-import Filter from './Filter.js';
+import Footer from './Footer.js'
 import '../scss/style2.scss';
 import $ from 'jquery'
 
@@ -178,7 +175,7 @@ export default (props) => {
                         }
                     </ul>
                 </div>
-                <Footer className="footer" /* <button onClick={handleLogout}>Logout</button> */ />
+                <Footer className="footer" />
             </div>
 
         </>
