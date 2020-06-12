@@ -12,7 +12,7 @@ export default (props) => {
     const [showButton, setButtonType] = React.useState(true);
 
     const getRestaurants = async () => {
-        const response = await fetch('https://developers.zomato.com/api/v2.1/search?start=60&count=100&lat=42.361145&lon=-71.057083&radius=1000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian', {
+        const response = await fetch('https://developers.zomato.com/api/v2.1/search?start50&count=100&lat=42.361145&lon=-71.057083&radius=1000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian', {
             headers: {
                 "user-key": "43857380d1047f74d7d7691dea96f3a5"
             }

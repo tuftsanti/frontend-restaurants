@@ -14,8 +14,6 @@ export default (props) => {
     return (
         <div className= "header">
             <div className="header__img">
-                {/* <img src="https://i.imgur.com/pnd4BXy.png"></img> */}
-                {/* <img src="https://i.imgur.com/bCMJnIU.png"></img> */}
                 <img src="https://i.imgur.com/8Zn8m8R.png"></img>
             </div>
             <div className="header__nav">
