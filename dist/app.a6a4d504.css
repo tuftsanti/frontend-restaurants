@@ -1,33 +1,131 @@
-html, body {
-  height: 100%;
-  font-family: 'Odibee Sans', cursive;
-  letter-spacing: .15rem; }
+* {
+  box-sizing: border-box; }
 
-img {
-  border-radius: 14px; }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: white; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  margin-bottom: 2%;
+  color: #ff0f39;
+  z-index: 1;
+  position: fixed;
+  width: 100%; }
+  .header img {
+    height: 7vh;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 1%; }
+  .header__nav {
+    align-self: center;
+    display: flex;
+    width: 30%;
+    justify-content: space-evenly;
+    align-items: center; }
+    .header__nav span {
+      color: #ff0f39;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      padding-bottom: 3px; }
+    .header__nav span:hover {
+      box-shadow: 0 4px 0 -2px gray;
+      padding-bottom: 5%;
+      font-size: 1.05em; }
+
+.shadow {
+  box-shadow: 0px 5px 2px -2px rgba(0, 0, 0, 0.2); }
+
+#header-red {
+  color: #ff0f39; }
+
+#header-city {
+  font-size: .3em; }
+
+.filter-form {
+  padding: 5%; }
+  .filter-form label {
+    font-size: 2em;
+    font-weight: 300; }
+  .filter-form input {
+    margin-bottom: 10%; }
 
 .App {
   display: flex;
-  background-color: lightgrey;
-  height: 100%;
-  width: 100%; }
-  .App__sidebar {
-    background-image: linear-gradient(to right, rgba(164, 159, 242, 0.1), black);
-    color: white;
-    border: 2px solid ghostwhite;
-    padding: .5rem;
-    height: 100vh;
-    width: 20%;
-    text-shadow: 1.3px 1.3px black; }
+  flex-direction: column;
+  height: 120vh;
+  width: 100vw;
+  margin: 0 auto;
+  overflow: -moz-hidden-unscrollable;
+  font-family: 'Lato', sans-serif;
+  align-items: center; }
+  .App h2 {
+    font-size: 3em;
+    font-family: roboto;
+    font-weight: 300;
+    color: black; }
+  .App__header {
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    font-family: Lato;
+    font-weight: 500;
+    width: 60%; }
   .App__mainview {
-    width: 100%; }
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #ecf5fd; }
+    .App__mainview--sidebar {
+      display: flex;
+      flex-direction: column;
+      margin-top: 2%;
+      margin-left: 5%;
+      background-color: white;
+      height: 80vh;
+      width: 20%;
+      border-radius: 5px;
+      -moz-box-shadow: 0 0 6px grey;
+      -webkit-box-shadow: 0 0 6px grey;
+      box-shadow: 0 0 6px grey;
+      overflow: auto; }
+      .App__mainview--sidebar__header {
+        background-color: #ff0f39;
+        text-align: center;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        color: white; }
     .App__mainview--grid {
+      width: 70%;
       display: flex;
       flex-wrap: wrap;
       list-style-type: none;
-      justify-content: space-evenly; }
-      .App__mainview--grid__individualRestaurant--name {
-        text-align: center; }
+      justify-content: flex-start;
+      align-items: flex-start; }
+      .App__mainview--grid__individualRestaurant {
+        width: 240px;
+        height: 250px;
+        -moz-box-shadow: 0 0 6px grey;
+        -webkit-box-shadow: 0 0 6px grey;
+        box-shadow: 0 0 6px grey;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 3px;
+        margin: 20px 7% 20px 0; }
+        .App__mainview--grid__individualRestaurant--name {
+          text-align: left;
+          font-size: .8em;
+          margin-left: 2%;
+          padding: 0; }
+        .App__mainview--grid__individualRestaurant--pic {
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
+          border-bottom: 3px solid #ff0f39; }
 
 .filter-h1 {
   text-shadow: 2px 2px black;
@@ -35,6 +133,9 @@ img {
 
 .resultTitle {
   text-align: center; }
+
+.login-div {
+  margin-top: 20%; }
 
 
 /*# sourceMappingURL=/app.a6a4d504.css.map */
