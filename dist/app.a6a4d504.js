@@ -46466,16 +46466,20 @@ var _default = function _default(props) {
             case 0:
               event.preventDefault();
 
-              if ((0, _jquery.default)("#Bakery").is(":checked")) {
-                setCuisineType("Bakery");
+              if ((0, _jquery.default)("#Breakfast").is(":checked")) {
+                setCuisineType("Breakfast");
               } else if ((0, _jquery.default)("#American").is(":checked")) {
                 setCuisineType("American");
+              } else if ((0, _jquery.default)("#Burger").is(":checked")) {
+                setCuisineType("Burger");
               } else if ((0, _jquery.default)("#Chinese").is(":checked")) {
                 setCuisineType("Chinese");
               } else if ((0, _jquery.default)("#Indian").is(":checked")) {
                 setCuisineType("Indian");
               } else if ((0, _jquery.default)("#Desserts").is(":checked")) {
                 setCuisineType("Desserts");
+              } else if ((0, _jquery.default)("#French").is(":checked")) {
+                setCuisineType("French");
               } else if ((0, _jquery.default)("#Italian").is(":checked")) {
                 setCuisineType("Italian");
               } else if ((0, _jquery.default)("#Mexican").is(":checked")) {
@@ -46499,49 +46503,6 @@ var _default = function _default(props) {
     };
   }();
 
-<<<<<<< HEAD
-  _react.default.useEffect(function () {
-    getRestaurants();
-  }, []); // Add a Restaurant
-
-
-  var pickRestaurant = /*#__PURE__*/function () {
-    var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(favRestaurant, event) {
-      var response;
-      return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _context4.next = 2;
-              return fetch("http://localhost:3000/restaurants", {
-                method: 'POST',
-                headers: {
-                  'Content-Type': "application/json"
-                  /*,
-                  Authorization: `bearer ${token}` */
-
-                },
-                body: JSON.stringify(favRestaurant)
-              });
-
-            case 2:
-              response = _context4.sent;
-
-            case 3:
-            case "end":
-              return _context4.stop();
-          }
-        }
-      }, _callee4);
-    }));
-
-    return function pickRestaurant(_x3, _x4) {
-      return _ref4.apply(this, arguments);
-    };
-  }();
-
-=======
->>>>>>> 7f61beb61764697e9530d8f872b76f09f283e08f
   (0, _jquery.default)('.checkybox').on('change', function () {
     (0, _jquery.default)('.checkybox').not(this).prop('checked', false);
   });
@@ -46567,6 +46528,14 @@ var _default = function _default(props) {
     id: "something",
     onSubmit: changeCuisine
   }, /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: "Breakfast"
+  }, "Breakfast"), /*#__PURE__*/_react.default.createElement("input", {
+    className: "checkybox",
+    type: "checkbox",
+    id: "Breakfast",
+    name: "Breakfast",
+    value: "Breakfast"
+  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
     htmlFor: "American"
   }, "American"), /*#__PURE__*/_react.default.createElement("input", {
     className: "checkybox",
@@ -46575,13 +46544,21 @@ var _default = function _default(props) {
     name: "American",
     value: "American"
   }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "Chinese"
-  }, "Chinese"), /*#__PURE__*/_react.default.createElement("input", {
+    htmlFor: "Burger"
+  }, "Burgers"), /*#__PURE__*/_react.default.createElement("input", {
     className: "checkybox",
     type: "checkbox",
-    id: "Chinese",
-    name: "Chinese",
-    value: "Chinese"
+    id: "Burger",
+    name: "Burger",
+    value: "Burger"
+  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: "French"
+  }, "French"), /*#__PURE__*/_react.default.createElement("input", {
+    className: "checkybox",
+    type: "checkbox",
+    id: "French",
+    name: "French",
+    value: "French"
   }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
     htmlFor: "Indian"
   }, "Indian"), /*#__PURE__*/_react.default.createElement("input", {
@@ -46622,14 +46599,6 @@ var _default = function _default(props) {
     id: "Seafood",
     name: "Seafood",
     value: "Seafood"
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "Bakery"
-  }, "Bakery"), /*#__PURE__*/_react.default.createElement("input", {
-    className: "checkybox",
-    type: "checkbox",
-    id: "Bakery",
-    name: "Bakery",
-    value: "Bakery"
   }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
     type: "submit",
     id: "Submit",
@@ -46650,15 +46619,15 @@ var _default = function _default(props) {
       className: "App__mainview--grid__individualRestaurant--name"
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "names"
-    }, /*#__PURE__*/_react.default.createElement("h3", null, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("h6", null, restaurant.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
+    }, /*#__PURE__*/_react.default.createElement("h3", null, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("h6", null, restaurant.restaurant.location.locality, " - ", restaurant.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
       className: "icon"
-    }, /*#__PURE__*/_react.default.createElement("ion-icon", {
+    }, showButton ? /*#__PURE__*/_react.default.createElement("ion-icon", {
       className: "plus-icon",
       name: "add-circle-outline",
       onClick: function onClick() {
         pickRestaurant(restaurant);
       }
-    }))));
+    }) : /*#__PURE__*/_react.default.createElement("p", null, "hi"))));
   }) : /*#__PURE__*/_react.default.createElement("h1", null, "Searching Local Restaurants..."))), /*#__PURE__*/_react.default.createElement(_Footer.default, {
     className: "footer"
   })));
@@ -46919,15 +46888,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55045" + '/');
-=======
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52213" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54635" + '/');
->>>>>>> 7f61beb61764697e9530d8f872b76f09f283e08f
->>>>>>> dc36504c7f799d48a504f2a5bcee189c9f1b7b62
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55275" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

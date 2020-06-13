@@ -196,7 +196,7 @@ export default (props) => {
                                         <div className="App__mainview--grid__individualRestaurant--name">
                                             <div className="names">
                                                 <h3>{restaurant.restaurant.name}</h3>
-                                                <h6>{restaurant.restaurant.location.city}, MA</h6>
+                                                <h6>{restaurant.restaurant.location.locality} - {restaurant.restaurant.location.city}, MA</h6>
                                             </div>
                                             <div className="icon">
                                                 {showButton ?
