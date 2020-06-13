@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-node_modules
-=======
 .env
 node_modules
 .cache
->>>>>>> 6e77353aaf07358f8c1eca1dc8c705a09f67eb3d
