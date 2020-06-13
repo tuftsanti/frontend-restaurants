@@ -1,7 +1,8 @@
 import React from 'react';
 import Footer from './Footer.js'
 import '../scss/style2.scss';
-import $ from 'jquery'
+import $ from 'jquery';
+import Axios from 'axios';
 
 export default (props) => {
     const [restaurants, setRestaurant] = React.useState(null);
@@ -24,8 +25,8 @@ export default (props) => {
 
     // // Localize storage for jwt
     React.useEffect(() => {
-        const checkToken = JSON.parse(window.localStorage.getItem('token'))
-        if (checkToken) {
+        const checkToken = window.localStorage.getItem('auth-token')
+        if (checkToken !== 'null') {
             setToken(checkToken)
         }
     }, [])
@@ -69,14 +70,21 @@ export default (props) => {
 
     // Add a Restaurant
     const pickRestaurant = async (favRestaurant, event) => {
-        const response = await fetch(`http://localhost:3000/restaurants`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': "application/json" /*,
-            Authorization: `bearer ${token}` */
-            },
-            body: JSON.stringify(favRestaurant)
-        })
+        try {
+            const response = await Axios.post ('http://localhost:3000/restaurants/', {headers: {'x-auth-token': token}, 
+            body: JSON.stringify(favRestaurant)})
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+        }
+        // const response = await fetch(`http://localhost:3000/restaurants`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': "application/json",
+        //     Authorization: `bearer ${token}`
+        //     },
+        //     body: JSON.stringify(favRestaurant)
+        // })
         // console.log(response)
         getRestaurants()
 

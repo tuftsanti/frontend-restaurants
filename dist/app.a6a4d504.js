@@ -46266,6 +46266,8 @@ require("../scss/style2.scss");
 
 var _jquery = _interopRequireDefault(require("jquery"));
 
+var _axios = _interopRequireDefault(require("axios"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(props) {
@@ -46330,9 +46332,9 @@ var _default = function _default(props) {
 
 
   _react.default.useEffect(function () {
-    var checkToken = JSON.parse(window.localStorage.getItem('token'));
+    var checkToken = window.localStorage.getItem('auth-token');
 
-    if (checkToken) {
+    if (checkToken !== 'null') {
       setToken(checkToken);
     }
   }, []);
@@ -46391,29 +46393,44 @@ var _default = function _default(props) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              _context3.next = 2;
-              return fetch("http://localhost:3000/restaurants", {
-                method: 'POST',
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _axios.default.post('http://localhost:3000/restaurants/', {
                 headers: {
-                  'Content-Type': "application/json"
-                  /*,
-                  Authorization: `bearer ${token}` */
-
+                  'x-auth-token': token
                 },
                 body: JSON.stringify(favRestaurant)
               });
 
-            case 2:
+            case 3:
               response = _context3.sent;
+              console.log(response);
+              _context3.next = 10;
+              break;
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              console.log(_context3.t0);
+
+            case 10:
+              // const response = await fetch(`http://localhost:3000/restaurants`, {
+              //     method: 'POST',
+              //     headers: {
+              //         'Content-Type': "application/json",
+              //     Authorization: `bearer ${token}`
+              //     },
+              //     body: JSON.stringify(favRestaurant)
+              // })
               // console.log(response)
               getRestaurants();
 
-            case 4:
+            case 11:
             case "end":
               return _context3.stop();
           }
         }
-      }, _callee3);
+      }, _callee3, null, [[0, 7]]);
     }));
 
     return function pickRestaurant(_x2, _x3) {
@@ -46535,7 +46552,7 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","./Footer.js":"src/components/Footer.js","../scss/style2.scss":"src/scss/style2.scss","jquery":"node_modules/jquery/dist/jquery.js"}],"src/components/Header.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","./Footer.js":"src/components/Footer.js","../scss/style2.scss":"src/scss/style2.scss","jquery":"node_modules/jquery/dist/jquery.js","axios":"node_modules/axios/index.js"}],"src/components/Header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46600,6 +46617,7 @@ var _default = function _default(props) {
       textDecoration: 'none'
     }
   }, /*#__PURE__*/_react.default.createElement("span", null, "Favorites")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "",
     style: {
       textDecoration: 'none'
     }
@@ -46789,7 +46807,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42431" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38197" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

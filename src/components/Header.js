@@ -36,7 +36,7 @@ export default (props) => {
                 <Link to="/" style={{ textDecoration: 'none' }}><span>Home</span></Link>
                 {userData.user ? 
                 (<><Link to="/favorites" style={{ textDecoration: 'none' }}><span>Favorites</span></Link>
-                <Link style={{ textDecoration: 'none' }}><span onClick={logout}>Logout</span></Link></>) : 
+                <Link to='' style={{ textDecoration: 'none' }}><span onClick={logout}>Logout</span></Link></>) : 
                 (<>
                 <Link to="/register" style={{ textDecoration: 'none' }}><span>Register</span></Link>
                 <Link to="/login" style={{ textDecoration: 'none' }}><span>Log In</span></Link></>)}
