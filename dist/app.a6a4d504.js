@@ -44888,10 +44888,8 @@ var _default = function _default(props) {
 
             case 2:
               response = _context4.sent;
-              // console.log(response)
-              getRestaurants();
 
-            case 4:
+            case 3:
             case "end":
               return _context4.stop();
           }
@@ -45005,13 +45003,13 @@ var _default = function _default(props) {
       className: "names"
     }, /*#__PURE__*/_react.default.createElement("h3", null, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("h6", null, restaurant.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
       className: "icon"
-    }, showButton ? /*#__PURE__*/_react.default.createElement("ion-icon", {
+    }, /*#__PURE__*/_react.default.createElement("ion-icon", {
       className: "plus-icon",
       name: "add-circle-outline",
       onClick: function onClick() {
-        pickRestaurant(restaurant, event);
+        pickRestaurant(restaurant);
       }
-    }) : /*#__PURE__*/_react.default.createElement("p", null, "hi"))));
+    }))));
   }) : /*#__PURE__*/_react.default.createElement("h1", null, "Searching Local Restaurants..."))), /*#__PURE__*/_react.default.createElement(_Footer.default, {
     className: "footer"
     /* <button onClick={handleLogout}>Logout</button> */
@@ -45094,7 +45092,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60915" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52213" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
