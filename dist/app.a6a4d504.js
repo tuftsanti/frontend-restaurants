@@ -46586,7 +46586,7 @@ var _default = function _default(props) {
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "header__img"
   }, /*#__PURE__*/_react.default.createElement("img", {
-    src: "https://i.imgur.com/8Zn8m8R.png"
+    src: "https://i.imgur.com/0VwqvZy.png"
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "header__nav"
   }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
@@ -46789,7 +46789,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59528" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60575" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

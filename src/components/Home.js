@@ -76,10 +76,9 @@ export default (props) => {
             Authorization: `bearer ${token}` */
             },
             body: JSON.stringify(favRestaurant)
-        })
+        });
         // console.log(response)
-        getRestaurants()
-
+        getRestaurants();
 
     }
 

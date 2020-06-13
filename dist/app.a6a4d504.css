@@ -216,7 +216,25 @@ ion-icon:hover {
   cursor: pointer; }
 
 ion-icon:active {
-  color: greenyellow; }
+  color: green; }
+
+input[type=submit] {
+  background-color: #0d64af;
+  padding: 5% 15%;
+  font-size: .5em;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  margin-left: 30%;
+  margin-top: 20%; }
+
+input[type=submit]:hover {
+  cursor: pointer;
+  background-color: #054883; }
+
+input[type=submit]:active {
+  box-shadow: none;
+  background-color: navy; }
 
 
 /*# sourceMappingURL=/app.a6a4d504.css.map */
