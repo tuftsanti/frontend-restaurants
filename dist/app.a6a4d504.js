@@ -35053,7 +35053,7 @@ var _default = function _default(props) {
                 token: loginResponse.data.token,
                 user: loginResponse.data.user
               });
-              localStorage.setItem("auth-token", loginResponse.data.token);
+              localStorage.setItem("auth-token", JSON.stringify(loginResponse.data.token));
               history.push('/');
 
             case 10:
@@ -46814,7 +46814,11 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "51632" + '/');
+=======
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43725" + '/');
+>>>>>>> b2ec2871ac5c6c573ec00ab5d8863dba965b9980
 
   ws.onmessage = function (event) {
     checkedAssets = {};
