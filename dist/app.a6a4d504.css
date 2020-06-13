@@ -219,7 +219,7 @@ html, body {
   .filter-form label {
     font-size: 2em;
     font-weight: 300; }
-  .filter-form input {
+  .filter-form input[type=checkbox] {
     margin-bottom: 10%; }
 
 .filter-h1 {
@@ -249,11 +249,13 @@ input[type=submit] {
   border: none;
   outline: none;
   background-color: #0d64af;
-  padding: 5% 20% 5% 20%;
   font-size: .8em;
   color: white;
   border-radius: 20px;
-  margin: 10% 20% 5% 20%; }
+  width: 60%;
+  height: 30px;
+  margin-left: 20%;
+  margin-top: 15%; }
 
 input[type=submit]:hover {
   cursor: pointer;
