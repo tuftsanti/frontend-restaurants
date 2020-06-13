@@ -98,12 +98,15 @@ export default (props) => {
 
     const changeCuisine = async (event) => {
         event.preventDefault();
-        if ($("#Bakery").is(":checked")) {
-            setCuisineType("Bakery")
+        if ($("#Breakfast").is(":checked")) {
+            setCuisineType("Breakfast");
 
         } else if ($("#American").is(":checked")) {
-            setCuisineType("American")
-
+            setCuisineType("American");
+        
+        } else if ($("#Burger").is(":checked")) {
+            setCuisineType("Burger");
+        
         } else if ($("#Chinese").is(":checked")) {
             setCuisineType("Chinese");
 
@@ -112,6 +115,9 @@ export default (props) => {
 
         } else if ($("#Desserts").is(":checked")) {
             setCuisineType("Desserts");
+
+        } else if ($("#French").is(":checked")) {
+            setCuisineType("French");
 
         } else if ($("#Italian").is(":checked")) {
             setCuisineType("Italian");
@@ -149,11 +155,17 @@ export default (props) => {
                         </div>
                         <div className="App__mainview--sidebar__filters">
                             <form className="filter-form" id="something" onSubmit={changeCuisine}>
+                                <label htmlFor="Breakfast">Breakfast</label>
+                                <input className="checkybox" type="checkbox" id="Breakfast" name="Breakfast" value="Breakfast" />
+                                <br />
                                 <label htmlFor="American">American</label>
                                 <input className="checkybox" type="checkbox" id="American" name="American" value="American" />
                                 <br />
-                                <label htmlFor="Chinese">Chinese</label>
-                                <input className="checkybox" type="checkbox" id="Chinese" name="Chinese" value="Chinese" />
+                                <label htmlFor="Burger">Burgers</label>
+                                <input className="checkybox" type="checkbox" id="Burger" name="Burger" value="Burger" />
+                                <br />
+                                <label htmlFor="French">French</label>
+                                <input className="checkybox" type="checkbox" id="French" name="French" value="French" />
                                 <br />
                                 <label htmlFor="Indian">Indian</label>
                                 <input className="checkybox" type="checkbox" id="Indian" name="Indian" value="Indian" />
@@ -169,9 +181,6 @@ export default (props) => {
                                 <br />
                                 <label htmlFor="Seafood">Seafood</label>
                                 <input className="checkybox" type="checkbox" id="Seafood" name="Seafood" value="Seafood" />
-                                <br />
-                                <label htmlFor="Bakery">Bakery</label>
-                                <input className="checkybox" type="checkbox" id="Bakery" name="Bakery" value="Bakery" />
                                 <br />
                                 <input type="submit" id="Submit" name="Submit" value="Submit"></input>
                                 <br />
