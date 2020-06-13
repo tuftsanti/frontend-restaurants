@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Footer from './Footer.js'
 
 export default (props) => {
     
@@ -15,39 +16,22 @@ export default (props) => {
             setToken(checkToken)
         }
     }, [])
-  
-    // Login
-    const handleLogin = async (data) => {
-        const response = await fetch(`http://localhost:3000/login`, {
-            method: 'POST',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify(data)
-        })
-        const result = await response.json()
-        setToken(result)
-        window.localStorage.setItem('token', JSON.stringify(result))
-    }
-    // Logout
-    const handleLogout = () => {
-        window.localStorage.removeItem('token')
-        setToken(null)
-        setBookmark(null)
-    }
     
     const getFavs = async () => {
-        const response = await fetch('http://localhost:3000/restaurants', {
-            // headers: {
-            //     Authorization: `bearer $[token}`,
-            // }
+        const response = await fetch('https://project3-restaurants-app.herokuapp.com/restaurants', {
         })
         const result = await response.json();
-        console.log(result)
-        setFavorites(result)
+        if (result.length > 0) {
+            setFavorites(result)
+        } else {
+            setFavorites(null);
+        }
+
     }
 
     //Delete Favorite//
     const handleDelete = async (id) => {
-        const response = await fetch(`http://localhost:3000/restaurants/${id}`, {
+        const response = await fetch(`https://project3-restaurants-app.herokuapp.com/restaurants/${id}`, {
             method: 'DELETE'
         })
         getFavs();
@@ -57,6 +41,7 @@ export default (props) => {
             getFavs()
     }, [])
 
+    console.log(favorites)
     return (
         <>
             <div className="Favorites">
@@ -72,11 +57,15 @@ export default (props) => {
                             favorites.map((favorite, index) => {
                                 return (
                                     <li key={index} className="Favorites__mainview--grid__individualRestaurant">
-                                        <img src={favorite.restaurant.thumb} className="Favorites__mainview--grid__individualRestaurant--pic"/>
+                                        <div className="Favorites__mainview--grid__individualRestaurant--pic">
+                                            <a href={favorite.restaurant.url}>
+                                                <img src={favorite.restaurant.thumb}/>
+                                            </a>
+                                        </div>
                                         <div className="Favorites__mainview--grid__individualRestaurant--name">
                                             <div className="favorites-names">
                                                 <h3>{favorite.restaurant.name} </h3>
-                                                <h6>{favorite.restaurant.location.city}, MA</h6>
+                                                <h6>{favorite.restaurant.location.locality} - {favorite.restaurant.location.city}, MA</h6>
                                             </div>
                                             <div className="trash-icon">
                                                 <ion-icon name="trash-outline" onClick={()=> {
@@ -88,10 +77,15 @@ export default (props) => {
                                 )
                             })
                          : 
-                        `Loading Your Restaurants`
+                         <div className="Favorites__mainview--grid--filler">
+                             <img src="https://i.imgur.com/FeiXWXA.png"></img>
+                             <h1> Oops! you dont have any favorites yet...</h1>
+                         </div>
                         }
+                        
                     </ul>
                 </div>
+                <Footer className="footer" />
             </div>
         </>
     );

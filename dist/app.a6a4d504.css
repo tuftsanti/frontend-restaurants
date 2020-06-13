@@ -133,7 +133,8 @@ html, body {
               font-size: 1em;
               padding: 0;
               margin-top: 0;
-              margin-bottom: 0; }
+              margin-bottom: 0;
+              color: navy; }
             .App__mainview--grid__individualRestaurant--name .names h6 {
               font-size: .4em;
               color: grey;
@@ -158,7 +159,8 @@ html, body {
     text-align: left;
     font-size: 1em;
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    border-bottom: 1px solid lightblue; }
   .Favorites__header {
     position: relative;
     text-align: center;
@@ -175,44 +177,61 @@ html, body {
     padding-top: 0%;
     width: 95%;
     display: flex;
-    background-color: white; }
+    background-color: white;
+    justify-content: center; }
     .Favorites__mainview--grid {
       width: 75%;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       list-style-type: none;
-      justify-content: flex-start;
-      align-items: flex-start; }
+      align-items: center;
+      margin: 0;
+      padding: 0; }
       .Favorites__mainview--grid__individualRestaurant {
-        width: 280px;
-        height: 250px;
+        width: 1000px;
+        height: 415px;
         display: flex;
         flex-direction: column;
-        margin: 0 4% 20px 0;
-        border-bottom: 1px solid grey; }
+        justify-content: center;
+        border-bottom: 1px solid grey;
+        margin-top: 5%; }
         .Favorites__mainview--grid__individualRestaurant--name {
           display: flex;
           justify-content: space-between;
-          align-items: flex-start;
-          text-align: left;
-          margin-top: 1%; }
+          align-items: flex-end;
+          text-align: left; }
           .Favorites__mainview--grid__individualRestaurant--name .favorites-names {
             width: 70%;
             margin: 0;
             padding: 0;
-            margin-left: 6px; }
+            margin-left: 6px;
+            margin-bottom: 1%; }
             .Favorites__mainview--grid__individualRestaurant--name .favorites-names h3 {
-              font-size: 1em;
+              font-size: 1.2em;
               padding: 0;
               margin-top: 0;
-              margin-bottom: 0; }
+              margin-bottom: 0;
+              color: navy; }
             .Favorites__mainview--grid__individualRestaurant--name .favorites-names h6 {
-              font-size: .4em;
+              font-size: .6em;
               color: grey;
               margin-top: 0;
               margin-bottom: 0; }
-        .Favorites__mainview--grid__individualRestaurant--pic {
-          border-radius: 5px; }
+        .Favorites__mainview--grid__individualRestaurant--pic img {
+          border-radius: 5px;
+          width: 35%; }
+        .Favorites__mainview--grid__individualRestaurant--pic img:hover {
+          opacity: .8; }
+        .Favorites__mainview--grid__individualRestaurant--pic img:active {
+          opacity: .5; }
+      .Favorites__mainview--grid--filler {
+        margin-top: 10%;
+        height: 600px;
+        color: navy;
+        display: flex; }
+        .Favorites__mainview--grid--filler img {
+          width: 140px;
+          height: 80px; }
 
 .filter-form {
   padding: 5%; }

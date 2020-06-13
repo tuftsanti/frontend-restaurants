@@ -58,10 +58,6 @@ export default (props) => {
         result5.restaurants.push(result4.restaurants[x]);
         result5.restaurants.push(result1.restaurants[x]);
     }
-    console.log(result1);
-    console.log(result2);
-    console.log(result3);
-    console.log(result4);
     setRestaurant1(result5);
     
     };
@@ -83,7 +79,7 @@ export default (props) => {
 
     // Add a Restaurant
     const pickRestaurant = async (favRestaurant, event) => {
-        const response = await fetch(`http://localhost:3000/restaurants`, {
+        const response = await fetch(`https://project3-restaurants-app.herokuapp.com/restaurants`, {
             method: 'POST',
             headers: {
                 'Content-Type': "application/json" /*,
@@ -137,7 +133,6 @@ export default (props) => {
     $('.checkybox').on('change', function () {
         $('.checkybox').not(this).prop('checked', false);
     });
-    console.log(restaurants);
     return (
         <>
             <div className="App">

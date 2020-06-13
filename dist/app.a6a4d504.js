@@ -34937,7 +34937,7 @@ var _default = function _default(props) {
                 password: password
               };
               _context.next = 4;
-              return _axios.default.post('http://localhost:3000/users/login', loginUser);
+              return _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/login', loginUser);
 
             case 4:
               loginResponse = _context.sent;
@@ -35036,11 +35036,11 @@ var _default = function _default(props) {
                 password: password
               };
               _context.next = 4;
-              return _axios.default.post('http://localhost:3000/users/register', newUser);
+              return _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/register', newUser);
 
             case 4:
               _context.next = 6;
-              return _axios.default.post('http://localhost:3000/users/login', {
+              return _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/login', {
                 username: username,
                 password: password
               });
@@ -35089,7 +35089,26 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","axios":"node_modules/axios/index.js","../context/UserContext":"src/context/UserContext.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/Favorites.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","axios":"node_modules/axios/index.js","../context/UserContext":"src/context/UserContext.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/Footer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = function _default(props) {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Footer"));
+};
+
+exports.default = _default;
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Favorites.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35106,6 +35125,8 @@ var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/sli
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
+
+var _Footer = _interopRequireDefault(require("./Footer.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35128,24 +35149,17 @@ var _default = function _default(props) {
     if (checkToken) {
       setToken(checkToken);
     }
-  }, []); // Login
+  }, []);
 
-
-  var handleLogin = /*#__PURE__*/function () {
-    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(data) {
+  var getFavs = /*#__PURE__*/function () {
+    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var response, result;
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return fetch("http://localhost:3000/login", {
-                method: 'POST',
-                headers: {
-                  'Content-type': 'application/json'
-                },
-                body: JSON.stringify(data)
-              });
+              return fetch('https://project3-restaurants-app.herokuapp.com/restaurants', {});
 
             case 2:
               response = _context.sent;
@@ -35154,10 +35168,14 @@ var _default = function _default(props) {
 
             case 5:
               result = _context.sent;
-              setToken(result);
-              window.localStorage.setItem('token', JSON.stringify(result));
 
-            case 8:
+              if (result.length > 0) {
+                setFavorites(result);
+              } else {
+                setFavorites(null);
+              }
+
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -35165,42 +35183,29 @@ var _default = function _default(props) {
       }, _callee);
     }));
 
-    return function handleLogin(_x) {
+    return function getFavs() {
       return _ref.apply(this, arguments);
     };
-  }(); // Logout
+  }(); //Delete Favorite//
 
 
-  var handleLogout = function handleLogout() {
-    window.localStorage.removeItem('token');
-    setToken(null);
-    setBookmark(null);
-  };
-
-  var getFavs = /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-      var response, result;
+  var handleDelete = /*#__PURE__*/function () {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {
+      var response;
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return fetch('http://localhost:3000/restaurants', {// headers: {
-                //     Authorization: `bearer $[token}`,
-                // }
+              return fetch("https://project3-restaurants-app.herokuapp.com/restaurants/".concat(id), {
+                method: 'DELETE'
               });
 
             case 2:
               response = _context2.sent;
-              _context2.next = 5;
-              return response.json();
+              getFavs();
 
-            case 5:
-              result = _context2.sent;
-              console.log(result);
-              setFavorites(result);
-
-            case 8:
+            case 4:
             case "end":
               return _context2.stop();
           }
@@ -35208,38 +35213,8 @@ var _default = function _default(props) {
       }, _callee2);
     }));
 
-    return function getFavs() {
+    return function handleDelete(_x) {
       return _ref2.apply(this, arguments);
-    };
-  }(); //Delete Favorite//
-
-
-  var handleDelete = /*#__PURE__*/function () {
-    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {
-      var response;
-      return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              _context3.next = 2;
-              return fetch("http://localhost:3000/restaurants/".concat(id), {
-                method: 'DELETE'
-              });
-
-            case 2:
-              response = _context3.sent;
-              getFavs();
-
-            case 4:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }));
-
-    return function handleDelete(_x2) {
-      return _ref3.apply(this, arguments);
     };
   }();
 
@@ -35247,6 +35222,7 @@ var _default = function _default(props) {
     getFavs();
   }, []);
 
+  console.log(favorites);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "Favorites"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -35263,14 +35239,17 @@ var _default = function _default(props) {
     return /*#__PURE__*/_react.default.createElement("li", {
       key: index,
       className: "Favorites__mainview--grid__individualRestaurant"
-    }, /*#__PURE__*/_react.default.createElement("img", {
-      src: favorite.restaurant.thumb,
+    }, /*#__PURE__*/_react.default.createElement("div", {
       className: "Favorites__mainview--grid__individualRestaurant--pic"
-    }), /*#__PURE__*/_react.default.createElement("div", {
+    }, /*#__PURE__*/_react.default.createElement("a", {
+      href: favorite.restaurant.url
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: favorite.restaurant.thumb
+    }))), /*#__PURE__*/_react.default.createElement("div", {
       className: "Favorites__mainview--grid__individualRestaurant--name"
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "favorites-names"
-    }, /*#__PURE__*/_react.default.createElement("h3", null, favorite.restaurant.name, " "), /*#__PURE__*/_react.default.createElement("h6", null, favorite.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
+    }, /*#__PURE__*/_react.default.createElement("h3", null, favorite.restaurant.name, " "), /*#__PURE__*/_react.default.createElement("h6", null, favorite.restaurant.location.locality, " - ", favorite.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
       className: "trash-icon"
     }, /*#__PURE__*/_react.default.createElement("ion-icon", {
       name: "trash-outline",
@@ -35278,30 +35257,17 @@ var _default = function _default(props) {
         handleDelete(favorite._id);
       }
     }))));
-  }) : "Loading Your Restaurants"))));
+  }) : /*#__PURE__*/_react.default.createElement("div", {
+    className: "Favorites__mainview--grid--filler"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: "https://i.imgur.com/FeiXWXA.png"
+  }), /*#__PURE__*/_react.default.createElement("h1", null, " Oops! you dont have any favorites yet...")))), /*#__PURE__*/_react.default.createElement(_Footer.default, {
+    className: "footer"
+  })));
 };
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Footer.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = function _default(props) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Footer"));
-};
-
-exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./Footer.js":"src/components/Footer.js"}],"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -46382,13 +46348,9 @@ var _default = function _default(props) {
                 result5.restaurants.push(result1.restaurants[x]);
               }
 
-              console.log(result1);
-              console.log(result2);
-              console.log(result3);
-              console.log(result4);
               setRestaurant1(result5);
 
-            case 30:
+            case 26:
             case "end":
               return _context.stop();
           }
@@ -46429,7 +46391,7 @@ var _default = function _default(props) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return fetch("http://localhost:3000/restaurants", {
+              return fetch("https://project3-restaurants-app.herokuapp.com/restaurants", {
                 method: 'POST',
                 headers: {
                   'Content-Type': "application/json"
@@ -46506,7 +46468,6 @@ var _default = function _default(props) {
   (0, _jquery.default)('.checkybox').on('change', function () {
     (0, _jquery.default)('.checkybox').not(this).prop('checked', false);
   });
-  console.log(restaurants);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "App"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -46881,7 +46842,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55783" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56226" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
