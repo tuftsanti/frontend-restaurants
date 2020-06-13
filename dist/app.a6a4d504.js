@@ -46499,6 +46499,49 @@ var _default = function _default(props) {
     };
   }();
 
+<<<<<<< HEAD
+  _react.default.useEffect(function () {
+    getRestaurants();
+  }, []); // Add a Restaurant
+
+
+  var pickRestaurant = /*#__PURE__*/function () {
+    var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(favRestaurant, event) {
+      var response;
+      return _regenerator.default.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.next = 2;
+              return fetch("http://localhost:3000/restaurants", {
+                method: 'POST',
+                headers: {
+                  'Content-Type': "application/json"
+                  /*,
+                  Authorization: `bearer ${token}` */
+
+                },
+                body: JSON.stringify(favRestaurant)
+              });
+
+            case 2:
+              response = _context4.sent;
+
+            case 3:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }));
+
+    return function pickRestaurant(_x3, _x4) {
+      return _ref4.apply(this, arguments);
+    };
+  }();
+
+=======
+>>>>>>> 7f61beb61764697e9530d8f872b76f09f283e08f
   (0, _jquery.default)('.checkybox').on('change', function () {
     (0, _jquery.default)('.checkybox').not(this).prop('checked', false);
   });
@@ -46609,13 +46652,13 @@ var _default = function _default(props) {
       className: "names"
     }, /*#__PURE__*/_react.default.createElement("h3", null, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("h6", null, restaurant.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
       className: "icon"
-    }, showButton ? /*#__PURE__*/_react.default.createElement("ion-icon", {
+    }, /*#__PURE__*/_react.default.createElement("ion-icon", {
       className: "plus-icon",
       name: "add-circle-outline",
       onClick: function onClick() {
-        pickRestaurant(restaurant, event);
+        pickRestaurant(restaurant);
       }
-    }) : /*#__PURE__*/_react.default.createElement("p", null, "hi"))));
+    }))));
   }) : /*#__PURE__*/_react.default.createElement("h1", null, "Searching Local Restaurants..."))), /*#__PURE__*/_react.default.createElement(_Footer.default, {
     className: "footer"
   })));
@@ -46876,7 +46919,15 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "55045" + '/');
+=======
+<<<<<<< HEAD
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52213" + '/');
+=======
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54635" + '/');
+>>>>>>> 7f61beb61764697e9530d8f872b76f09f283e08f
+>>>>>>> dc36504c7f799d48a504f2a5bcee189c9f1b7b62
 
   ws.onmessage = function (event) {
     checkedAssets = {};

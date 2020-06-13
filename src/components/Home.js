@@ -201,9 +201,9 @@ export default (props) => {
                                             <div className="icon">
                                                 {showButton ?
                                                     <ion-icon className="plus-icon" name="add-circle-outline" onClick={() => {
-                                                        pickRestaurant(restaurant, event)
+                                                        pickRestaurant(restaurant)
                                                     }}></ion-icon>
-                                                    : <p>hi</p>}
+                                                     : <p>hi</p>}
                                             </div>
                                         </div>
 
