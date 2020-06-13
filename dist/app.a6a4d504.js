@@ -35107,45 +35107,25 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
+var _reactRouter = require("react-router");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(props) {
   var _React$useState = _react.default.useState(null),
       _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
       favorites = _React$useState2[0],
-      setFavorites = _React$useState2[1]; // Store jwt
+      setFavorites = _React$useState2[1];
 
-
-  var _React$useState3 = _react.default.useState(null),
-      _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
-      token = _React$useState4[0],
-      setToken = _React$useState4[1]; // // Localize storage for jwt
-
-
-  _react.default.useEffect(function () {
-    var checkToken = JSON.parse(window.localStorage.getItem('token'));
-
-    if (checkToken) {
-      setToken(checkToken);
-    }
-  }, []); // Login
-
-
-  var handleLogin = /*#__PURE__*/function () {
-    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(data) {
+  var getFavs = /*#__PURE__*/function () {
+    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var response, result;
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return fetch("http://localhost:3000/login", {
-                method: 'POST',
-                headers: {
-                  'Content-type': 'application/json'
-                },
-                body: JSON.stringify(data)
-              });
+              return fetch('http://localhost:3000/restaurants', {});
 
             case 2:
               response = _context.sent;
@@ -35154,10 +35134,9 @@ var _default = function _default(props) {
 
             case 5:
               result = _context.sent;
-              setToken(result);
-              window.localStorage.setItem('token', JSON.stringify(result));
+              setFavorites(result);
 
-            case 8:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -35165,42 +35144,29 @@ var _default = function _default(props) {
       }, _callee);
     }));
 
-    return function handleLogin(_x) {
+    return function getFavs() {
       return _ref.apply(this, arguments);
     };
-  }(); // Logout
+  }(); //Delete Favorite//
 
 
-  var handleLogout = function handleLogout() {
-    window.localStorage.removeItem('token');
-    setToken(null);
-    setBookmark(null);
-  };
-
-  var getFavs = /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-      var response, result;
+  var handleDelete = /*#__PURE__*/function () {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {
+      var response;
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return fetch('http://localhost:3000/restaurants', {// headers: {
-                //     Authorization: `bearer $[token}`,
-                // }
+              return fetch("http://localhost:3000/restaurants/".concat(id), {
+                method: 'DELETE'
               });
 
             case 2:
               response = _context2.sent;
-              _context2.next = 5;
-              return response.json();
+              getFavs();
 
-            case 5:
-              result = _context2.sent;
-              console.log(result);
-              setFavorites(result);
-
-            case 8:
+            case 4:
             case "end":
               return _context2.stop();
           }
@@ -35208,38 +35174,8 @@ var _default = function _default(props) {
       }, _callee2);
     }));
 
-    return function getFavs() {
+    return function handleDelete(_x) {
       return _ref2.apply(this, arguments);
-    };
-  }(); //Delete Favorite//
-
-
-  var handleDelete = /*#__PURE__*/function () {
-    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {
-      var response;
-      return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              _context3.next = 2;
-              return fetch("http://localhost:3000/restaurants/".concat(id), {
-                method: 'DELETE'
-              });
-
-            case 2:
-              response = _context3.sent;
-              getFavs();
-
-            case 4:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }));
-
-    return function handleDelete(_x2) {
-      return _ref3.apply(this, arguments);
     };
   }();
 
@@ -35251,9 +35187,7 @@ var _default = function _default(props) {
     className: "Favorites"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "Favorites__header"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, "Your ", /*#__PURE__*/_react.default.createElement("span", {
-    id: "header-red"
-  }, "Favorites"), ":")), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("h2", null, "Your Favorites:")), /*#__PURE__*/_react.default.createElement("div", {
     className: "Favorites__mainview"
   }, /*#__PURE__*/_react.default.createElement("ul", {
     className: "Favorites__mainview--grid"
@@ -35276,7 +35210,7 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Footer.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router":"node_modules/react-router/esm/react-router.js"}],"src/components/Footer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46286,30 +46220,80 @@ var _default = function _default(props) {
 
   var getRestaurants = /*#__PURE__*/function () {
     var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-      var response, result;
+      var _yield$Promise$all, _yield$Promise$all2, response1, response2, response3, response4, response5, result1, result2, result3, result4, result5, x;
+
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return fetch('https://developers.zomato.com/api/v2.1/search?start50&count=100&lat=42.361145&lon=-71.057083&radius=1000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian', {
+              return Promise.all([fetch('https://developers.zomato.com/api/v2.1/search?start=0&count=20&lat=42.3601&lon=-71.0589&radius=4000', {
                 headers: {
-                  "user-key": "43857380d1047f74d7d7691dea96f3a5"
+                  "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
                 }
-              });
+              }), fetch('https://developers.zomato.com/api/v2.1/search?start=20&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
+                headers: {
+                  "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
+              }), fetch('https://developers.zomato.com/api/v2.1/search?start=40&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
+                headers: {
+                  "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
+              }), fetch('https://developers.zomato.com/api/v2.1/search?start=60&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
+                headers: {
+                  "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
+              }), fetch('https://developers.zomato.com/api/v2.1/search?start=80&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
+                headers: {
+                  "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
+              })]);
 
             case 2:
-              response = _context.sent;
-              _context.next = 5;
-              return response.json();
+              _yield$Promise$all = _context.sent;
+              _yield$Promise$all2 = (0, _slicedToArray2.default)(_yield$Promise$all, 5);
+              response1 = _yield$Promise$all2[0];
+              response2 = _yield$Promise$all2[1];
+              response3 = _yield$Promise$all2[2];
+              response4 = _yield$Promise$all2[3];
+              response5 = _yield$Promise$all2[4];
+              _context.next = 11;
+              return response1.json();
 
-            case 5:
-              result = _context.sent;
-              console.log(result);
-              _context.next = 9;
-              return setRestaurant(result);
+            case 11:
+              result1 = _context.sent;
+              _context.next = 14;
+              return response2.json();
 
-            case 9:
+            case 14:
+              result2 = _context.sent;
+              _context.next = 17;
+              return response3.json();
+
+            case 17:
+              result3 = _context.sent;
+              _context.next = 20;
+              return response4.json();
+
+            case 20:
+              result4 = _context.sent;
+              _context.next = 23;
+              return response5.json();
+
+            case 23:
+              result5 = _context.sent;
+
+              for (x = 0; x < 20; x++) {
+                result5.restaurants.push(result2.restaurants[x]);
+                result5.restaurants.push(result3.restaurants[x]);
+                result5.restaurants.push(result4.restaurants[x]);
+                result5.restaurants.push(result1.restaurants[x]);
+              }
+
+              console.log(result5);
+              setRestaurant(result5);
+
+            case 27:
             case "end":
               return _context.stop();
           }
@@ -46337,11 +46321,51 @@ var _default = function _default(props) {
     }
   }, []);
 
-  var changeCuisine = /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(event) {
+  _react.default.useEffect(function () {
+    getRestaurants();
+  }, []); // Add a Restaurant
+
+
+  var pickRestaurant = /*#__PURE__*/function () {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(favRestaurant, event) {
+      var response;
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return fetch("http://localhost:3000/restaurants", {
+                method: 'POST',
+                headers: {
+                  'Content-Type': "application/json",
+                  Authorization: "bearer ".concat(token)
+                },
+                body: JSON.stringify(favRestaurant)
+              });
+
+            case 2:
+              response = _context2.sent;
+              // console.log(response)
+              getRestaurants();
+
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function pickRestaurant(_x, _x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  var changeCuisine = /*#__PURE__*/function () {
+    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(event) {
+      return _regenerator.default.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
             case 0:
               event.preventDefault();
 
@@ -46350,12 +46374,16 @@ var _default = function _default(props) {
                 console.log(cuisineType);
               } else if ((0, _jquery.default)("#American").is(":checked")) {
                 setCuisineType((0, _jquery.default)("#American").val());
+              } else if ((0, _jquery.default)("#Burger").is(":checked")) {
+                setCuisineType((0, _jquery.default)("#Burger").val());
               } else if ((0, _jquery.default)("#Chinese").is(":checked")) {
                 setCuisineType((0, _jquery.default)("#Chinese").val());
               } else if ((0, _jquery.default)("#Indian").is(":checked")) {
                 setCuisineType((0, _jquery.default)("#Indian").val());
               } else if ((0, _jquery.default)("#Desserts").is(":checked")) {
                 setCuisineType((0, _jquery.default)("#Desserts").val());
+              } else if ((0, _jquery.default)("#French").is(":checked")) {
+                setCuisineType((0, _jquery.default)("#French").val());
               } else if ((0, _jquery.default)("#Italian").is(":checked")) {
                 setCuisineType((0, _jquery.default)("#Italian").val());
               } else if ((0, _jquery.default)("#Mexican").is(":checked")) {
@@ -46368,55 +46396,13 @@ var _default = function _default(props) {
 
             case 2:
             case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function changeCuisine(_x) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-
-  _react.default.useEffect(function () {
-    getRestaurants();
-  }, []); // Add a Restaurant
-
-
-  var pickRestaurant = /*#__PURE__*/function () {
-    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(favRestaurant, event) {
-      var response;
-      return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              _context3.next = 2;
-              return fetch("http://localhost:3000/restaurants", {
-                method: 'POST',
-                headers: {
-                  'Content-Type': "application/json"
-                  /*,
-                  Authorization: `bearer ${token}` */
-
-                },
-                body: JSON.stringify(favRestaurant)
-              });
-
-            case 2:
-              response = _context3.sent;
-              // console.log(response)
-              getRestaurants();
-
-            case 4:
-            case "end":
               return _context3.stop();
           }
         }
       }, _callee3);
     }));
 
-    return function pickRestaurant(_x2, _x3) {
+    return function changeCuisine(_x3) {
       return _ref3.apply(this, arguments);
     };
   }();
@@ -46453,13 +46439,21 @@ var _default = function _default(props) {
     name: "American",
     value: "American"
   }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "Chinese"
-  }, "Chinese"), /*#__PURE__*/_react.default.createElement("input", {
+    htmlFor: "Burger"
+  }, "Burgers"), /*#__PURE__*/_react.default.createElement("input", {
     className: "checkybox",
     type: "checkbox",
-    id: "Chinese",
-    name: "Chinese",
-    value: "Chinese"
+    id: "Burger",
+    name: "Burger",
+    value: "Burger"
+  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: "French"
+  }, "French"), /*#__PURE__*/_react.default.createElement("input", {
+    className: "checkybox",
+    type: "checkbox",
+    id: "French",
+    name: "French",
+    value: "French"
   }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
     htmlFor: "Indian"
   }, "Indian"), /*#__PURE__*/_react.default.createElement("input", {
@@ -46520,7 +46514,7 @@ var _default = function _default(props) {
       className: "App__mainview--grid__individualRestaurant--name"
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "names"
-    }, /*#__PURE__*/_react.default.createElement("h3", null, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("h6", null, restaurant.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
+    }, /*#__PURE__*/_react.default.createElement("h3", null, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("h6", null, restaurant.restaurant.location.locality, " - ", restaurant.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
       className: "icon"
     }, showButton ? /*#__PURE__*/_react.default.createElement("ion-icon", {
       className: "plus-icon",
@@ -46789,7 +46783,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46253" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57782" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

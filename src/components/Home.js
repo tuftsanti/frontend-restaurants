@@ -9,15 +9,54 @@ export default (props) => {
     const [showButton, setButtonType] = React.useState(true);
 
     const getRestaurants = async () => {
-        const response = await fetch('https://developers.zomato.com/api/v2.1/search?start50&count=100&lat=42.361145&lon=-71.057083&radius=1000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian', {
-            headers: {
-                "user-key": "43857380d1047f74d7d7691dea96f3a5"
+        let [response1, response2, response3, response4, response5] = await Promise.all([
+            fetch('https://developers.zomato.com/api/v2.1/search?start=0&count=20&lat=42.3601&lon=-71.0589&radius=4000', {
+                headers: {
+                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
             }
-        });
-        const result = await response.json()
-        console.log(result)
-        await setRestaurant(result)
-    };
+            ),
+            fetch('https://developers.zomato.com/api/v2.1/search?start=20&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
+                headers: {
+                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
+            }
+            ),
+            fetch('https://developers.zomato.com/api/v2.1/search?start=40&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
+                headers: {
+                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
+            }
+            ),
+            fetch('https://developers.zomato.com/api/v2.1/search?start=60&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
+                headers: {
+                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
+            }
+            ),
+            fetch('https://developers.zomato.com/api/v2.1/search?start=80&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
+                headers: {
+                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
+            }
+            )
+    ]);
+
+    const result1 = await response1.json()
+    const result2 = await response2.json()
+    const result3 = await response3.json()
+    const result4 = await response4.json()
+    const result5 = await response5.json()
+    
+    for (let x = 0; x < 20; x++) {
+        result5.restaurants.push(result2.restaurants[x]);
+        result5.restaurants.push(result3.restaurants[x]);
+        result5.restaurants.push(result4.restaurants[x]);
+        result5.restaurants.push(result1.restaurants[x]);
+    }
+    console.log(result5);
+    setRestaurant(result5);
+}
 
     // Store jwt
     const [token, setToken] = React.useState(null)
@@ -30,6 +69,24 @@ export default (props) => {
         }
     }, [])
 
+    React.useEffect(() => {
+        getRestaurants()
+    }, []);
+
+    // Add a Restaurant
+    const pickRestaurant = async (favRestaurant, event) => {
+        const response = await fetch(`http://localhost:3000/restaurants`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': "application/json",
+            Authorization: `bearer ${token}`
+            },
+            body: JSON.stringify(favRestaurant)
+        })
+        // console.log(response)
+        getRestaurants()
+    }
+
     const changeCuisine = async (event) => {
         event.preventDefault();
         if ($("#Breakfast").is(":checked")) {
@@ -38,7 +95,10 @@ export default (props) => {
 
         } else if ($("#American").is(":checked")) {
             setCuisineType($("#American").val());
-
+        
+        } else if ($("#Burger").is(":checked")) {
+            setCuisineType($("#Burger").val());
+        
         } else if ($("#Chinese").is(":checked")) {
             setCuisineType($("#Chinese").val());
 
@@ -47,6 +107,9 @@ export default (props) => {
 
         } else if ($("#Desserts").is(":checked")) {
             setCuisineType($("#Desserts").val());
+
+        } else if ($("#French").is(":checked")) {
+            setCuisineType($("#French").val());
 
         } else if ($("#Italian").is(":checked")) {
             setCuisineType($("#Italian").val());
@@ -62,26 +125,6 @@ export default (props) => {
         }
 
     };
-
-    React.useEffect(() => {
-        getRestaurants()
-    }, []);
-
-    // Add a Restaurant
-    const pickRestaurant = async (favRestaurant, event) => {
-        const response = await fetch(`http://localhost:3000/restaurants`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': "application/json" /*,
-            Authorization: `bearer ${token}` */
-            },
-            body: JSON.stringify(favRestaurant)
-        })
-        // console.log(response)
-        getRestaurants()
-
-
-    }
 
     $('.checkybox').on('change', function () {
         $('.checkybox').not(this).prop('checked', false);
@@ -106,8 +149,11 @@ export default (props) => {
                                 <label htmlFor="American">American</label>
                                 <input className="checkybox" type="checkbox" id="American" name="American" value="American" />
                                 <br />
-                                <label htmlFor="Chinese">Chinese</label>
-                                <input className="checkybox" type="checkbox" id="Chinese" name="Chinese" value="Chinese" />
+                                <label htmlFor="Burger">Burgers</label>
+                                <input className="checkybox" type="checkbox" id="Burger" name="Burger" value="Burger" />
+                                <br />
+                                <label htmlFor="French">French</label>
+                                <input className="checkybox" type="checkbox" id="French" name="French" value="French" />
                                 <br />
                                 <label htmlFor="Indian">Indian</label>
                                 <input className="checkybox" type="checkbox" id="Indian" name="Indian" value="Indian" />
@@ -138,7 +184,7 @@ export default (props) => {
                                         <div className="App__mainview--grid__individualRestaurant--name">
                                             <div className="names">
                                                 <h3>{restaurant.restaurant.name}</h3>
-                                                <h6>{restaurant.restaurant.location.city}, MA</h6>
+                                                <h6>{restaurant.restaurant.location.locality} - {restaurant.restaurant.location.city}, MA</h6>
                                             </div>
                                             <div className="icon">
                                                 {showButton ?
