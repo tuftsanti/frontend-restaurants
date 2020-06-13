@@ -1,24 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Footer from './Footer.js'
+import UserContext from '../context/UserContext'
 
 export default (props) => {
     
     const [favorites, setFavorites] = React.useState(null)
-
+    const {userData} = React.useContext(UserContext)
     // Store jwt
     const [token, setToken] = React.useState(null)
 
     // // Localize storage for jwt
     React.useEffect(() => {
-        const checkToken = JSON.parse(window.localStorage.getItem('token'))
+        const checkToken = JSON.parse(window.localStorage.getItem('auth-token'))
         if (checkToken) {
             setToken(checkToken)
         }
     }, [])
     
     const getFavs = async () => {
-        const response = await fetch('https://project3-restaurants-app.herokuapp.com/restaurants', {
+        const response = await fetch('http://localhost:3000/restaurants', {
+            headers: {Authorization: `bearer ${userData.token}`}
         })
         const result = await response.json();
         if (result.length > 0) {
@@ -31,8 +33,11 @@ export default (props) => {
 
     //Delete Favorite//
     const handleDelete = async (id) => {
-        const response = await fetch(`https://project3-restaurants-app.herokuapp.com/restaurants/${id}`, {
-            method: 'DELETE'
+        const response = await fetch(`http://localhost:3000/restaurants/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': "application/json" ,
+            Authorization: `bearer ${userData.token}`}
         })
         getFavs();
     }
@@ -41,7 +46,7 @@ export default (props) => {
             getFavs()
     }, [])
 
-    console.log(favorites)
+    // console.log(favorites)
     return (
         <>
             <div className="Favorites">

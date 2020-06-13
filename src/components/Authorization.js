@@ -17,7 +17,7 @@ export default function Authorization() {
             token: undefined,
             user: undefined
         })
-        localStorage.setItem("auth-token", '')
+        localStorage.removeItem("auth-token")
     }
 
     return (

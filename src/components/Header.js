@@ -22,7 +22,7 @@ export default (props) => {
             token: undefined,
             user: undefined
         })
-        localStorage.setItem("auth-token", '')
+        localStorage.removeItem("auth-token")
         history.push('/')
     }
 
@@ -34,7 +34,7 @@ export default (props) => {
             </div>
             <div className="header__nav">
                 <Link to="/" style={{ textDecoration: 'none' }}><span>Home</span></Link>
-                {userData.user ? 
+                {userData.token ? 
                 (<><Link to="/favorites" style={{ textDecoration: 'none' }}><span>Favorites</span></Link>
                 <Link to="" style={{ textDecoration: 'none' }}><span onClick={logout}>Logout</span></Link></>) : 
                 (<>

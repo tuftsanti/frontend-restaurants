@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from './Footer.js'
 import '../scss/style2.scss';
 import $ from 'jquery'
+import UserContext from '../context/UserContext';
 
 export default (props) => {
     const [restaurants, setRestaurant1] = React.useState(null);
@@ -64,10 +65,11 @@ export default (props) => {
 
     // Store jwt
     const [token, setToken] = React.useState(null)
+    const {userData} = React.useContext(UserContext)
 
     // Localize storage for jwt
     React.useEffect(() => {
-        const checkToken = JSON.parse(window.localStorage.getItem('token'))
+        const checkToken = JSON.parse(window.localStorage.getItem('auth-token'))
         if (checkToken) {
             setToken(checkToken)
         }
@@ -79,11 +81,11 @@ export default (props) => {
 
     // Add a Restaurant
     const pickRestaurant = async (favRestaurant, event) => {
-        const response = await fetch(`https://project3-restaurants-app.herokuapp.com/restaurants`, {
+        const response = await fetch(`http://localhost:3000/restaurants`, {
             method: 'POST',
             headers: {
-                'Content-Type': "application/json" /*,
-            Authorization: `bearer ${token}` */
+                'Content-Type': "application/json" ,
+            Authorization: `bearer ${userData.token}`
             },
             body: JSON.stringify(favRestaurant)
         });

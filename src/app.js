@@ -25,12 +25,10 @@ const App = (props) => {
         user: undefined
     })
 
-    useEffect (() => {
+    /*useEffect (() => {
         const isLoggedIn = async () => {
             let token = localStorage.getItem('auth-token')
             if (token === null) {
-                localStorage.setItem("auth-token", '');
-                token = '';
             }
             const tokenResponse = await Axios.post("http://localhost:3000/users/validToken", null, {headers: {"x-auth-token": token}})
             if (tokenResponse.data) {
@@ -42,7 +40,7 @@ const App = (props) => {
             }
         }
         isLoggedIn();
-    }, [])
+    }, [])*/
 
     return (
         <>
