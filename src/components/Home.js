@@ -155,9 +155,6 @@ export default (props) => {
                         </div>
                         <div className="App__mainview--sidebar__filters">
                             <form className="filter-form" id="something" onSubmit={changeCuisine}>
-                                <label htmlFor="Breakfast">Breakfast</label>
-                                <input className="checkybox" type="checkbox" id="Breakfast" name="Breakfast" value="Breakfast" />
-                                <br />
                                 <label htmlFor="American">American</label>
                                 <input className="checkybox" type="checkbox" id="American" name="American" value="American" />
                                 <br />

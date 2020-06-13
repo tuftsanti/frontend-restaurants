@@ -46528,14 +46528,6 @@ var _default = function _default(props) {
     id: "something",
     onSubmit: changeCuisine
   }, /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "Breakfast"
-  }, "Breakfast"), /*#__PURE__*/_react.default.createElement("input", {
-    className: "checkybox",
-    type: "checkbox",
-    id: "Breakfast",
-    name: "Breakfast",
-    value: "Breakfast"
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
     htmlFor: "American"
   }, "American"), /*#__PURE__*/_react.default.createElement("input", {
     className: "checkybox",
@@ -46888,7 +46880,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55275" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55370" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

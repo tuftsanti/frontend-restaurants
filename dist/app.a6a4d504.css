@@ -91,7 +91,7 @@ html, body {
       margin-left: 5%;
       margin-bottom: 5%;
       background-color: white;
-      height: 650px;
+      height: 600px;
       width: 18%;
       border-radius: 5px;
       -moz-box-shadow: 0 0 6px grey;
@@ -176,25 +176,6 @@ html, body {
     width: 95%;
     display: flex;
     background-color: white; }
-    .Favorites__mainview--sidebar {
-      display: flex;
-      flex-direction: column;
-      margin-left: 5%;
-      margin-bottom: 5%;
-      background-color: white;
-      height: 600px;
-      width: 18%;
-      border-radius: 5px;
-      -moz-box-shadow: 0 0 6px grey;
-      -webkit-box-shadow: 0 0 6px grey;
-      box-shadow: 0 0 6px grey;
-      overflow: auto; }
-      .Favorites__mainview--sidebar__header {
-        background-color: navy;
-        text-align: center;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        color: white; }
     .Favorites__mainview--grid {
       width: 75%;
       display: flex;
@@ -266,13 +247,13 @@ ion-icon:active {
 
 input[type=submit] {
   background-color: #0d64af;
-  padding: 5% 25%;
+  padding: 5% 20%;
   font-size: .8em;
   color: white;
   border: none;
   border-radius: 20px;
-  margin-left: 15%;
-  margin-top: 17%; }
+  margin-left: 20%;
+  margin-top: 20%; }
 
 input[type=submit]:hover {
   cursor: pointer;
