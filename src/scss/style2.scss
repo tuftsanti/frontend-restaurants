@@ -332,14 +332,15 @@ ion-icon:active {
 
 //styling submit buttons
 input[type=submit] {
+    border: none;
+    outline: none;
     background-color: #0d64af;;
-    padding: 5% 20%;
+    padding: 5% 20% 5% 20%;
     font-size: .8em;
     color: $secondary-color;
-    border: none;
     border-radius: 20px;
-    margin-left: 20%;
-    margin-top: 20%;
+    margin: 10% 20% 5% 20%
+    
 }
 
 input[type=submit]:hover {
