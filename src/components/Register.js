@@ -19,7 +19,7 @@ export default (props) => {
             token: loginResponse.data.token,
             user: loginResponse.data.user
         })
-        localStorage.setItem("auth-token", loginResponse.data.token)
+        localStorage.setItem("auth-token", JSON.stringify(loginResponse.data.token))
         history.push('/')
     }
 
