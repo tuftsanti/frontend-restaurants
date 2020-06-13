@@ -1,8 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Header from './Header';
-import Footer from './Footer.js';
-import Filter from './Filter.js';
+import Footer from './Footer.js'
 import '../scss/style2.scss';
 import $ from 'jquery'
 
@@ -32,24 +29,6 @@ export default (props) => {
             setToken(checkToken)
         }
     }, [])
-
-    // Login
-    const handleLogin = async (data) => {
-        const response = await fetch(`http://localhost:3000/login`, {
-            method: 'POST',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify(data)
-        })
-        const result = await response.json()
-        setToken(result)
-        window.localStorage.setItem('token', JSON.stringify(result))
-    }
-    // Logout
-    const handleLogout = () => {
-        window.localStorage.removeItem('token')
-        setToken(null)
-        setBookmark(null)
-    }
 
     const changeCuisine = async (event) => {
         event.preventDefault();
@@ -178,7 +157,7 @@ export default (props) => {
                         }
                     </ul>
                 </div>
-                <Footer className="footer" /* <button onClick={handleLogout}>Logout</button> */ />
+                <Footer className="footer" />
             </div>
 
         </>
