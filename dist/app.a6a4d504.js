@@ -46691,6 +46691,7 @@ var _default = function _default(props) {
       textDecoration: 'none'
     }
   }, /*#__PURE__*/_react.default.createElement("span", null, "Favorites")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "",
     style: {
       textDecoration: 'none'
     }
@@ -46880,7 +46881,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55370" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63392" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
