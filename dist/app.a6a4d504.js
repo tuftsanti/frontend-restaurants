@@ -35251,9 +35251,7 @@ var _default = function _default(props) {
     className: "Favorites"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "Favorites__header"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, "Your ", /*#__PURE__*/_react.default.createElement("span", {
-    id: "header-red"
-  }, "Favorites"), ":")), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("h2", null, "Your Favorites:")), /*#__PURE__*/_react.default.createElement("div", {
     className: "Favorites__mainview"
   }, /*#__PURE__*/_react.default.createElement("ul", {
     className: "Favorites__mainview--grid"
@@ -46832,7 +46830,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55522" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61195" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -61,8 +61,7 @@ export default (props) => {
         <>
             <div className="Favorites">
                 <div className="Favorites__header">
-                    {<h2>Your <span id="header-red">Favorites</span>:</h2>}
-
+                    {<h2>Your Favorites:</h2>}
                 </div>
                 <div className="Favorites__mainview">
                     <ul className="Favorites__mainview--grid">
