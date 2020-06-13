@@ -4,82 +4,75 @@ import '../scss/style2.scss';
 import $ from 'jquery'
 
 export default (props) => {
-    const [restaurants, setRestaurant] = React.useState(null);
+    const [restaurants, setRestaurant1] = React.useState(null);
+    const [restaurant2, setRestaurant2] = React.useState(null);
+    const [restaurant3, setRestaurant3] = React.useState(null);
     const [cuisineType, setCuisineType] = React.useState('');
+    const [cuisineType2, setCuisineType2] = React.useState('');
+    const [cuisineType3, setCuisineType3] = React.useState('');
     const [showButton, setButtonType] = React.useState(true);
 
     const getRestaurants = async () => {
-        const response = await fetch('https://developers.zomato.com/api/v2.1/search?start50&count=100&lat=42.361145&lon=-71.057083&radius=1000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian', {
-            headers: {
-                "user-key": "43857380d1047f74d7d7691dea96f3a5"
+        let [response1, response2, response3, response4, response5] = await Promise.all([
+            fetch('https://developers.zomato.com/api/v2.1/search?start=0&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
+                headers: {
+                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
             }
-        });
-        const result = await response.json()
-        console.log(result)
-        await setRestaurant(result)
+            ),
+            fetch('https://developers.zomato.com/api/v2.1/search?start=20&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
+                headers: {
+                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
+            }
+            ),
+            fetch('https://developers.zomato.com/api/v2.1/search?start=40&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
+                headers: {
+                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
+            }
+            ),
+            fetch('https://developers.zomato.com/api/v2.1/search?start=60&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
+                headers: {
+                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
+            }
+            ),
+            fetch('https://developers.zomato.com/api/v2.1/search?start=80&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
+                headers: {
+                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                }
+            }
+            )
+    ]);
+
+    const result1 = await response1.json()
+    const result2 = await response2.json()
+    const result3 = await response3.json()
+    const result4 = await response4.json()
+    const result5 = await response5.json()
+    
+    for (let x = 0; x < 20; x++) {
+        result5.restaurants.push(result2.restaurants[x]);
+        result5.restaurants.push(result3.restaurants[x]);
+        result5.restaurants.push(result4.restaurants[x]);
+        result5.restaurants.push(result1.restaurants[x]);
+    }
+    console.log(result4);
+    setRestaurant1(result5);
+    
     };
 
     // Store jwt
     const [token, setToken] = React.useState(null)
 
-    // // Localize storage for jwt
+    // Localize storage for jwt
     React.useEffect(() => {
         const checkToken = JSON.parse(window.localStorage.getItem('token'))
         if (checkToken) {
             setToken(checkToken)
         }
     }, [])
-
-    // Login
-    const handleLogin = async (data) => {
-        const response = await fetch(`http://localhost:3000/login`, {
-            method: 'POST',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify(data)
-        })
-        const result = await response.json()
-        setToken(result)
-        window.localStorage.setItem('token', JSON.stringify(result))
-    }
-    // Logout
-    const handleLogout = () => {
-        window.localStorage.removeItem('token')
-        setToken(null)
-        setBookmark(null)
-    }
-
-    const changeCuisine = async (event) => {
-        event.preventDefault();
-        if ($("#Breakfast").is(":checked")) {
-            setCuisineType($("#Breakfast").val());
-            console.log(cuisineType);
-
-        } else if ($("#American").is(":checked")) {
-            setCuisineType($("#American").val());
-
-        } else if ($("#Chinese").is(":checked")) {
-            setCuisineType($("#Chinese").val());
-
-        } else if ($("#Indian").is(":checked")) {
-            setCuisineType($("#Indian").val());
-
-        } else if ($("#Desserts").is(":checked")) {
-            setCuisineType($("#Desserts").val());
-
-        } else if ($("#Italian").is(":checked")) {
-            setCuisineType($("#Italian").val());
-
-        } else if ($("#Mexican").is(":checked")) {
-            setCuisineType($("#Mexican").val());
-
-        } else if ($("#Seafood").is(":checked")) {
-            setCuisineType($("#Seafood").val());
-
-        } else {
-            setCuisineType('')
-        }
-
-    };
 
     React.useEffect(() => {
         getRestaurants()
@@ -94,25 +87,57 @@ export default (props) => {
             Authorization: `bearer ${token}` */
             },
             body: JSON.stringify(favRestaurant)
-        })
+        });
         // console.log(response)
-        getRestaurants()
-
+        getRestaurants();
 
     }
+
+    const changeCuisine = async (event) => {
+        event.preventDefault();
+        if ($("#Bakery").is(":checked")) {
+            setCuisineType("Bakery")
+
+        } else if ($("#American").is(":checked")) {
+            setCuisineType("American")
+
+        } else if ($("#Chinese").is(":checked")) {
+            setCuisineType("Chinese");
+
+        } else if ($("#Indian").is(":checked")) {
+            setCuisineType("Indian");
+
+        } else if ($("#Desserts").is(":checked")) {
+            setCuisineType("Desserts");
+
+        } else if ($("#Italian").is(":checked")) {
+            setCuisineType("Italian");
+
+        } else if ($("#Mexican").is(":checked")) {
+            setCuisineType("Mexican");
+
+        } else if ($("#Seafood").is(":checked")) {
+            setCuisineType("Seafood");
+
+        } else {
+            setCuisineType('')
+        }
+
+    };
 
     $('.checkybox').on('change', function () {
         $('.checkybox').not(this).prop('checked', false);
     });
-
+    console.log(restaurants);
     return (
         <>
             <div className="App">
                 <div className="App__header">
-                    <img src="https://i.imgur.com/3aYrSfT.jpg"></img>
+                    <img src="https://i.imgur.com/JhjGP92.jpg"></img>
+                    {/* <h2 className="centered">Some text that Pops Off</h2> */}
                 </div>
                 <div className="App__header2">
-                    <h1>Local Favorites:</h1>
+                    <h1>Local Favorites</h1>
                 </div>
                 <div className="App__mainview">
                     <div className="App__mainview--sidebar">
@@ -142,6 +167,9 @@ export default (props) => {
                                 <label htmlFor="Seafood">Seafood</label>
                                 <input className="checkybox" type="checkbox" id="Seafood" name="Seafood" value="Seafood" />
                                 <br />
+                                <label htmlFor="Bakery">Bakery</label>
+                                <input className="checkybox" type="checkbox" id="Bakery" name="Bakery" value="Bakery" />
+                                <br />
                                 <input type="submit" id="Submit" name="Submit" value="Submit"></input>
                                 <br />
                             </form>
@@ -149,7 +177,7 @@ export default (props) => {
                     </div>
                     <ul className="App__mainview--grid">
                         {restaurants ?
-                            restaurants.restaurants.filter(rest => rest.restaurant.thumb && rest.restaurant.cuisines.includes(cuisineType)).map((restaurant) => {
+                            restaurants.restaurants.filter(rest => rest.restaurant.thumb && rest.restaurant.cuisines.includes(cuisineType)).slice(0,15).map((restaurant) => {
                                 return (
                                     <li key={restaurant.restaurant.id} className="App__mainview--grid__individualRestaurant">
                                         <img src={restaurant.restaurant.thumb} className="App__mainview--grid__individualRestaurant--pic" />

@@ -61,6 +61,9 @@ export default (props) => {
         <>
             <div className="Favorites">
                 <div className="Favorites__header">
+                    <img src="https://i.imgur.com/ZTaJz6r.jpg"></img>
+                </div>
+                <div className="Favorites__header">
                     {<h2>Your Favorites:</h2>}
                 </div>
                 <div className="Favorites__mainview">
