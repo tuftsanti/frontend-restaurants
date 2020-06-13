@@ -63,8 +63,8 @@ export default (props) => {
                 <div className="Favorites__header">
                     <img src="https://i.imgur.com/ZTaJz6r.jpg"></img>
                 </div>
-                <div className="Favorites__header">
-                    {<h2>Your Favorites:</h2>}
+                <div className="Favorites__header2">
+                    {<h1>Your Favorites:</h1>}
                 </div>
                 <div className="Favorites__mainview">
                     <ul className="Favorites__mainview--grid">
@@ -73,10 +73,17 @@ export default (props) => {
                                 return (
                                     <li key={index} className="Favorites__mainview--grid__individualRestaurant">
                                         <img src={favorite.restaurant.thumb} className="Favorites__mainview--grid__individualRestaurant--pic"/>
-                                        <h3 className="Favorites__mainview--grid__individualRestaurant--name">{favorite.restaurant.name}</h3>
-                                        <ion-icon name="trash-outline" onClick={()=> {
-                                            handleDelete(favorite._id)
-                                        }}></ion-icon>
+                                        <div className="Favorites__mainview--grid__individualRestaurant--name">
+                                            <div className="favorites-names">
+                                                <h3>{favorite.restaurant.name} </h3>
+                                                <h6>{favorite.restaurant.location.city}, MA</h6>
+                                            </div>
+                                            <div className="trash-icon">
+                                                <ion-icon name="trash-outline" onClick={()=> {
+                                                    handleDelete(favorite._id)
+                                                }}></ion-icon>
+                                            </div>
+                                        </div>
                                     </li>
                                 )
                             })

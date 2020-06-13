@@ -35254,8 +35254,8 @@ var _default = function _default(props) {
   }, /*#__PURE__*/_react.default.createElement("img", {
     src: "https://i.imgur.com/ZTaJz6r.jpg"
   })), /*#__PURE__*/_react.default.createElement("div", {
-    className: "Favorites__header"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, "Your Favorites:")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Favorites__header2"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Your Favorites:")), /*#__PURE__*/_react.default.createElement("div", {
     className: "Favorites__mainview"
   }, /*#__PURE__*/_react.default.createElement("ul", {
     className: "Favorites__mainview--grid"
@@ -35266,14 +35266,18 @@ var _default = function _default(props) {
     }, /*#__PURE__*/_react.default.createElement("img", {
       src: favorite.restaurant.thumb,
       className: "Favorites__mainview--grid__individualRestaurant--pic"
-    }), /*#__PURE__*/_react.default.createElement("h3", {
+    }), /*#__PURE__*/_react.default.createElement("div", {
       className: "Favorites__mainview--grid__individualRestaurant--name"
-    }, favorite.restaurant.name), /*#__PURE__*/_react.default.createElement("ion-icon", {
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "favorites-names"
+    }, /*#__PURE__*/_react.default.createElement("h3", null, favorite.restaurant.name, " "), /*#__PURE__*/_react.default.createElement("h6", null, favorite.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
+      className: "trash-icon"
+    }, /*#__PURE__*/_react.default.createElement("ion-icon", {
       name: "trash-outline",
       onClick: function onClick() {
         handleDelete(favorite._id);
       }
-    }));
+    }))));
   }) : "Loading Your Restaurants"))));
 };
 
@@ -46378,10 +46382,13 @@ var _default = function _default(props) {
                 result5.restaurants.push(result1.restaurants[x]);
               }
 
+              console.log(result1);
+              console.log(result2);
+              console.log(result3);
               console.log(result4);
               setRestaurant1(result5);
 
-            case 27:
+            case 30:
             case "end":
               return _context.stop();
           }
@@ -46869,7 +46876,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56501" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54635" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
