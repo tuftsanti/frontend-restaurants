@@ -13,8 +13,8 @@ export default (props) => {
     const submit = async (event) => {
         event.preventDefault()
         const newUser = {username, password}
-        await Axios.post('http://localhost:3000/users/register', newUser)
-        const loginResponse = await Axios.post('http://localhost:3000/users/login', {username, password})
+        await Axios.post('https://project3-restaurants-app.herokuapp.com/users/register', newUser)
+        const loginResponse = await Axios.post('https://project3-restaurants-app.herokuapp.com/users/login', {username, password})
         setUserData({
             token: loginResponse.data.token,
             user: loginResponse.data.user
