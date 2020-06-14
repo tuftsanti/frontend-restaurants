@@ -1,9 +1,13 @@
 # Hungry 4 More - A searchable database of Boston area restaurants
 
 Link to the live app on Netlify:
+
 https://relaxed-euclid-da4898.netlify.app/
+
 Link to the database on Heroku:
+
 https://project3-restaurants-app.herokuapp.com/
+
 
 ## Setup:
 What started as a project to catalog our favorite WWF wrestlers from the 80's turned into a searchable database of Boston area restaurants. That's quite a change, and apart from a failed experiment with a real-estate API, this was our passion project. Two of the three group members live in the Boston area (the third is in Austin, TX), so this would be a useful and entertaining endeavor. We found an API we thought was robust (Zomato), and started wireframing the function, look, and feel of our final product.  
