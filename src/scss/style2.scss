@@ -1,0 +1,376 @@
+//variables
+$main-color: navy;
+$secondary-color: white;
+$accent-color: #ecf5fd;
+
+//body and global propoerties
+* {
+    box-sizing: border-box;
+    // border: 1px solid lawngreen;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: $secondary-color;
+}
+
+//CSS for the header (nav bar)
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2% ;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    &__img {
+        img{
+            height: 7vh;
+            margin-left: 5%;
+            margin-top: 2%;;
+            margin-bottom: 2%;
+        }
+    }
+    &__nav {
+        align-self: center;
+        display: flex;
+        width: 30%;
+        justify-content: space-evenly;
+        align-items: center;
+        span {
+            color: $main-color;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            padding-bottom: 3px;
+        }
+        span:hover {
+            box-shadow: 0 4px 0 -2px gray;
+            padding-bottom: 5%;
+            font-size: 1.05em;
+        
+        }
+    }
+    
+}
+
+.shadow {
+    box-shadow: 0px 5px 2px -2px rgba(0,0,0,0.2);
+    background-color: $secondary-color;
+}
+
+#header-red {
+    color: $secondary-color;
+}
+
+#header-city {
+    font-size: .3em
+}
+
+.centered {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+//Styling for main content of home page 
+.App {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100vw;
+    margin: 0 auto;
+    overflow: -moz-hidden-unscrollable;
+    font-family: 'Lato', sans-serif;
+    align-items: center;
+    background-color: $secondary-color;
+    &__header2 {
+        background-color: $secondary-color;
+        width: 85%;
+        text-align: left;
+        font-size: 1em;
+        padding: 0;
+        margin: 0;
+    }
+    &__header {
+        position: relative;
+        text-align: center;
+        color: $main-color;
+        font-size: 2em;
+        width: 100vw;
+        font-weight: 800;
+        img {
+            width: 100%;
+        }
+        h2 {
+            font-size: 4em;
+            font-family: Lato;
+        }
+    }
+    &__mainview {
+        padding-top: 0%;
+        width: 95%;
+        display: flex;
+        background-color: $secondary-color;
+        &--sidebar {
+            display: flex;
+            flex-direction: column;
+            margin-left: 5%;
+            margin-bottom: 5%;
+            background-color: $secondary-color;
+            height: 600px;
+            width: 18%;
+            border-radius: 5px;
+            -moz-box-shadow: 0 0 6px grey;
+            -webkit-box-shadow: 0 0 6px grey;
+            box-shadow: 0 0 6px grey;
+            overflow: none;
+            &__header {
+                background-color: $main-color;
+                text-align: center;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                color: $secondary-color;
+            }
+            
+        }
+        &--grid {
+            width: 75%;
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
+            justify-content: flex-start;
+            align-items: flex-start;
+                &__individualRestaurant {
+                    width: 280px;
+                    height: 250px;
+                    display: flex;
+                    flex-direction: column ;
+                    margin: 0 4% 20px 0;
+                    border-bottom: 1px solid grey;
+                    &--name {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        text-align: left;
+                        margin-top: 1%;
+                        .names {
+                            width: 70%;
+                            margin: 0;
+                            padding: 0;
+                            margin-left: 6px;
+                            h3 {
+                                font-size: 1em;
+                                padding: 0;
+                                margin-top: 0;
+                                margin-bottom: 0;
+                                color: $main-color;
+                            }
+                            h6 {
+                                font-size: .4em;
+                                color: grey;
+                                margin-top: 0;
+                                margin-bottom: 0;
+                            }
+                        }
+                        
+
+                    }
+                    &--pic {
+                        border-radius: 5px
+                        
+                    }
+                }
+                // &__individualRestaurant:hover {
+                    
+                //     -moz-box-shadow: 0 0 20px rgb(136, 134, 134);
+                //     -webkit-box-shadow: 0 0 20px rgb(136, 134, 134);
+                //     box-shadow: 0 0 20px rgb(136, 134, 134);
+                //     cursor: pointer;
+                // }
+        }
+    }
+}
+
+//styling for favorites page
+.Favorites {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100vw;
+    margin: 0 auto;
+    overflow: -moz-hidden-unscrollable;
+    font-family: 'Lato', sans-serif;
+    align-items: center;
+    background-color: $secondary-color;
+    &__header2 {
+        background-color: $secondary-color;
+        width: 85%;
+        text-align: left;
+        font-size: 1em;
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid lightblue;
+    }
+    &__header {
+        position: relative;
+        text-align: center;
+        color: $main-color;
+        font-size: 2em;
+        width: 100vw;
+        font-weight: 800;
+        img {
+            width: 100%;
+        }
+        h2 {
+            font-size: 4em;
+            font-family: Lato;
+        }
+    }
+    &__mainview {
+        padding-top: 0%;
+        width: 95%;
+        display: flex;
+        background-color: $secondary-color;
+        justify-content: center;
+        &--grid {
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+            list-style-type: none;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+                &__individualRestaurant {
+                    width: 1000px;
+                    height: 415px;
+                    display: flex;
+                    flex-direction: column ;
+                    justify-content: center;
+                    border-bottom: 1px solid grey;
+                    margin-top: 5%;
+                    &--name {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-end;
+                        text-align: left;
+                        .favorites-names {
+                            width: 70%;
+                            margin: 0;
+                            padding: 0;
+                            margin-left: 6px;
+                            margin-bottom: 1%;
+                            h3 {
+                                font-size: 1.2em;
+                                padding: 0;
+                                margin-top: 0;
+                                margin-bottom: 0;
+                                color: $main-color;
+                            }
+                            h6 {
+                                font-size: .6em;
+                                color: grey;
+                                margin-top: 0;
+                                margin-bottom: 0;
+                            }
+                        }
+                        
+
+                    }
+                    &--pic {
+                        img {
+                            border-radius: 5px;
+                            width: 35%;
+                        }
+                        img:hover {
+                            opacity: .8;
+                        }
+                        img:active {
+                            opacity: .5;
+                        }
+                        
+                    }
+                }
+                &--filler {
+                    margin-top: 10%;
+                    height: 600px;
+                    color: $main-color;
+                    display: flex;
+                    img {
+                        width: 140px;
+                        height: 80px;
+                    }
+                }
+        }
+    }
+}
+
+//CSS for the Filters on the sidebar
+.filter-form {
+    padding: 5%;
+    label {
+        font-size: 2em;
+        font-weight: 300;
+    }
+    input[type=checkbox] {
+        margin-bottom: 10%;
+    }
+}
+
+.filter-h1 {
+    text-shadow: 2px 2px black;
+    margin-left: .5rem;
+}
+
+//styling for login section
+.resultTitle {
+    text-align: center;
+}
+
+.login-div {
+    margin-top:20%
+    
+}
+
+//ionic icon styling
+ion-icon {
+    color: black;
+    font-size: 2em;
+    margin-top: 2%;
+    z-index: 2;
+}
+ion-icon:hover {
+    opacity: .5;
+    cursor: pointer;
+}
+ion-icon:active {
+    color: green;
+}
+
+//styling submit buttons
+input[type=submit] {
+    border: none;
+    outline: none;
+    background-color: #0d64af;;
+    font-size: .8em;
+    color: $secondary-color;
+    border-radius: 20px;
+    width: 60%;
+    height: 30px;
+    margin-left: 20%;
+    margin-top: 15%;
+    
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: #054883;
+
+}
+
+input[type=submit]:active {
+    box-shadow:none;
+    background-color: $main-color;
+}
+
