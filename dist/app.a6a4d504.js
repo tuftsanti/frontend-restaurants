@@ -34924,33 +34924,41 @@ var _default = function _default(props) {
 
   var history = (0, _reactRouterDom.useHistory)();
 
-  var submit = /*#__PURE__*/function () {
-    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(event) {
-      var loginUser, loginResponse;
+  var _React$useState5 = _react.default.useState(false),
+      _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
+      error = _React$useState6[0],
+      setError = _React$useState6[1];
+
+  var submit = function submit(event) {
+    event.preventDefault();
+    var loginUser = {
+      username: username,
+      password: password
+    };
+
+    _axios.default.post('http://localhost:3000/users/login', loginUser).then(function (response) {
+      // console.log(response)
+      setUserData({
+        token: response.data.token
+      });
+      localStorage.setItem("auth-token", JSON.stringify(response.data.token));
+      history.push('/');
+    }).catch(function (error) {
+      console.log(error);
+      setError(true);
+    });
+  };
+
+  var updateErrorState = /*#__PURE__*/function () {
+    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(variable) {
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              event.preventDefault();
-              loginUser = {
-                username: username,
-                password: password
-              };
-              _context.next = 4;
-              return _axios.default.post('http://localhost:3000/users/login', loginUser);
+              _context.next = 2;
+              return setError(variable);
 
-            case 4:
-              loginResponse = _context.sent;
-              setUserData({
-                token: loginResponse.data.token
-                /*,
-                user: loginResponse.data.user*/
-
-              });
-              localStorage.setItem("auth-token", JSON.stringify(loginResponse.data.token));
-              history.push('/');
-
-            case 8:
+            case 2:
             case "end":
               return _context.stop();
           }
@@ -34958,7 +34966,7 @@ var _default = function _default(props) {
       }, _callee);
     }));
 
-    return function submit(_x) {
+    return function updateErrorState(_x) {
       return _ref.apply(this, arguments);
     };
   }();
@@ -34981,7 +34989,22 @@ var _default = function _default(props) {
   }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
     type: "submit",
     value: "Login"
-  })));
+  })), error ? /*#__PURE__*/_react.default.createElement("div", {
+    className: "error-modal"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "error-modal-textbox"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "modal-image"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: "https://i.imgur.com/FeiXWXA.png"
+  })), /*#__PURE__*/_react.default.createElement("h1", null, "Oops! Something went wrong! "), /*#__PURE__*/_react.default.createElement("h4", null, "Try another username and password"), /*#__PURE__*/_react.default.createElement("div", {
+    id: "modal-footer"
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    className: "modal-buttons",
+    onClick: function onClick() {
+      updateErrorState(false);
+    }
+  }, "Close")))) : "");
 };
 
 exports.default = _default;
@@ -35025,6 +35048,11 @@ var _default = function _default(props) {
 
   var history = (0, _reactRouterDom.useHistory)();
 
+  var _React$useState5 = _react.default.useState(false),
+      _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
+      errorStatus = _React$useState6[0],
+      setErrorStatus = _React$useState6[1];
+
   var submit = /*#__PURE__*/function () {
     var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(event) {
       var newUser, loginResponse;
@@ -35033,39 +35061,75 @@ var _default = function _default(props) {
           switch (_context.prev = _context.next) {
             case 0:
               event.preventDefault();
+              _context.prev = 1;
               newUser = {
                 username: username,
                 password: password
               };
-              _context.next = 4;
+              _context.next = 5;
               return _axios.default.post('http://localhost:3000/users/register', newUser);
 
-            case 4:
-              _context.next = 6;
+            case 5:
+              _context.next = 7;
               return _axios.default.post('http://localhost:3000/users/login', {
                 username: username,
                 password: password
               });
 
-            case 6:
+            case 7:
               loginResponse = _context.sent;
-              setUserData({
+              _context.next = 10;
+              return setUserData({
                 token: loginResponse.data.token,
                 user: loginResponse.data.user
               });
-              localStorage.setItem("auth-token", JSON.stringify(loginResponse.data.token));
-              history.push('/');
 
             case 10:
+              _context.next = 12;
+              return localStorage.setItem("auth-token", JSON.stringify(loginResponse.data.token));
+
+            case 12:
+              history.push('/');
+              _context.next = 18;
+              break;
+
+            case 15:
+              _context.prev = 15;
+              _context.t0 = _context["catch"](1);
+              setErrorStatus(true);
+
+            case 18:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee);
+      }, _callee, null, [[1, 15]]);
     }));
 
     return function submit(_x) {
       return _ref.apply(this, arguments);
+    };
+  }();
+
+  var updateErrorStatus = /*#__PURE__*/function () {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(variable) {
+      return _regenerator.default.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return setErrorStatus(variable);
+
+            case 2:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function updateErrorStatus(_x2) {
+      return _ref2.apply(this, arguments);
     };
   }();
 
@@ -35087,7 +35151,22 @@ var _default = function _default(props) {
   }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
     type: "submit",
     value: "Register"
-  })));
+  })), errorStatus ? /*#__PURE__*/_react.default.createElement("div", {
+    className: "error-modal"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "error-modal-textbox"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "modal-image"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: "https://i.imgur.com/FeiXWXA.png"
+  })), /*#__PURE__*/_react.default.createElement("h2", null, "Oops! Something went wrong! "), /*#__PURE__*/_react.default.createElement("h4", null, "Seems like someone may already have that username/password."), /*#__PURE__*/_react.default.createElement("div", {
+    id: "modal-footer"
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    className: "modal-buttons",
+    onClick: function onClick() {
+      updateErrorStatus(false);
+    }
+  }, "Close")))) : "");
 };
 
 exports.default = _default;
@@ -46255,6 +46334,8 @@ var _jquery = _interopRequireDefault(require("jquery"));
 
 var _UserContext = _interopRequireDefault(require("../context/UserContext"));
 
+var _axios = _interopRequireDefault(require("axios"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(props) {
@@ -46605,7 +46686,7 @@ var _default = function _default(props) {
 };
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","./Footer.js":"src/components/Footer.js","../scss/style2.scss":"src/scss/style2.scss","jquery":"node_modules/jquery/dist/jquery.js","../context/UserContext":"src/context/UserContext.js"}],"src/components/Header.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","./Footer.js":"src/components/Footer.js","../scss/style2.scss":"src/scss/style2.scss","jquery":"node_modules/jquery/dist/jquery.js","../context/UserContext":"src/context/UserContext.js","axios":"node_modules/axios/index.js"}],"src/components/Header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46814,7 +46895,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43725" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63255" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

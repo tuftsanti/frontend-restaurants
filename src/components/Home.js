@@ -3,6 +3,7 @@ import Footer from './Footer.js'
 import '../scss/style2.scss';
 import $ from 'jquery'
 import UserContext from '../context/UserContext';
+import Axios from 'axios'
 
 export default (props) => {
     const [restaurants, setRestaurant1] = React.useState(null);
