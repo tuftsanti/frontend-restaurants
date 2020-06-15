@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from 'axios'
 import UserContext from '../context/UserContext'
 import {useHistory} from 'react-router-dom';
+import Footer from './Footer'
 
 
 export default (props) => {
@@ -61,6 +62,7 @@ export default (props) => {
                     </div>
                 </div> 
                 : ""}
+            <Footer/>
         </div>
     );
 };

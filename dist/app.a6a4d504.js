@@ -34884,7 +34884,30 @@ if ("development" !== "production") {
     style: _propTypes.default.object
   });
 }
-},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"src/components/Login.js":[function(require,module,exports) {
+},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"src/components/Footer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = function _default(props) {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+    className: "footer"
+  }, /*#__PURE__*/_react.default.createElement("h5", null, "Hungry 4 More ", "\xA9", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("span", {
+    className: "footer-span"
+  }, "All rights reserved"))));
+};
+
+exports.default = _default;
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Login.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34905,6 +34928,8 @@ var _axios = _interopRequireDefault(require("axios"));
 var _UserContext = _interopRequireDefault(require("../context/UserContext"));
 
 var _reactRouterDom = require("react-router-dom");
+
+var _Footer = _interopRequireDefault(require("./Footer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35004,11 +35029,11 @@ var _default = function _default(props) {
     onClick: function onClick() {
       updateErrorState(false);
     }
-  }, "Close")))) : "");
+  }, "Close")))) : "", /*#__PURE__*/_react.default.createElement(_Footer.default, null));
 };
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","axios":"node_modules/axios/index.js","../context/UserContext":"src/context/UserContext.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/Register.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","axios":"node_modules/axios/index.js","../context/UserContext":"src/context/UserContext.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Footer":"src/components/Footer.js"}],"src/components/Register.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35029,6 +35054,8 @@ var _axios = _interopRequireDefault(require("axios"));
 var _UserContext = _interopRequireDefault(require("../context/UserContext"));
 
 var _reactRouterDom = require("react-router-dom");
+
+var _Footer = _interopRequireDefault(require("./Footer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35166,30 +35193,11 @@ var _default = function _default(props) {
     onClick: function onClick() {
       updateErrorStatus(false);
     }
-  }, "Close")))) : "");
+  }, "Close")))) : "", /*#__PURE__*/_react.default.createElement(_Footer.default, null));
 };
 
 exports.default = _default;
-},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","axios":"node_modules/axios/index.js","../context/UserContext":"src/context/UserContext.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/Footer.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = function _default(props) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Footer"));
-};
-
-exports.default = _default;
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"src/components/Favorites.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"node_modules/@babel/runtime/helpers/slicedToArray.js","react":"node_modules/react/index.js","axios":"node_modules/axios/index.js","../context/UserContext":"src/context/UserContext.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Footer":"src/components/Footer.js"}],"src/components/Favorites.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35336,7 +35344,8 @@ var _default = function _default(props) {
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "Favorites__mainview--grid__individualRestaurant--pic"
     }, /*#__PURE__*/_react.default.createElement("a", {
-      href: favorite.restaurant.url
+      href: favorite.restaurant.url,
+      target: "_blank"
     }, /*#__PURE__*/_react.default.createElement("img", {
       src: favorite.restaurant.thumb
     }))), /*#__PURE__*/_react.default.createElement("div", {
@@ -46344,35 +46353,15 @@ var _default = function _default(props) {
       restaurants = _React$useState2[0],
       setRestaurant1 = _React$useState2[1];
 
-  var _React$useState3 = _react.default.useState(null),
+  var _React$useState3 = _react.default.useState(''),
       _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
-      restaurant2 = _React$useState4[0],
-      setRestaurant2 = _React$useState4[1];
+      cuisineType = _React$useState4[0],
+      setCuisineType = _React$useState4[1];
 
-  var _React$useState5 = _react.default.useState(null),
+  var _React$useState5 = _react.default.useState(false),
       _React$useState6 = (0, _slicedToArray2.default)(_React$useState5, 2),
-      restaurant3 = _React$useState6[0],
-      setRestaurant3 = _React$useState6[1];
-
-  var _React$useState7 = _react.default.useState(''),
-      _React$useState8 = (0, _slicedToArray2.default)(_React$useState7, 2),
-      cuisineType = _React$useState8[0],
-      setCuisineType = _React$useState8[1];
-
-  var _React$useState9 = _react.default.useState(''),
-      _React$useState10 = (0, _slicedToArray2.default)(_React$useState9, 2),
-      cuisineType2 = _React$useState10[0],
-      setCuisineType2 = _React$useState10[1];
-
-  var _React$useState11 = _react.default.useState(''),
-      _React$useState12 = (0, _slicedToArray2.default)(_React$useState11, 2),
-      cuisineType3 = _React$useState12[0],
-      setCuisineType3 = _React$useState12[1];
-
-  var _React$useState13 = _react.default.useState(true),
-      _React$useState14 = (0, _slicedToArray2.default)(_React$useState13, 2),
-      showButton = _React$useState14[0],
-      setButtonType = _React$useState14[1];
+      loggedIn = _React$useState6[0],
+      setLoggedIn = _React$useState6[1];
 
   var getRestaurants = /*#__PURE__*/function () {
     var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
@@ -46385,23 +46374,23 @@ var _default = function _default(props) {
               _context.next = 2;
               return Promise.all([fetch('https://developers.zomato.com/api/v2.1/search?start=0&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                  "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                  "user-key": "43857380d1047f74d7d7691dea96f3a5"
                 }
               }), fetch('https://developers.zomato.com/api/v2.1/search?start=20&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                  "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                  "user-key": "43857380d1047f74d7d7691dea96f3a5"
                 }
               }), fetch('https://developers.zomato.com/api/v2.1/search?start=40&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                  "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                  "user-key": "43857380d1047f74d7d7691dea96f3a5"
                 }
               }), fetch('https://developers.zomato.com/api/v2.1/search?start=60&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                  "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                  "user-key": "43857380d1047f74d7d7691dea96f3a5"
                 }
               }), fetch('https://developers.zomato.com/api/v2.1/search?start=80&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                  "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                  "user-key": "43857380d1047f74d7d7691dea96f3a5"
                 }
               })]);
 
@@ -46462,10 +46451,10 @@ var _default = function _default(props) {
   }(); // Store jwt
 
 
-  var _React$useState15 = _react.default.useState(null),
-      _React$useState16 = (0, _slicedToArray2.default)(_React$useState15, 2),
-      token = _React$useState16[0],
-      setToken = _React$useState16[1];
+  var _React$useState7 = _react.default.useState(null),
+      _React$useState8 = (0, _slicedToArray2.default)(_React$useState7, 2),
+      token = _React$useState8[0],
+      setToken = _React$useState8[1];
 
   var _React$useContext = _react.default.useContext(_UserContext.default),
       userData = _React$useContext.userData; // Localize storage for jwt
@@ -46485,7 +46474,7 @@ var _default = function _default(props) {
 
 
   var pickRestaurant = /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(favRestaurant, event) {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(favRestaurant, id) {
       var response;
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
@@ -46503,8 +46492,12 @@ var _default = function _default(props) {
 
             case 2:
               response = _context2.sent;
-              // console.log(response)
-              getRestaurants();
+
+              if (response.status == 500) {
+                setLoggedIn(true);
+              } else {
+                turnButtonGreen(id);
+              }
 
             case 4:
             case "end":
@@ -46547,6 +46540,8 @@ var _default = function _default(props) {
                 setCuisineType("Mexican");
               } else if ((0, _jquery.default)("#Seafood").is(":checked")) {
                 setCuisineType("Seafood");
+              } else if ((0, _jquery.default)("#searchAll").is(":checked")) {
+                setCuisineType("");
               } else {
                 setCuisineType('');
               }
@@ -46563,6 +46558,15 @@ var _default = function _default(props) {
       return _ref3.apply(this, arguments);
     };
   }();
+
+  var _React$useState9 = _react.default.useState(null),
+      _React$useState10 = (0, _slicedToArray2.default)(_React$useState9, 2),
+      isClicked = _React$useState10[0],
+      setClicked = _React$useState10[1];
+
+  var turnButtonGreen = function turnButtonGreen(key) {
+    setClicked(key);
+  };
 
   (0, _jquery.default)('.checkybox').on('change', function () {
     (0, _jquery.default)('.checkybox').not(this).prop('checked', false);
@@ -46651,6 +46655,14 @@ var _default = function _default(props) {
     id: "Seafood",
     name: "Seafood",
     value: "Seafood"
+  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: "searchAll"
+  }, "Search All..."), /*#__PURE__*/_react.default.createElement("input", {
+    className: "checkybox",
+    type: "checkbox",
+    id: "searchAll",
+    name: "searchAll",
+    value: "searchAll"
   }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
     type: "submit",
     id: "Submit",
@@ -46673,16 +46685,34 @@ var _default = function _default(props) {
       className: "names"
     }, /*#__PURE__*/_react.default.createElement("h3", null, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("h6", null, restaurant.restaurant.location.locality, " - ", restaurant.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
       className: "icon"
-    }, showButton ? /*#__PURE__*/_react.default.createElement("ion-icon", {
+    }, isClicked == restaurant.restaurant.id ? /*#__PURE__*/_react.default.createElement("ion-icon", {
+      name: "checkmark-circle",
+      style: {
+        color: 'green'
+      }
+    }) : /*#__PURE__*/_react.default.createElement("ion-icon", {
       className: "plus-icon",
       name: "add-circle-outline",
       onClick: function onClick() {
-        pickRestaurant(restaurant);
+        pickRestaurant(restaurant, restaurant.restaurant.id);
       }
-    }) : /*#__PURE__*/_react.default.createElement("p", null, "hi"))));
-  }) : /*#__PURE__*/_react.default.createElement("h1", null, "Searching Local Restaurants..."))), /*#__PURE__*/_react.default.createElement(_Footer.default, {
-    className: "footer"
-  })));
+    }))));
+  }) : /*#__PURE__*/_react.default.createElement("h1", null, "Searching Local Restaurants..."))), /*#__PURE__*/_react.default.createElement(_Footer.default, null), loggedIn ? /*#__PURE__*/_react.default.createElement("div", {
+    className: "error-modal"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "error-modal-textbox"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "modal-image"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: "https://i.imgur.com/FeiXWXA.png"
+  })), /*#__PURE__*/_react.default.createElement("h1", null, "Oops! Something went wrong! "), /*#__PURE__*/_react.default.createElement("h4", null, "You need to log in first!"), /*#__PURE__*/_react.default.createElement("div", {
+    id: "modal-footer"
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    className: "modal-buttons",
+    onClick: function onClick() {
+      setLoggedIn(false);
+    }
+  }, "Close")))) : ""));
 };
 
 exports.default = _default;
@@ -46895,7 +46925,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63255" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55263" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

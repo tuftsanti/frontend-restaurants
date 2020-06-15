@@ -63,7 +63,7 @@ export default (props) => {
                                 return (
                                     <li key={index} className="Favorites__mainview--grid__individualRestaurant">
                                         <div className="Favorites__mainview--grid__individualRestaurant--pic">
-                                            <a href={favorite.restaurant.url}>
+                                            <a href={favorite.restaurant.url} target="_blank">
                                                 <img src={favorite.restaurant.thumb}/>
                                             </a>
                                         </div>

@@ -7,42 +7,38 @@ import Axios from 'axios'
 
 export default (props) => {
     const [restaurants, setRestaurant1] = React.useState(null);
-    const [restaurant2, setRestaurant2] = React.useState(null);
-    const [restaurant3, setRestaurant3] = React.useState(null);
     const [cuisineType, setCuisineType] = React.useState('');
-    const [cuisineType2, setCuisineType2] = React.useState('');
-    const [cuisineType3, setCuisineType3] = React.useState('');
-    const [showButton, setButtonType] = React.useState(true);
+    const [loggedIn, setLoggedIn] = React.useState(false);
 
     const getRestaurants = async () => {
         let [response1, response2, response3, response4, response5] = await Promise.all([
             fetch('https://developers.zomato.com/api/v2.1/search?start=0&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                    "user-key": "43857380d1047f74d7d7691dea96f3a5"
                 }
             }
             ),
             fetch('https://developers.zomato.com/api/v2.1/search?start=20&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                    "user-key": "43857380d1047f74d7d7691dea96f3a5"
                 }
             }
             ),
             fetch('https://developers.zomato.com/api/v2.1/search?start=40&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                    "user-key": "43857380d1047f74d7d7691dea96f3a5"
                 }
             }
             ),
             fetch('https://developers.zomato.com/api/v2.1/search?start=60&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                    "user-key": "43857380d1047f74d7d7691dea96f3a5"
                 }
             }
             ),
             fetch('https://developers.zomato.com/api/v2.1/search?start=80&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                    "user-key": "1d3991ac57bf4f6b320924c64baa42b5"
+                    "user-key": "43857380d1047f74d7d7691dea96f3a5"
                 }
             }
             )
@@ -81,7 +77,8 @@ export default (props) => {
     }, []);
 
     // Add a Restaurant
-    const pickRestaurant = async (favRestaurant, event) => {
+    const pickRestaurant = async (favRestaurant, id) => {
+        
         const response = await fetch(`http://localhost:3000/restaurants`, {
             method: 'POST',
             headers: {
@@ -90,8 +87,12 @@ export default (props) => {
             },
             body: JSON.stringify(favRestaurant)
         });
-        // console.log(response)
-        getRestaurants();
+        
+        if (response.status == 500) {
+            setLoggedIn(true)
+        } else {
+            turnButtonGreen(id)   
+        }
 
     }
 
@@ -127,15 +128,26 @@ export default (props) => {
         } else if ($("#Seafood").is(":checked")) {
             setCuisineType("Seafood");
 
-        } else {
+        } else if ($("#searchAll").is(":checked")) {
+            setCuisineType("");
+
+        }  else {
             setCuisineType('')
         }
 
     };
 
+    const [isClicked, setClicked] = React.useState(null)
+
+    const turnButtonGreen = (key) => {
+        setClicked(key)
+    }
+
+
     $('.checkybox').on('change', function () {
         $('.checkybox').not(this).prop('checked', false);
     });
+
     return (
         <>
             <div className="App">
@@ -177,6 +189,9 @@ export default (props) => {
                                 <label htmlFor="Seafood">Seafood</label>
                                 <input className="checkybox" type="checkbox" id="Seafood" name="Seafood" value="Seafood" />
                                 <br />
+                                <label htmlFor="searchAll">Search All...</label>
+                                <input className="checkybox" type="checkbox" id="searchAll" name="searchAll" value="searchAll" />
+                                <br />
                                 <input type="submit" id="Submit" name="Submit" value="Submit"></input>
                                 <br />
                             </form>
@@ -194,11 +209,14 @@ export default (props) => {
                                                 <h6>{restaurant.restaurant.location.locality} - {restaurant.restaurant.location.city}, MA</h6>
                                             </div>
                                             <div className="icon">
-                                                {showButton ?
-                                                    <ion-icon className="plus-icon" name="add-circle-outline" onClick={() => {
-                                                        pickRestaurant(restaurant)
-                                                    }}></ion-icon>
-                                                     : <p>hi</p>}
+                                                { isClicked == restaurant.restaurant.id ? 
+                                                    <ion-icon name="checkmark-circle" style={{color: 'green'}}>
+                                                    </ion-icon> :
+                                                   <ion-icon className="plus-icon" name="add-circle-outline" onClick={() => {
+                                                    pickRestaurant(restaurant, restaurant.restaurant.id)
+                                                }}></ion-icon> 
+                                                }
+                                                    
                                             </div>
                                         </div>
 
@@ -210,7 +228,25 @@ export default (props) => {
                         }
                     </ul>
                 </div>
-                <Footer className="footer" />
+                <Footer/>
+                {loggedIn ? 
+                <div className="error-modal">
+                    <div className="error-modal-textbox">
+                        <div className="modal-image">
+                            <img src="https://i.imgur.com/FeiXWXA.png"></img>
+                        </div>
+                        <h1>Oops! Something went wrong! </h1>
+                        <h4>You need to log in first!</h4>
+                        <div id="modal-footer">
+                            <button className="modal-buttons" onClick={() => {
+                                setLoggedIn(false)
+                            }}>
+                            Close
+                            </button>
+                        </div>
+                    </div>
+                </div> 
+                : ""}
             </div>
 
         </>
