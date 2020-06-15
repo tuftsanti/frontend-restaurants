@@ -35001,20 +35001,26 @@ var _default = function _default(props) {
   }, /*#__PURE__*/_react.default.createElement("form", {
     className: "login-div",
     onSubmit: submit
-  }, "Username: ", /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("legend", null, "Log-In:"), /*#__PURE__*/_react.default.createElement("label", {
+    for: "username"
+  }, "Username:"), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
+    id: "username",
     onChange: function onChange(event) {
       return setUsername(event.target.value);
     }
-  }), /*#__PURE__*/_react.default.createElement("br", null), "Password: ", /*#__PURE__*/_react.default.createElement("input", {
+  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
+    for: "password"
+  }, "Password:"), /*#__PURE__*/_react.default.createElement("input", {
     type: "password",
+    id: "password",
     onChange: function onChange(event) {
       return setPassword(event.target.value);
     }
   }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
     type: "submit",
     value: "Login"
-  })), error ? /*#__PURE__*/_react.default.createElement("div", {
+  }))), error ? /*#__PURE__*/_react.default.createElement("div", {
     className: "error-modal"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "error-modal-textbox"
@@ -35165,20 +35171,26 @@ var _default = function _default(props) {
   }, /*#__PURE__*/_react.default.createElement("form", {
     className: "login-div",
     onSubmit: submit
-  }, "Username: ", /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("legend", null, "Register:"), /*#__PURE__*/_react.default.createElement("label", {
+    for: "username"
+  }, "Username:"), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
+    id: "username",
     onChange: function onChange(event) {
       return setUsername(event.target.value);
     }
-  }), /*#__PURE__*/_react.default.createElement("br", null), "Password: ", /*#__PURE__*/_react.default.createElement("input", {
+  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
+    for: "password"
+  }, "Password:"), /*#__PURE__*/_react.default.createElement("input", {
     type: "password",
+    id: "password",
     onChange: function onChange(event) {
       return setPassword(event.target.value);
     }
   }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
     type: "submit",
     value: "Register"
-  })), errorStatus ? /*#__PURE__*/_react.default.createElement("div", {
+  }))), errorStatus ? /*#__PURE__*/_react.default.createElement("div", {
     className: "error-modal"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "error-modal-textbox"
@@ -35360,7 +35372,7 @@ var _default = function _default(props) {
         handleDelete(favorite._id);
       }
     }), /*#__PURE__*/_react.default.createElement("span", {
-      class: "tooltiptext"
+      className: "tooltiptext"
     }, "Delete from favorites"))));
   }) : /*#__PURE__*/_react.default.createElement("div", {
     className: "Favorites__mainview--grid--filler"
@@ -46703,7 +46715,7 @@ var _default = function _default(props) {
         pickRestaurant(restaurant, restaurant.restaurant.id);
       }
     }), /*#__PURE__*/_react.default.createElement("span", {
-      class: "tooltiptext"
+      className: "tooltiptext"
     }, "Click here to add to your favorites"))));
   }) : /*#__PURE__*/_react.default.createElement("h1", null, "Searching Local Restaurants..."))), /*#__PURE__*/_react.default.createElement(_Footer.default, null), loggedIn ? /*#__PURE__*/_react.default.createElement("div", {
     className: "error-modal"
@@ -46933,7 +46945,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61988" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62343" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

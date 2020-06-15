@@ -38,11 +38,17 @@ export default (props) => {
     return (
         <div className="App">
             <form className="login-div" onSubmit={submit}>
-                Username: <input type="text" onChange={(event) => setUsername(event.target.value)}/><br/>
-                Password: <input type="password" onChange={(event) => setPassword(event.target.value)}/><br/>
-                <input 
-                    type="submit" value= 'Register'/>
+                <fieldset>
+                    <legend>Register:</legend>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" onChange={(event) => setUsername(event.target.value)}/><br/>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" onChange={(event) => setPassword(event.target.value)}/><br/>
+                    <input type="submit" value= 'Register'/>
+                 </fieldset>
+                
             </form>
+
             {errorStatus ? 
                 <div className="error-modal">
                     <div className="error-modal-textbox">

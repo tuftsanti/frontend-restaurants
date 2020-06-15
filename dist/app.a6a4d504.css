@@ -383,5 +383,27 @@ input[type=submit]:active {
 .tooltip:hover .tooltiptext {
   visibility: visible; }
 
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px 50px 50px 50px;
+  margin: 20px 0; }
+  fieldset legend {
+    padding: 0 10px;
+    color: #6be26b;
+    font-size: 2em; }
+  fieldset label {
+    color: black;
+    display: block; }
+  fieldset input {
+    margin-top: 20px;
+    box-sizing: border-box;
+    border: 1px solid navy;
+    border-radius: 5px;
+    z-index: 5000; }
+  fieldset input:focus {
+    outline: none;
+    border: 1px solid #6be26b; }
+
 
 /*# sourceMappingURL=/app.a6a4d504.css.map */
