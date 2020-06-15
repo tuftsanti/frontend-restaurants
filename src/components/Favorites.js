@@ -19,7 +19,7 @@ export default (props) => {
     }, [])
     
     const getFavs = async () => {
-        const response = await fetch('http://localhost:3000/restaurants', {
+        const response = await fetch('https://project3-restaurants-app.herokuapp.com/restaurants', {
             headers: {Authorization: `bearer ${userData.token}`}
         })
         const result = await response.json();
@@ -33,7 +33,7 @@ export default (props) => {
 
     //Delete Favorite//
     const handleDelete = async (id) => {
-        const response = await fetch(`http://localhost:3000/restaurants/${id}`, {
+        const response = await fetch(`https://project3-restaurants-app.herokuapp.com/restaurants/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': "application/json" ,

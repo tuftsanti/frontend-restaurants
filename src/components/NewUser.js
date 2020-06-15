@@ -12,7 +12,7 @@ export default (props) => {
 
     //handleCreate function for the form
     const handleCreate = async (data) => {
-        const response = await fetch('http://localhost:3000/users', {
+        const response = await fetch('https://project3-restaurants-app.herokuapp.com/users', {
 
         method: "POST",
         headers: {

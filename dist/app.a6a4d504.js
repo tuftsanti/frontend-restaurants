@@ -34961,7 +34961,7 @@ var _default = function _default(props) {
       password: password
     };
 
-    _axios.default.post('http://localhost:3000/users/login', loginUser).then(function (response) {
+    _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/login', loginUser).then(function (response) {
       // console.log(response)
       setUserData({
         token: response.data.token
@@ -35094,11 +35094,11 @@ var _default = function _default(props) {
                 password: password
               };
               _context.next = 5;
-              return _axios.default.post('http://localhost:3000/users/register', newUser);
+              return _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/register', newUser);
 
             case 5:
               _context.next = 7;
-              return _axios.default.post('http://localhost:3000/users/login', {
+              return _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/login', {
                 username: username,
                 password: password
               });
@@ -35253,7 +35253,7 @@ var _default = function _default(props) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return fetch('http://localhost:3000/restaurants', {
+              return fetch('https://project3-restaurants-app.herokuapp.com/restaurants', {
                 headers: {
                   Authorization: "bearer ".concat(userData.token)
                 }
@@ -35295,7 +35295,7 @@ var _default = function _default(props) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return fetch("http://localhost:3000/restaurants/".concat(id), {
+              return fetch("https://project3-restaurants-app.herokuapp.com/restaurants/".concat(id), {
                 method: 'DELETE',
                 headers: {
                   'Content-Type': "application/json",
@@ -46481,7 +46481,7 @@ var _default = function _default(props) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return fetch("http://localhost:3000/restaurants", {
+              return fetch("https://project3-restaurants-app.herokuapp.com/restaurants", {
                 method: 'POST',
                 headers: {
                   'Content-Type': "application/json",
@@ -46858,9 +46858,9 @@ var App = function App(props) {
           let token = localStorage.getItem('auth-token')
           if (token === null) {
           }
-          const tokenResponse = await Axios.post("http://localhost:3000/users/validToken", null, {headers: {"x-auth-token": token}})
+          const tokenResponse = await Axios.post("https://project3-restaurants-app.herokuapp.com/users/validToken", null, {headers: {"x-auth-token": token}})
           if (tokenResponse.data) {
-              const userResponse = await Axios.get('http://localhost:3000/users/', {headers: {'x-auth-token': token}})
+              const userResponse = await Axios.get('https://project3-restaurants-app.herokuapp.com/users/', {headers: {'x-auth-token': token}})
               setUserData({
                   token,
                   user: userResponse.data
@@ -46925,7 +46925,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55263" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58056" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
