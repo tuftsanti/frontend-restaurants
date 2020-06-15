@@ -17,6 +17,7 @@ export default (props) => {
     const submit = (event) => {
         event.preventDefault()
         const loginUser = {username, password}
+<<<<<<< HEAD
         Axios.post('https://project3-restaurants-app.herokuapp.com/users/login', loginUser)
             .then(function (response){
                 // console.log(response)
@@ -34,6 +35,15 @@ export default (props) => {
 
     const updateErrorState = async (variable) => {
         await setError(variable);
+=======
+        const loginResponse = await Axios.post('https://project3-restaurants-app.herokuapp.com/users/login', loginUser)
+        setUserData({
+            token: loginResponse.data.token /*,
+            user: loginResponse.data.user*/
+        })
+        localStorage.setItem("auth-token", JSON.stringify(loginResponse.data.token))
+        history.push('/')
+>>>>>>> 468c6e4ec3e17a2fcc637fcd8eaf49dd7fad9760
     }
 
     return (

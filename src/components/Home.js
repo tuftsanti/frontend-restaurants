@@ -77,8 +77,12 @@ export default (props) => {
     }, []);
 
     // Add a Restaurant
+<<<<<<< HEAD
     const pickRestaurant = async (favRestaurant, id) => {
         
+=======
+    const pickRestaurant = async (favRestaurant, event) => {
+>>>>>>> 468c6e4ec3e17a2fcc637fcd8eaf49dd7fad9760
         const response = await fetch(`https://project3-restaurants-app.herokuapp.com/restaurants`, {
             method: 'POST',
             headers: {
