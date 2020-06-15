@@ -17,7 +17,7 @@ export default (props) => {
     const submit = (event) => {
         event.preventDefault()
         const loginUser = {username, password}
-        Axios.post('https://project3-restaurants-app.herokuapp.com/users/login', loginUser)
+           Axios.post('https://project3-restaurants-app.herokuapp.com/users/login', loginUser)
             .then(function (response){
                 // console.log(response)
                 setUserData({

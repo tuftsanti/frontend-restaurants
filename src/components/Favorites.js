@@ -72,10 +72,11 @@ export default (props) => {
                                                 <h3>{favorite.restaurant.name} </h3>
                                                 <h6>{favorite.restaurant.location.locality} - {favorite.restaurant.location.city}, MA</h6>
                                             </div>
-                                            <div className="trash-icon">
+                                            <div className="tooltip">
                                                 <ion-icon name="trash-outline" onClick={()=> {
                                                     handleDelete(favorite._id)
                                                 }}></ion-icon>
+                                                <span class="tooltiptext">Delete from favorites</span>  
                                             </div>
                                         </div>
                                     </li>

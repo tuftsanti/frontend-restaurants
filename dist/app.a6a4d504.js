@@ -34980,29 +34980,8 @@ var _default = function _default(props) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-<<<<<<< HEAD
               _context.next = 2;
               return setError(variable);
-=======
-              event.preventDefault();
-              loginUser = {
-                username: username,
-                password: password
-              };
-              _context.next = 4;
-              return _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/login', loginUser);
-
-            case 4:
-              loginResponse = _context.sent;
-              setUserData({
-                token: loginResponse.data.token
-                /*,
-                user: loginResponse.data.user*/
-
-              });
-              localStorage.setItem("auth-token", JSON.stringify(loginResponse.data.token));
-              history.push('/');
->>>>>>> 468c6e4ec3e17a2fcc637fcd8eaf49dd7fad9760
 
             case 2:
             case "end":
@@ -35114,19 +35093,11 @@ var _default = function _default(props) {
                 username: username,
                 password: password
               };
-<<<<<<< HEAD
               _context.next = 5;
               return _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/register', newUser);
 
             case 5:
               _context.next = 7;
-=======
-              _context.next = 4;
-              return _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/register', newUser);
-
-            case 4:
-              _context.next = 6;
->>>>>>> 468c6e4ec3e17a2fcc637fcd8eaf49dd7fad9760
               return _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/login', {
                 username: username,
                 password: password
@@ -35382,13 +35353,15 @@ var _default = function _default(props) {
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "favorites-names"
     }, /*#__PURE__*/_react.default.createElement("h3", null, favorite.restaurant.name, " "), /*#__PURE__*/_react.default.createElement("h6", null, favorite.restaurant.location.locality, " - ", favorite.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
-      className: "trash-icon"
+      className: "tooltip"
     }, /*#__PURE__*/_react.default.createElement("ion-icon", {
       name: "trash-outline",
       onClick: function onClick() {
         handleDelete(favorite._id);
       }
-    }))));
+    }), /*#__PURE__*/_react.default.createElement("span", {
+      class: "tooltiptext"
+    }, "Delete from favorites"))));
   }) : /*#__PURE__*/_react.default.createElement("div", {
     className: "Favorites__mainview--grid--filler"
   }, /*#__PURE__*/_react.default.createElement("img", {
@@ -46713,7 +46686,7 @@ var _default = function _default(props) {
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "names"
     }, /*#__PURE__*/_react.default.createElement("h3", null, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("h6", null, restaurant.restaurant.location.locality, " - ", restaurant.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
-      className: "icon"
+      className: "tooltip"
     }, isClicked == restaurant.restaurant.id ? /*#__PURE__*/_react.default.createElement("ion-icon", {
       name: "checkmark-circle",
       style: {
@@ -46725,7 +46698,9 @@ var _default = function _default(props) {
       onClick: function onClick() {
         pickRestaurant(restaurant, restaurant.restaurant.id);
       }
-    }))));
+    }), /*#__PURE__*/_react.default.createElement("span", {
+      class: "tooltiptext"
+    }, "Click here to add to your favorites"))));
   }) : /*#__PURE__*/_react.default.createElement("h1", null, "Searching Local Restaurants..."))), /*#__PURE__*/_react.default.createElement(_Footer.default, null), loggedIn ? /*#__PURE__*/_react.default.createElement("div", {
     className: "error-modal"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -46954,15 +46929,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58056" + '/');
-=======
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51632" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43725" + '/');
->>>>>>> b2ec2871ac5c6c573ec00ab5d8863dba965b9980
->>>>>>> 468c6e4ec3e17a2fcc637fcd8eaf49dd7fad9760
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61738" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

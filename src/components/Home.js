@@ -78,6 +78,7 @@ export default (props) => {
 
     // Add a Restaurant
     const pickRestaurant = async (favRestaurant, id) => {
+        
         const response = await fetch(`https://project3-restaurants-app.herokuapp.com/restaurants`, {
             method: 'POST',
             headers: {
@@ -207,7 +208,7 @@ export default (props) => {
                                                 <h3>{restaurant.restaurant.name}</h3>
                                                 <h6>{restaurant.restaurant.location.locality} - {restaurant.restaurant.location.city}, MA</h6>
                                             </div>
-                                            <div className="icon">
+                                            <div className="tooltip">
                                                 { isClicked == restaurant.restaurant.id ? 
                                                     <ion-icon name="checkmark-circle" style={{color: 'green'}}>
                                                     </ion-icon> :
@@ -215,7 +216,7 @@ export default (props) => {
                                                     pickRestaurant(restaurant, restaurant.restaurant.id)
                                                 }}></ion-icon> 
                                                 }
-                                                    
+                                                <span class="tooltiptext">Click here to add to your favorites</span>        
                                             </div>
                                         </div>
 
