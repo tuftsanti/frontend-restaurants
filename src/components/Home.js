@@ -78,6 +78,7 @@ export default (props) => {
 
     // Add a Restaurant
     const pickRestaurant = async (favRestaurant, id) => {
+        
         const response = await fetch(`https://project3-restaurants-app.herokuapp.com/restaurants`, {
             method: 'POST',
             headers: {
