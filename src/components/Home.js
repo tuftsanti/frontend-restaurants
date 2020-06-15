@@ -14,31 +14,31 @@ export default (props) => {
         let [response1, response2, response3, response4, response5] = await Promise.all([
             fetch('https://developers.zomato.com/api/v2.1/search?start=0&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                    "user-key": "43857380d1047f74d7d7691dea96f3a5"
+                    "user-key": "6e57c3020c83edf8050fa764467f3a53"
                 }
             }
             ),
             fetch('https://developers.zomato.com/api/v2.1/search?start=20&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                    "user-key": "43857380d1047f74d7d7691dea96f3a5"
+                    "user-key": "6e57c3020c83edf8050fa764467f3a53"
                 }
             }
             ),
             fetch('https://developers.zomato.com/api/v2.1/search?start=40&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                    "user-key": "43857380d1047f74d7d7691dea96f3a5"
+                    "user-key": "6e57c3020c83edf8050fa764467f3a53"
                 }
             }
             ),
             fetch('https://developers.zomato.com/api/v2.1/search?start=60&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                    "user-key": "43857380d1047f74d7d7691dea96f3a5"
+                    "user-key": "6e57c3020c83edf8050fa764467f3a53"
                 }
             }
             ),
             fetch('https://developers.zomato.com/api/v2.1/search?start=80&count=20&lat=42.3601&lon=-71.0589&radius=4000&cuisines=American%2C%20Italian%2C%20Chinese%2C%20BBQ%2C%20Indian%2C%20Mexican', {
                 headers: {
-                    "user-key": "43857380d1047f74d7d7691dea96f3a5"
+                    "user-key": "6e57c3020c83edf8050fa764467f3a53"
                 }
             }
             )
@@ -79,7 +79,7 @@ export default (props) => {
     // Add a Restaurant
     const pickRestaurant = async (favRestaurant, id) => {
         
-        const response = await fetch(`https://project3-restaurants-app.herokuapp.com/restaurants`, {
+        const response = await fetch(`https://andys-restaurants.herokuapp.com/restaurants`, {
             method: 'POST',
             headers: {
                 'Content-Type': "application/json" ,
