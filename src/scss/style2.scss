@@ -495,3 +495,34 @@ input[type=submit]:active {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+//styling for login and register forms
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px 50px 50px 50px;
+    margin: 20px 0;
+    legend {
+        padding: 0 10px;
+        color: rgb(107, 226, 107);
+        font-size: 2em;
+    }
+    label {
+        color: black;
+        display: block;
+    }
+    input {
+        margin-top: 20px;
+        box-sizing: border-box;
+        border: 1px solid $main-color;
+        border-radius: 5px;
+        z-index: 5000;
+    }
+    
+    input:focus {
+        outline: none;
+        border: 1px solid rgb(107, 226, 107);
+    }
+
+  }

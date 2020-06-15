@@ -76,7 +76,7 @@ export default (props) => {
                                                 <ion-icon name="trash-outline" onClick={()=> {
                                                     handleDelete(favorite._id)
                                                 }}></ion-icon>
-                                                <span class="tooltiptext">Delete from favorites</span>  
+                                                <span className="tooltiptext">Delete from favorites</span>  
                                             </div>
                                         </div>
                                     </li>

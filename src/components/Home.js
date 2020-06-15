@@ -221,7 +221,7 @@ export default (props) => {
                                                     pickRestaurant(restaurant, restaurant.restaurant.id)
                                                 }}></ion-icon> 
                                                 }
-                                                <span class="tooltiptext">Click here to add to your favorites</span>        
+                                                <span className="tooltiptext">Click here to add to your favorites</span>        
                                             </div>
                                         </div>
 
