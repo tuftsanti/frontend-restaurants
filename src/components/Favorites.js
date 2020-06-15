@@ -63,7 +63,7 @@ export default (props) => {
                                 return (
                                     <li key={index} className="Favorites__mainview--grid__individualRestaurant">
                                         <div className="Favorites__mainview--grid__individualRestaurant--pic">
-                                            <a href={favorite.restaurant.url}>
+                                            <a href={favorite.restaurant.url} target="_blank">
                                                 <img src={favorite.restaurant.thumb}/>
                                             </a>
                                         </div>
@@ -72,10 +72,11 @@ export default (props) => {
                                                 <h3>{favorite.restaurant.name} </h3>
                                                 <h6>{favorite.restaurant.location.locality} - {favorite.restaurant.location.city}, MA</h6>
                                             </div>
-                                            <div className="trash-icon">
+                                            <div className="tooltip">
                                                 <ion-icon name="trash-outline" onClick={()=> {
                                                     handleDelete(favorite._id)
                                                 }}></ion-icon>
+                                                <span className="tooltiptext">Delete from favorites</span>  
                                             </div>
                                         </div>
                                     </li>

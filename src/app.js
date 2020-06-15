@@ -30,9 +30,9 @@ const App = (props) => {
             let token = localStorage.getItem('auth-token')
             if (token === null) {
             }
-            const tokenResponse = await Axios.post("http://localhost:3000/users/validToken", null, {headers: {"x-auth-token": token}})
+            const tokenResponse = await Axios.post("https://project3-restaurants-app.herokuapp.com/users/validToken", null, {headers: {"x-auth-token": token}})
             if (tokenResponse.data) {
-                const userResponse = await Axios.get('http://localhost:3000/users/', {headers: {'x-auth-token': token}})
+                const userResponse = await Axios.get('https://project3-restaurants-app.herokuapp.com/users/', {headers: {'x-auth-token': token}})
                 setUserData({
                     token,
                     user: userResponse.data

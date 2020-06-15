@@ -91,7 +91,7 @@ html, body {
       margin-left: 5%;
       margin-bottom: 5%;
       background-color: white;
-      height: 600px;
+      height: 640px;
       width: 18%;
       border-radius: 5px;
       -moz-box-shadow: 0 0 6px grey;
@@ -140,8 +140,14 @@ html, body {
               color: grey;
               margin-top: 0;
               margin-bottom: 0; }
-        .App__mainview--grid__individualRestaurant--pic {
-          border-radius: 5px; }
+        .App__mainview--grid__individualRestaurant--pic img {
+          border-radius: 5px;
+          width: 280px;
+          height: 205px; }
+        .App__mainview--grid__individualRestaurant--pic img:hover {
+          opacity: .8; }
+        .App__mainview--grid__individualRestaurant--pic img:active {
+          opacity: .5; }
 
 .Favorites {
   display: flex;
@@ -262,7 +268,7 @@ ion-icon:hover {
   cursor: pointer; }
 
 ion-icon:active {
-  color: green; }
+  color: navy; }
 
 input[type=submit] {
   border: none;
@@ -283,6 +289,121 @@ input[type=submit]:hover {
 input[type=submit]:active {
   box-shadow: none;
   background-color: navy; }
+
+.error-modal {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  overflow: auto; }
+
+.error-modal-textbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  height: 350px;
+  width: 550px;
+  border-radius: 2px;
+  margin: 150px auto;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  padding: 2%;
+  line-height: 120%;
+  font-family: Lato; }
+
+.modal-image {
+  height: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+  .modal-image img {
+    height: 100%;
+    width: 40%; }
+
+.modal-buttons {
+  border: none;
+  outline: none;
+  background-color: #0d64af;
+  font-size: .8em;
+  color: white;
+  border-radius: 20px;
+  width: 200px;
+  height: 30px;
+  cursor: pointer; }
+
+.modal-buttons:hover {
+  cursor: pointer;
+  background-color: #054883; }
+
+.modal-buttons:active {
+  box-shadow: none;
+  background-color: navy; }
+
+#modal-footer {
+  text-align: right; }
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-color);
+  border-top: 1px solid black;
+  text-align: center;
+  margin-top: 20%;
+  background-color: #ecf5fd; }
+  .footer h5 {
+    font-size: 1.1em;
+    padding: 0; }
+
+.footer-span {
+  font-size: .6em;
+  padding: 0; }
+
+.tooltip {
+  position: relative;
+  display: inline-block; }
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: navy;
+  color: #fff;
+  text-align: center;
+  padding: 5px 2px;
+  border-radius: 6px;
+  font-style: Lato;
+  position: absolute;
+  z-index: 10; }
+
+.tooltip:hover .tooltiptext {
+  visibility: visible; }
+
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px 50px 50px 50px;
+  margin: 20px 0; }
+  fieldset legend {
+    padding: 0 10px;
+    color: #6be26b;
+    font-size: 2em; }
+  fieldset label {
+    color: black;
+    display: block; }
+  fieldset input {
+    margin-top: 20px;
+    box-sizing: border-box;
+    border: 1px solid navy;
+    border-radius: 5px;
+    z-index: 5000; }
+  fieldset input:focus {
+    outline: none;
+    border: 1px solid #6be26b; }
 
 
 /*# sourceMappingURL=/app.a6a4d504.css.map */
