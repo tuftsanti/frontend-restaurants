@@ -202,7 +202,12 @@ export default (props) => {
                             restaurants.restaurants.filter(rest => rest.restaurant.thumb && rest.restaurant.cuisines.includes(cuisineType)).slice(0,15).map((restaurant) => {
                                 return (
                                     <li key={restaurant.restaurant.id} className="App__mainview--grid__individualRestaurant">
-                                        <img src={restaurant.restaurant.thumb} className="App__mainview--grid__individualRestaurant--pic" />
+                                        <div className="App__mainview--grid__individualRestaurant--pic">
+                                            <a href={restaurant.restaurant.url} target="_blank">
+                                                <img src={restaurant.restaurant.thumb} />
+                                            </a>
+                                        </div>
+                                        
                                         <div className="App__mainview--grid__individualRestaurant--name">
                                             <div className="names">
                                                 <h3>{restaurant.restaurant.name}</h3>
