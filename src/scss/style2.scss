@@ -461,3 +461,26 @@ input[type=submit]:active {
     font-size: .6em;
     padding: 0;
 }
+
+//css for tool-tips
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: $main-color;
+    color: #fff;
+    text-align: center;
+    padding: 5px 2px;
+    border-radius: 6px;
+    font-style: Lato;
+    position: absolute;
+    z-index: 10;
+}
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

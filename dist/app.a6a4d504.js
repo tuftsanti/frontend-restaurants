@@ -35353,13 +35353,15 @@ var _default = function _default(props) {
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "favorites-names"
     }, /*#__PURE__*/_react.default.createElement("h3", null, favorite.restaurant.name, " "), /*#__PURE__*/_react.default.createElement("h6", null, favorite.restaurant.location.locality, " - ", favorite.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
-      className: "trash-icon"
+      className: "tooltip"
     }, /*#__PURE__*/_react.default.createElement("ion-icon", {
       name: "trash-outline",
       onClick: function onClick() {
         handleDelete(favorite._id);
       }
-    }))));
+    }), /*#__PURE__*/_react.default.createElement("span", {
+      class: "tooltiptext"
+    }, "Delete from favorites"))));
   }) : /*#__PURE__*/_react.default.createElement("div", {
     className: "Favorites__mainview--grid--filler"
   }, /*#__PURE__*/_react.default.createElement("img", {
@@ -46684,7 +46686,7 @@ var _default = function _default(props) {
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "names"
     }, /*#__PURE__*/_react.default.createElement("h3", null, restaurant.restaurant.name), /*#__PURE__*/_react.default.createElement("h6", null, restaurant.restaurant.location.locality, " - ", restaurant.restaurant.location.city, ", MA")), /*#__PURE__*/_react.default.createElement("div", {
-      className: "icon"
+      className: "tooltip"
     }, isClicked == restaurant.restaurant.id ? /*#__PURE__*/_react.default.createElement("ion-icon", {
       name: "checkmark-circle",
       style: {
@@ -46696,7 +46698,9 @@ var _default = function _default(props) {
       onClick: function onClick() {
         pickRestaurant(restaurant, restaurant.restaurant.id);
       }
-    }))));
+    }), /*#__PURE__*/_react.default.createElement("span", {
+      class: "tooltiptext"
+    }, "Click here to add to your favorites"))));
   }) : /*#__PURE__*/_react.default.createElement("h1", null, "Searching Local Restaurants..."))), /*#__PURE__*/_react.default.createElement(_Footer.default, null), loggedIn ? /*#__PURE__*/_react.default.createElement("div", {
     className: "error-modal"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -46925,7 +46929,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61128" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61738" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
