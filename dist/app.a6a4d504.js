@@ -46678,10 +46678,14 @@ var _default = function _default(props) {
     return /*#__PURE__*/_react.default.createElement("li", {
       key: restaurant.restaurant.id,
       className: "App__mainview--grid__individualRestaurant"
-    }, /*#__PURE__*/_react.default.createElement("img", {
-      src: restaurant.restaurant.thumb,
+    }, /*#__PURE__*/_react.default.createElement("div", {
       className: "App__mainview--grid__individualRestaurant--pic"
-    }), /*#__PURE__*/_react.default.createElement("div", {
+    }, /*#__PURE__*/_react.default.createElement("a", {
+      href: restaurant.restaurant.url,
+      target: "_blank"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: restaurant.restaurant.thumb
+    }))), /*#__PURE__*/_react.default.createElement("div", {
       className: "App__mainview--grid__individualRestaurant--name"
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "names"
@@ -46929,7 +46933,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61738" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61988" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

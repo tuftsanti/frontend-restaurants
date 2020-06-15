@@ -140,8 +140,14 @@ html, body {
               color: grey;
               margin-top: 0;
               margin-bottom: 0; }
-        .App__mainview--grid__individualRestaurant--pic {
-          border-radius: 5px; }
+        .App__mainview--grid__individualRestaurant--pic img {
+          border-radius: 5px;
+          width: 280px;
+          height: 205px; }
+        .App__mainview--grid__individualRestaurant--pic img:hover {
+          opacity: .8; }
+        .App__mainview--grid__individualRestaurant--pic img:active {
+          opacity: .5; }
 
 .Favorites {
   display: flex;

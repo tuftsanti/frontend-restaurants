@@ -178,7 +178,18 @@ html, body {
 
                     }
                     &--pic {
-                        border-radius: 5px
+                        img {
+                            border-radius: 5px;
+                            width: 280px;
+                            height: 205px;
+                            
+                        }
+                        img:hover {
+                            opacity: .8;
+                        }
+                        img:active {
+                            opacity: .5;
+                        }
                         
                     }
                 }
