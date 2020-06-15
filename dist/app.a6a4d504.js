@@ -34980,29 +34980,8 @@ var _default = function _default(props) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-<<<<<<< HEAD
               _context.next = 2;
               return setError(variable);
-=======
-              event.preventDefault();
-              loginUser = {
-                username: username,
-                password: password
-              };
-              _context.next = 4;
-              return _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/login', loginUser);
-
-            case 4:
-              loginResponse = _context.sent;
-              setUserData({
-                token: loginResponse.data.token
-                /*,
-                user: loginResponse.data.user*/
-
-              });
-              localStorage.setItem("auth-token", JSON.stringify(loginResponse.data.token));
-              history.push('/');
->>>>>>> 468c6e4ec3e17a2fcc637fcd8eaf49dd7fad9760
 
             case 2:
             case "end":
@@ -35114,19 +35093,11 @@ var _default = function _default(props) {
                 username: username,
                 password: password
               };
-<<<<<<< HEAD
               _context.next = 5;
               return _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/register', newUser);
 
             case 5:
               _context.next = 7;
-=======
-              _context.next = 4;
-              return _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/register', newUser);
-
-            case 4:
-              _context.next = 6;
->>>>>>> 468c6e4ec3e17a2fcc637fcd8eaf49dd7fad9760
               return _axios.default.post('https://project3-restaurants-app.herokuapp.com/users/login', {
                 username: username,
                 password: password
@@ -46954,15 +46925,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58056" + '/');
-=======
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51632" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43725" + '/');
->>>>>>> b2ec2871ac5c6c573ec00ab5d8863dba965b9980
->>>>>>> 468c6e4ec3e17a2fcc637fcd8eaf49dd7fad9760
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61101" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
