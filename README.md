@@ -2,11 +2,11 @@
 
 Link to the live app on Netlify:
 
-https://hungry4more.netlify.app
+https://boston-restaurant-search.netlify.app/
 
 Link to the database on Heroku:
 
-https://project3-restaurants-app.herokuapp.com/
+https://andys-restaurants.herokuapp.com
 
 
 ## Setup:
